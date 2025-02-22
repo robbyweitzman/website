@@ -20,7 +20,7 @@ export default function MusePage() {
   const [photos, setPhotos] = useState<Photo[]>([
     {
       id: "1",
-      src: "public/muse/Senna Muse.jpg",
+      src: "/muse/Senna Muse.jpg",
       alt: "Senna at Monaco",
       position: { x: 0, y: 0 },
       rotation: 0,

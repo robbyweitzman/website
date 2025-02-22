@@ -94,7 +94,7 @@ export default function Page() {
           {/* Ideas Column */}
           <div className="space-y-4 md:px-6">
             <h2 className="text-2xl font-semibold">Ideas</h2>
-            <p className="text-gray-600">Some of the things I am putting thought toward.</p>
+            <p className="text-gray-600">Stuff I'm thinking about.</p>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/ideas/placegholder1" className="text-gray-600 hover:text-black">
@@ -126,10 +126,10 @@ export default function Page() {
                   className="w-full h-[100px] rounded-lg overflow-hidden bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
                 >
                   <Image
-                    src={photo.src || "/placeholder.svg"}
+                    src={photo.src || "/photos/Skyline Sunset.jpeg"}
                     alt={photo.alt}
-                    width={400}
-                    height={400}
+                    width={900}
+                    height={600}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </button>
@@ -140,14 +140,14 @@ export default function Page() {
           {/* Song of the Day Column */}
           <div className="space-y-4 md:px-6">
             <h2 className="text-2xl font-semibold">SOTD</h2>
-            <p className="text-gray-600">Song and vibe of the day.</p>
+            <p className="text-gray-600">Song of the day.</p>
             <button
               onClick={() => setSelectedSong(currentSong)}
               className="w-full p-4 rounded-lg bg-gray-100 text-left hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
             >
-              <p className="font-medium">Currently Playing:</p>
+              <p className="font-medium">Song Title:</p>
               <p className="text-sm text-gray-600">
-                {currentSong.title} - {currentSong.artist}
+                {currentSong.artist} - {currentSong.album}
               </p>
             </button>
           </div>

@@ -46,7 +46,7 @@ export default function SotdPage() {
     {
       id: "2",
       title: "DIE TRYING",
-      artist: "Artist Name 2",
+      artist: "PARTYNEXTDOOR, Drake, Yebba",
       album: "$OME $EXY $ONGS 4 U",
       releaseDate: "February 14, 2025",
       albumArt: "https://ratedrnb.com/cdn/2025/02/partynextdoor-drake-some-sexy-songs-4-u.jpeg",

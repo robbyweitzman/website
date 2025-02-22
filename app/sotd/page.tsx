@@ -4,18 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react"
 import Link from "next/link"
 import { Music2, ExternalLink } from "lucide-react"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
-
-interface Song {
-  id: string
-  title: string
-  artist: string
-  album: string
-  releaseDate: string
-  albumArt: string
-  date: string
-  spotifyUrl: string
-  appleMusicUrl: string
-}
+import { type Song, songs } from "../data/songs"
 
 export default function SotdPage() {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -30,64 +19,6 @@ export default function SotdPage() {
 
   const lastScrollTime = useRef(Date.now())
   const scrollTimeout = useRef<NodeJS.Timeout>()
-
-  const songs: Song[] = [
-    {
-      id: "1",
-      title: "Wet Sand",
-      artist: "Red Hot Chili Peppers",
-      album: "Stadium Arcadium",
-      releaseDate: "May 5, 2006",
-      albumArt: "https://storage.highresaudio.com/library/bild/c_400000/407164/field4.jpg",
-      date: "February 22, 2024",
-      spotifyUrl: "https://open.spotify.com/track/3L2Nyi3T7XabH8EEZFLDdX",
-      appleMusicUrl: "https://music.apple.com/us/song/wet-sand/945569010",
-    },
-    {
-      id: "2",
-      title: "DIE TRYING",
-      artist: "PARTYNEXTDOOR, Drake, Yebba",
-      album: "$OME $EXY $ONGS 4 U",
-      releaseDate: "February 14, 2025",
-      albumArt: "https://ratedrnb.com/cdn/2025/02/partynextdoor-drake-some-sexy-songs-4-u.jpeg",
-      date: "February 21, 2024",
-      spotifyUrl: "https://open.spotify.com/track/0NUqi0ps17YpLUC3kgsZq0",
-      appleMusicUrl: "https://music.apple.com/us/song/die-trying/1796127376",
-    },
-    {
-      id: "3",
-      title: "Señorita",
-      artist: "Justin Timberlake",
-      album: "Justified",
-      releaseDate: "November 5, 2002",
-      albumArt: "https://m.media-amazon.com/images/I/71Bt4Mf7upL.jpg",
-      date: "February 18, 2024",
-      spotifyUrl: "https://open.spotify.com/track/0aj2QKJvz6CePykmlTApiD",
-      appleMusicUrl: "https://music.apple.com/us/album/se%C3%B1orita/252606580?i=252606581",
-    },
-    {
-      id: "4",
-      title: "Song Title 4",
-      artist: "Artist Name 4",
-      album: "Album Name 4",
-      releaseDate: "2023",
-      albumArt: "https://placehold.co/400x400",
-      date: "February 17, 2024",
-      spotifyUrl: "https://open.spotify.com",
-      appleMusicUrl: "https://music.apple.com",
-    },
-    {
-      id: "5",
-      title: "Song Title 5",
-      artist: "Artist Name 5",
-      album: "Album Name 5",
-      releaseDate: "2024",
-      albumArt: "https://placehold.co/400x400",
-      date: "February 16, 2024",
-      spotifyUrl: "https://open.spotify.com",
-      appleMusicUrl: "https://music.apple.com",
-    },
-  ]
 
   const smoothScrollToIndex = useCallback(
     (targetIndex: number) => {
@@ -135,7 +66,7 @@ export default function SotdPage() {
         smoothScrollToIndex(newIndex)
       }
     },
-    [currentIndex, isAnimating, smoothScrollToIndex, songs.length],
+    [currentIndex, isAnimating, smoothScrollToIndex],
   )
 
   const handleMouseDown = useCallback(
@@ -150,20 +81,17 @@ export default function SotdPage() {
     [currentIndex],
   )
 
-  const handleMouseMove = useCallback(
-    (e: MouseEvent) => {
-      if (!isDragging.current) return
-      e.preventDefault()
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    if (!isDragging.current) return
+    e.preventDefault()
 
-      const x = e.pageX
-      const walk = (startX.current - x) / 200
-      const rawTarget = scrollLeft.current + walk
-      const targetIndex = Math.max(0, Math.min(songs.length - 1, rawTarget))
+    const x = e.pageX
+    const walk = (startX.current - x) / 200
+    const rawTarget = scrollLeft.current + walk
+    const targetIndex = Math.max(0, Math.min(songs.length - 1, rawTarget))
 
-      setDisplayIndex(targetIndex)
-    },
-    [songs.length],
-  )
+    setDisplayIndex(targetIndex)
+  }, [])
 
   const handleMouseUp = useCallback(
     (e: MouseEvent) => {
@@ -216,8 +144,6 @@ export default function SotdPage() {
       window.addEventListener("mousemove", handleMouseMove)
       window.addEventListener("mouseup", handleMouseUp)
     }
-    window.addEventListener("mousemove", handleMouseMove)
-    window.addEventListener("mouseup", handleMouseUp)
 
     return () => {
       if (container) {
@@ -233,7 +159,7 @@ export default function SotdPage() {
         cancelAnimationFrame(animationFrame.current)
       }
     }
-  }, [handleMouseDown, handleMouseMove, handleMouseUp, handleWheel, songs.length])
+  }, [handleMouseDown, handleMouseMove, handleMouseUp, handleWheel])
 
   const getTransform = (index: number) => {
     const diff = index - displayIndex
@@ -277,7 +203,6 @@ export default function SotdPage() {
 
       <div className="container px-8 md:px-16 py-12 mx-auto">
         <div className="relative h-[600px]">
-          {/* Cover Flow */}
           <div
             id="cover-flow-container"
             className="relative w-full h-full perspective-[1000px] cursor-grab active:cursor-grabbing"
@@ -302,7 +227,7 @@ export default function SotdPage() {
                   <div className="relative aspect-square">
                     <button className="w-full h-full focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-lg">
                       <img
-                        src={song.albumArt || "https://placehold.co/400x400"}
+                        src={song.albumArt || "/placeholder.svg"}
                         alt={`${song.title} by ${song.artist}`}
                         className="w-full h-full object-cover rounded-lg shadow-xl"
                         draggable="false"
@@ -329,7 +254,7 @@ export default function SotdPage() {
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="flex-1">
                 <img
-                  src={selectedSong.albumArt || "https://placehold.co/400x400"}
+                  src={selectedSong.albumArt || "/placeholder.svg"}
                   alt={`${selectedSong.title} by ${selectedSong.artist}`}
                   className="w-full h-auto object-contain max-h-[75vh] rounded-lg"
                 />

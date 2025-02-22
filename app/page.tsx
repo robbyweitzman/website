@@ -67,7 +67,7 @@ export default function Page() {
             <h2 className="text-2xl font-semibold">Photography</h2>
             <p className="text-gray-600">35mm captures</p>
             <div className="grid gap-4 grid-cols-2">
-              {photos.slice(0, 2).map((photo) => (
+              {photos.map((photo) => (
                 <button
                   key={photo.id}
                   onClick={() => setSelectedPhoto(photo)}

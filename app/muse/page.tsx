@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
@@ -11,80 +10,96 @@ interface Photo {
   id: string
   src: string
   alt: string
+  width: number
+  height: number
   position: { x: number; y: number }
   rotation: number
   zIndex: number
 }
 
-export default function MusePage() {
-  const [photos, setPhotos] = useState<Photo[]>([
-    {
-      id: "1",
-      src: "/muse/Senna Muse.jpg",
-      alt: "Senna at Monaco",
-      position: { x: 0, y: 0 },
-      rotation: 0,
-      zIndex: 1,
-    },
-    {
-      id: "2",
-      src: "https://placehold.co/300x400",
-      alt: "Inspiration 2",
-      position: { x: 0, y: 0 },
-      rotation: 0,
-      zIndex: 1,
-    },
-    {
-      id: "3",
-      src: "https://placehold.co/300x400",
-      alt: "Inspiration 3",
-      position: { x: 0, y: 0 },
-      rotation: 0,
-      zIndex: 1,
-    },
-    {
-      id: "4",
-      src: "https://placehold.co/300x400",
-      alt: "Inspiration 4",
-      position: { x: 0, y: 0 },
-      rotation: 0,
-      zIndex: 1,
-    },
-    {
-      id: "5",
-      src: "https://placehold.co/300x400",
-      alt: "Inspiration 5",
-      position: { x: 0, y: 0 },
-      rotation: 0,
-      zIndex: 1,
-    },
-    {
-      id: "6",
-      src: "https://placehold.co/300x400",
-      alt: "Inspiration 6",
-      position: { x: 0, y: 0 },
-      rotation: 0,
-      zIndex: 1,
-    },
-  ])
+const initialPhotos: Omit<Photo, "position" | "rotation" | "zIndex">[] = [
+  {
+    id: "1",
+    src: "/muse/Senna Muse.jpg",
+    alt: "Aryton Senna racing at the 1984 Monaco Gran Prix in the rain",
+    width: 915,
+    height: 610,
+  },
+  {
+    id: "2",
+    src: "https://placehold.co/600x800",
+    alt: "Inspiration 2",
+    width: 600,
+    height: 800,
+  },
+  {
+    id: "3",
+    src: "https://placehold.co/700x500",
+    alt: "Inspiration 3",
+    width: 700,
+    height: 500,
+  },
+  {
+    id: "4",
+    src: "https://placehold.co/900x600",
+    alt: "Inspiration 4",
+    width: 900,
+    height: 600,
+  },
+  {
+    id: "5",
+    src: "https://placehold.co/500x700",
+    alt: "Inspiration 5",
+    width: 500,
+    height: 700,
+  },
+  {
+    id: "6",
+    src: "https://placehold.co/800x800",
+    alt: "Inspiration 6",
+    width: 800,
+    height: 800,
+  },
+]
 
+export default function MusePage() {
+  const [photos, setPhotos] = useState<Photo[]>([])
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null)
   const [draggedPhoto, setDraggedPhoto] = useState<string | null>(null)
   const [offset, setOffset] = useState({ x: 0, y: 0 })
   const containerRef = useRef<HTMLDivElement>(null)
   const maxZIndex = useRef(1)
+  const initialized = useRef(false)
 
-  // Distribute photos across the page on initial load
+  // Calculate scaled dimensions to fit within reasonable bounds
+  const getScaledDimensions = (width: number, height: number) => {
+    const maxWidth = 400 // Maximum width we want to allow
+    const maxHeight = 600 // Maximum height we want to allow
+    const scale = Math.min(maxWidth / width, maxHeight / height)
+
+    // Only scale down, never up
+    if (scale < 1) {
+      return {
+        width: Math.floor(width * scale),
+        height: Math.floor(height * scale),
+      }
+    }
+
+    return { width, height }
+  }
+
+  // Initialize photos with positions only once
   useEffect(() => {
-    if (!containerRef.current) return
+    if (initialized.current || !containerRef.current) return
+    initialized.current = true
 
     const container = containerRef.current
     const containerWidth = container.clientWidth
     const containerHeight = container.clientHeight
 
-    const updatedPhotos = photos.map((photo, index) => {
-      const cols = Math.ceil(Math.sqrt(photos.length))
-      const rows = Math.ceil(photos.length / cols)
+    const layoutPhotos = initialPhotos.map((photo, index) => {
+      const cols = Math.ceil(Math.sqrt(initialPhotos.length))
+      const rows = Math.ceil(initialPhotos.length / cols)
 
       const gridX = (index % cols) * (containerWidth / cols)
       const gridY = Math.floor(index / cols) * (containerHeight / rows)
@@ -100,11 +115,12 @@ export default function MusePage() {
           y: gridY + randomY,
         },
         rotation: randomRotation,
+        zIndex: 1,
       }
     })
 
-    setPhotos(updatedPhotos)
-  }, [photos.length, photos.map])
+    setPhotos(layoutPhotos)
+  }, [])
 
   const handleDragStart = (e: React.DragEvent, id: string) => {
     const photo = photos.find((p) => p.id === id)
@@ -172,32 +188,39 @@ export default function MusePage() {
       </header>
 
       <div className="relative w-full h-[calc(100vh-88px)]" ref={containerRef} onDragOver={(e) => e.preventDefault()}>
-        {photos.map((photo) => (
-          <div
-            key={photo.id}
-            draggable
-            onDragStart={(e) => handleDragStart(e, photo.id)}
-            onDrag={handleDrag}
-            onDragEnd={handleDragEnd}
-            className="absolute cursor-move touch-none"
-            style={{
-              transform: `translate(${photo.position.x}px, ${photo.position.y}px) rotate(${photo.rotation}deg)`,
-              zIndex: photo.zIndex,
-            }}
-          >
+        {photos.map((photo) => {
+          const scaledDimensions = getScaledDimensions(photo.width, photo.height)
+
+          return (
             <div
-              className="w-[300px] bg-white p-3 shadow-lg hover:shadow-xl transition-shadow"
-              onClick={() => setSelectedPhoto(photo.src)}
+              key={photo.id}
+              draggable
+              onDragStart={(e) => handleDragStart(e, photo.id)}
+              onDrag={handleDrag}
+              onDragEnd={handleDragEnd}
+              className="absolute cursor-move touch-none"
+              style={{
+                transform: `translate(${photo.position.x}px, ${photo.position.y}px) rotate(${photo.rotation}deg)`,
+                zIndex: photo.zIndex,
+                width: `${scaledDimensions.width}px`,
+              }}
             >
-              <img
-                src={photo.src || "https://placehold.co/300x400"}
-                alt={photo.alt}
-                className="w-full aspect-[3/4] object-cover"
-                draggable="false"
-              />
+              <div
+                className="bg-white p-3 shadow-lg hover:shadow-xl transition-shadow"
+                onClick={() => setSelectedPhoto(photo.src)}
+              >
+                <img
+                  src={photo.src || "/placeholder.svg"}
+                  alt={photo.alt}
+                  width={scaledDimensions.width}
+                  height={scaledDimensions.height}
+                  className="w-full h-auto object-contain"
+                  draggable="false"
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
 
       <Dialog open={!!selectedPhoto} onOpenChange={() => setSelectedPhoto(null)}>
@@ -212,7 +235,7 @@ export default function MusePage() {
           {selectedPhoto && (
             <div className="flex-1">
               <img
-                src={selectedPhoto || "https://placehold.co/300x400"}
+                src={selectedPhoto || "/placeholder.svg"}
                 alt="Enlarged view"
                 className="w-full h-auto object-contain max-h-[75vh] rounded-lg"
               />

@@ -31,6 +31,22 @@ export default function AboutPage() {
             {/* Timeline line */}
             <div className="absolute left-0 md:left-1/2 h-full w-px bg-gray-200 transform -translate-x-1/2" />
 
+            {/* Website */}
+            <div className="relative mb-16">
+              <div className="flex flex-col md:flex-row items-start gap-8">
+                <div className="flex-1 order-2 md:order-1 md:text-right">
+                  <h3 className="font-semibold mb-2">Made this website</h3>
+                  <p className="text-sm text-muted-foreground">New York City</p>
+                  <p className="text-sm text-muted-foreground">25 years old</p>
+                </div>
+                <div className="w-3 h-3 rounded-full bg-foreground relative z-10 mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background" />
+                <div className="flex-1 order-3">
+                  <p className="font-medium">Using Vercel and Grok</p>
+                  <p className="text-sm text-muted-foreground">February 2025</p>
+                </div>
+              </div>
+            </div>
+
             {/* Merge */}
             <div className="relative mb-16">
               <div className="flex flex-col md:flex-row items-start gap-8">

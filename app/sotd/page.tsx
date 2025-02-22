@@ -34,14 +34,14 @@ export default function SotdPage() {
   const songs: Song[] = [
     {
       id: "1",
-      title: "Song Title 1",
-      artist: "Artist Name 1",
-      album: "Album Name 1",
-      releaseDate: "2024",
-      albumArt: "https://placehold.co/400x400",
-      date: "February 20, 2024",
-      spotifyUrl: "https://open.spotify.com",
-      appleMusicUrl: "https://music.apple.com",
+      title: "Wet Sand",
+      artist: "Red Hot Chili PeppersArtist Name 1",
+      album: "Stadium Arcadium",
+      releaseDate: "May 5, 2006",
+      albumArt: "https://upload.wikimedia.org/wikipedia/en/e/e6/Stadiumarcadium.jpg",
+      date: "February 22, 2024",
+      spotifyUrl: "https://open.spotify.com/track/3L2Nyi3T7XabH8EEZFLDdX",
+      appleMusicUrl: "https://music.apple.com/us/song/wet-sand/945569010",
     },
     {
       id: "2",

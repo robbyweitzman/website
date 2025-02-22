@@ -27,6 +27,8 @@ export default function PhotosPage() {
       camera: "Canon A1",
       film: "Kodak Color Plus",
       date: "September 16, 2024",
+      width: 900,
+      height: 600,
     },
     {
       id: "2",
@@ -36,6 +38,8 @@ export default function PhotosPage() {
       camera: "Canon A1",
       film: "Kodak UltraMax",
       date: "September 22, 2024",
+      width: 900,
+      height: 600,
     },
      {
       id: "3",
@@ -45,6 +49,8 @@ export default function PhotosPage() {
       camera: "Canon A1",
       film: "Kodak UltraMax",
       date: "September 22, 2024",
+      width: 900,
+      height: 600,
     },
     {
       id: "4",
@@ -54,6 +60,8 @@ export default function PhotosPage() {
       camera: "Canon A1",
       film: "Kodak UltraMax",
       date: "September 22, 2024",
+      width: 900,
+      height: 600,
     },
     {
       id: "5",
@@ -63,6 +71,8 @@ export default function PhotosPage() {
       camera: "Nikon F4",
       film: "Kodak UltraMax",
       date: "September 14, 2024",
+      width: 900,
+      height: 600,
     },
     {
       id: "6",
@@ -72,6 +82,8 @@ export default function PhotosPage() {
       camera: "Nikon F4",
       film: "Kodak UltraMax",
       date: "September 14, 2024",
+      width: 900,
+      height: 600,
     },
   ]
 

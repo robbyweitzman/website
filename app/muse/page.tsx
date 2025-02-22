@@ -20,8 +20,8 @@ export default function MusePage() {
   const [photos, setPhotos] = useState<Photo[]>([
     {
       id: "1",
-      src: "https://placehold.co/300x400",
-      alt: "Inspiration 1",
+      src: "Senna Muse.jpg",
+      alt: "Senna at Monaco",
       position: { x: 0, y: 0 },
       rotation: 0,
       zIndex: 1,

@@ -4,88 +4,10 @@ import { useState } from "react"
 import Link from "next/link"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { X } from "lucide-react"
-
-interface Photo {
-  id: string
-  src: string
-  alt: string
-  title: string
-  camera: string
-  film: string
-  date: string
-}
+import { type Photo, photos } from "../data/photos"
 
 export default function PhotosPage() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null)
-
-  const photos: Photo[] = [
-    {
-      id: "1",
-      src: "/photos/24h Grocery.jpg",
-      alt: "24h Grocery",
-      title: "24 Hour Grocery",
-      camera: "Canon A1",
-      film: "Kodak Color Plus",
-      date: "September 16, 2024",
-      width: 900,
-      height: 600,
-    },
-    {
-      id: "2",
-      src: "/photos/Daytime Skyline.jpeg",
-      alt: "Daytime Skyline",
-      title: "Daytime Skyline",
-      camera: "Canon A1",
-      film: "Kodak UltraMax",
-      date: "September 22, 2024",
-      width: 900,
-      height: 600,
-    },
-     {
-      id: "3",
-      src: "/photos/Skyline Sunset.jpeg",
-      alt: "Skyline Sunset",
-      title: "Skyline Sunset",
-      camera: "Canon A1",
-      film: "Kodak UltraMax",
-      date: "September 22, 2024",
-      width: 900,
-      height: 600,
-    },
-    {
-      id: "4",
-      src: "/photos/Domino Sugar.jpeg",
-      alt: "Domino Sugar",
-      title: "Domino Sugar",
-      camera: "Canon A1",
-      film: "Kodak UltraMax",
-      date: "September 22, 2024",
-      width: 900,
-      height: 600,
-    },
-    {
-      id: "5",
-      src: "/photos/Mookie 1.jpeg",
-      alt: "Mookie in the woods",
-      title: "Mookie in the woods",
-      camera: "Nikon F4",
-      film: "Kodak UltraMax",
-      date: "September 14, 2024",
-      width: 900,
-      height: 600,
-    },
-    {
-      id: "6",
-      src: "/photos/Mookie2.jpeg",
-      alt: "Mookie in the woods again",
-      title: "Mookie in the woods again",
-      camera: "Nikon F4",
-      film: "Kodak UltraMax",
-      date: "September 14, 2024",
-      width: 900,
-      height: 600,
-    },
-  ]
 
   return (
     <main className="min-h-screen bg-[#FFFAF1]">
@@ -121,7 +43,7 @@ export default function PhotosPage() {
                 className="w-full aspect-[3/4] rounded-lg overflow-hidden focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
               >
                 <img
-                  src={photo.src || "https://placehold.co/300x400"}
+                  src={photo.src || "/placeholder.svg"}
                   alt={photo.alt}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
@@ -145,7 +67,7 @@ export default function PhotosPage() {
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="flex-1">
                 <img
-                  src={selectedPhoto.src || "https://placehold.co/300x400"}
+                  src={selectedPhoto.src || "/placeholder.svg"}
                   alt={selectedPhoto.alt}
                   className="w-full h-auto object-contain max-h-[75vh]"
                 />

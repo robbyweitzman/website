@@ -48,17 +48,17 @@ const initialPhotos: Omit<Photo, "position" | "rotation" | "zIndex">[] = [
   },
   {
     id: "5",
-    src: "https://placehold.co/500x700",
-    alt: "Inspiration 5",
-    width: 500,
-    height: 700,
+    src: "https://sneakerbardetroit.com/wp-content/uploads/2017/05/Kobe-5-Big-Stage.jpg",
+    alt: "Kobe 5",
+    width: 800,
+    height: 465,
   },
   {
     id: "6",
-    src: "https://placehold.co/800x800",
-    alt: "Inspiration 6",
-    width: 800,
-    height: 800,
+    src: "https://upload.wikimedia.org/wikipedia/commons/6/65/Senna_Brands_1986.jpg",
+    alt: "Senna 98T",
+    width: 750,
+    height: 500,
   },
 ]
 

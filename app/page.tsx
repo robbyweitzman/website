@@ -1,88 +1,200 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, useCallback, useRef } from "react"
 import Link from "next/link"
-import Image from "next/image"
+import { Music2, ExternalLink } from "lucide-react"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
-import { X, Music2, ExternalLink } from "lucide-react"
+import { type Song, songs } from "../data/songs"
 
-interface Photo {
-  id: number
-  src: string
-  alt: string
-  title: string
-  camera: string
-  film: string
-  date: string
-}
-
-interface Song {
-  id: string
-  title: string
-  artist: string
-  album: string
-  releaseDate: string
-  albumArt: string
-  date: string
-  spotifyUrl: string
-  appleMusicUrl: string
-}
-
-export default function Page() {
-  const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null)
+export default function SotdPage() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [displayIndex, setDisplayIndex] = useState(0)
+  const [isAnimating, setIsAnimating] = useState(false)
   const [selectedSong, setSelectedSong] = useState<Song | null>(null)
+  const animationFrame = useRef<number>()
 
-  const photos: Photo[] = [
-    {
-      id: 1,
-      src: "https://placehold.co/400x400",
-      alt: "Urban landscape",
-      title: "City Streets",
-      camera: "Leica M6",
-      film: "Kodak Portra 400",
-      date: "January 2024",
-    },
-    {
-      id: 2,
-      src: "https://placehold.co/400x400",
-      alt: "Nature scene",
-      title: "Forest Path",
-      camera: "Leica M6",
-      film: "Ilford HP5+",
-      date: "February 2024",
-    },
-  ]
+  const isDragging = useRef(false)
+  const startX = useRef(0)
+  const scrollLeft = useRef(0)
 
-  const currentSong: Song = {
-    id: "1",
-    title: "Song Title",
-    artist: "Artist Name",
-    album: "Album Name",
-    releaseDate: "2024",
-    albumArt: "https://placehold.co/400x400",
-    date: "February 20, 2024",
-    spotifyUrl: "https://open.spotify.com",
-    appleMusicUrl: "https://music.apple.com",
+  const lastScrollTime = useRef(Date.now())
+  const scrollTimeout = useRef<NodeJS.Timeout>()
+
+  const smoothScrollToIndex = useCallback(
+    (targetIndex: number) => {
+      const startTime = Date.now()
+      const startIndex = displayIndex
+      const duration = 300
+
+      const animate = () => {
+        const now = Date.now()
+        const elapsed = now - startTime
+        const progress = Math.min(elapsed / duration, 1)
+
+        // Ease out cubic
+        const easeProgress = 1 - Math.pow(1 - progress, 3)
+
+        const newIndex = startIndex + (targetIndex - startIndex) * easeProgress
+        setDisplayIndex(newIndex)
+
+        if (progress < 1) {
+          animationFrame.current = requestAnimationFrame(animate)
+        } else {
+          setDisplayIndex(targetIndex)
+          setIsAnimating(false)
+        }
+      }
+
+      setIsAnimating(true)
+      if (animationFrame.current) {
+        cancelAnimationFrame(animationFrame.current)
+      }
+      animate()
+    },
+    [displayIndex],
+  )
+
+  const navigate = useCallback(
+    (direction: "prev" | "next") => {
+      if (isAnimating) return
+
+      const newIndex =
+        direction === "prev" ? Math.max(0, currentIndex - 1) : Math.min(songs.length - 1, currentIndex + 1)
+
+      if (newIndex !== currentIndex) {
+        setCurrentIndex(newIndex)
+        smoothScrollToIndex(newIndex)
+      }
+    },
+    [currentIndex, isAnimating, smoothScrollToIndex],
+  )
+
+  const handleMouseDown = useCallback(
+    (e: MouseEvent) => {
+      if (animationFrame.current) {
+        cancelAnimationFrame(animationFrame.current)
+      }
+      isDragging.current = true
+      startX.current = e.pageX
+      scrollLeft.current = currentIndex
+    },
+    [currentIndex],
+  )
+
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    if (!isDragging.current) return
+    e.preventDefault()
+
+    const x = e.pageX
+    const walk = (startX.current - x) / 200
+    const rawTarget = scrollLeft.current + walk
+    const targetIndex = Math.max(0, Math.min(songs.length - 1, rawTarget))
+
+    setDisplayIndex(targetIndex)
+  }, [])
+
+  const handleMouseUp = useCallback(
+    (e: MouseEvent) => {
+      if (!isDragging.current) return
+      isDragging.current = false
+
+      const nearestIndex = Math.round(displayIndex)
+      setCurrentIndex(nearestIndex)
+      smoothScrollToIndex(nearestIndex)
+    },
+    [displayIndex, smoothScrollToIndex],
+  )
+
+  const handleWheel = useCallback(
+    (e: WheelEvent) => {
+      e.preventDefault()
+
+      const now = Date.now()
+      const timeDelta = now - lastScrollTime.current
+      lastScrollTime.current = now
+
+      // Reduce scroll speed and add more resistance
+      const scrollSpeed = Math.min(Math.abs(e.deltaX) / 200, 0.5)
+      const direction = e.deltaX > 0 ? 1 : -1
+
+      // Calculate target index based on current position
+      const targetIdx = Math.max(0, Math.min(songs.length - 1, displayIndex + direction * scrollSpeed))
+      setDisplayIndex(targetIdx)
+
+      // Clear existing timeout
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current)
+      }
+
+      // Snap to nearest index when scrolling stops
+      scrollTimeout.current = setTimeout(() => {
+        const nearestIndex = Math.round(targetIdx)
+        setCurrentIndex(nearestIndex)
+        smoothScrollToIndex(nearestIndex)
+      }, 100)
+    },
+    [displayIndex, smoothScrollToIndex, songs.length],
+  )
+
+  useEffect(() => {
+    const container = document.getElementById("cover-flow-container")
+    if (container) {
+      container.addEventListener("wheel", handleWheel, { passive: false })
+      container.addEventListener("mousedown", handleMouseDown)
+      window.addEventListener("mousemove", handleMouseMove)
+      window.addEventListener("mouseup", handleMouseUp)
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener("wheel", handleWheel)
+        container.removeEventListener("mousedown", handleMouseDown)
+      }
+      window.removeEventListener("mousemove", handleMouseMove)
+      window.removeEventListener("mouseup", handleMouseUp)
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current)
+      }
+      if (animationFrame.current) {
+        cancelAnimationFrame(animationFrame.current)
+      }
+    }
+  }, [handleMouseDown, handleMouseMove, handleMouseUp, handleWheel])
+
+  const getTransform = (index: number) => {
+    const diff = index - displayIndex
+    if (diff === 0) {
+      return `translateX(-50%) translateZ(0) rotateY(0deg)`
+    } else if (diff < 0) {
+      return `translateX(calc(${diff * 30 - 50}%)) translateZ(-200px) rotateY(45deg)`
+    } else {
+      return `translateX(calc(${diff * 30 - 50}%)) translateZ(-200px) rotateY(-45deg)`
+    }
+  }
+
+  const getOpacity = (index: number) => {
+    const diff = Math.abs(index - displayIndex)
+    return Math.max(0, 1 - diff * 0.3)
   }
 
   return (
-    <main className="min-h-screen bg-[#FFFAF1]">
+    <main className="min-h-screen bg-[#FFFAF1] overflow-hidden">
       <header className="container px-8 md:px-16 py-6 mx-auto">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-lg font-medium">
+          <Link href="/" className="text-lg font-medium hover:text-muted-foreground transition-colors">
             robby weitzman
           </Link>
           <div className="flex items-center gap-6">
-            <Link href="/muse" className="text-sm text-gray-600 hover:text-black">
+            <Link href="/muse" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               muse
             </Link>
-            <Link href="/photos" className="text-sm text-gray-600 hover:text-black">
+            <Link href="/photos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               photos
             </Link>
-            <Link href="/sotd" className="text-sm text-gray-600 hover:text-black">
+            <Link href="/sotd" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               sotd
             </Link>
-            <Link href="/about" className="text-sm text-gray-600 hover:text-black">
+            <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               about
             </Link>
           </div>
@@ -90,114 +202,54 @@ export default function Page() {
       </header>
 
       <div className="container px-8 md:px-16 py-12 mx-auto">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:divide-x md:divide-gray-200">
-          {/* Ideas Column */}
-          <div className="space-y-4 md:px-6">
-            <h2 className="text-2xl font-semibold">Ideas</h2>
-            <p className="text-gray-600">Stuff I'm thinking about.</p>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/ideas/placegholder1" className="text-gray-600 hover:text-black">
-                  Placeholder 1
-                </Link>
-              </li>
-              <li>
-                <Link href="/ideas/placeholder2 " className="text-gray-600 hover:text-black">
-                  Placeholder 2
-                </Link>
-              </li>
-              <li>
-                <Link href="/ideas/placeholder3" className="text-gray-600 hover:text-black">
-                  Placeholder 3
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Photography Column */}
-          <div className="space-y-4 md:px-6">
-            <h2 className="text-2xl font-semibold">Photography</h2>
-            <p className="text-gray-600">35mm captures</p>
-            <div className="grid gap-4 grid-cols-2">
-              {photos.map((photo) => (
-                <button
-                  key={photo.id}
-                  onClick={() => setSelectedPhoto(photo)}
-                  className="w-full h-[100px] rounded-lg overflow-hidden bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+        <div className="relative h-[600px]">
+          <div
+            id="cover-flow-container"
+            className="relative w-full h-full perspective-[1000px] cursor-grab active:cursor-grabbing"
+          >
+            <div className="absolute inset-0 flex items-center justify-center">
+              {songs.map((song, index) => (
+                <div
+                  key={song.id}
+                  className="absolute left-1/2 w-[300px] transition-transform duration-300 ease-out"
+                  style={{
+                    transform: getTransform(index),
+                    opacity: getOpacity(index),
+                    zIndex: Math.round(displayIndex) === index ? 1 : 0,
+                  }}
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    if (!isDragging.current) {
+                      setSelectedSong(song)
+                    }
+                  }}
                 >
-                  <Image
-                    src={photo.src || "/photos/Skyline Sunset.jpeg"}
-                    alt={photo.alt}
-                    width={900}
-                    height={600}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </button>
+                  <div className="relative aspect-square">
+                    <button className="w-full h-full focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-lg">
+                      <img
+                        src={song.albumArt || "/placeholder.svg"}
+                        alt={`${song.title} by ${song.artist}`}
+                        className="w-full h-full object-cover rounded-lg shadow-xl"
+                        draggable="false"
+                      />
+                    </button>
+                    {Math.round(displayIndex) === index && (
+                      <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent rounded-b-lg">
+                        <p className="text-white font-medium">{song.title}</p>
+                        <p className="text-white/80 text-sm">{song.artist}</p>
+                        <p className="text-white/60 text-xs mt-1">{song.date}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
               ))}
             </div>
-          </div>
-
-          {/* Song of the Day Column */}
-          <div className="space-y-4 md:px-6">
-            <h2 className="text-2xl font-semibold">SOTD</h2>
-            <p className="text-gray-600">Song of the day.</p>
-            <button
-              onClick={() => setSelectedSong(currentSong)}
-              className="w-full p-4 rounded-lg bg-gray-100 text-left hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
-            >
-              <p className="font-medium">Song Title:</p>
-              <p className="text-sm text-gray-600">
-                {currentSong.artist} - {currentSong.album}
-              </p>
-            </button>
           </div>
         </div>
       </div>
 
-      {/* Photo Dialog */}
-      <Dialog open={!!selectedPhoto} onOpenChange={() => setSelectedPhoto(null)}>
-        <DialogContent className="max-w-[90vw] max-h-[90vh] p-8">
-          <button
-            onClick={() => setSelectedPhoto(null)}
-            className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
-          >
-            <X className="h-4 w-4" />
-            <span className="sr-only">Close</span>
-          </button>
-
-          {selectedPhoto && (
-            <div className="flex flex-col md:flex-row gap-8 items-start">
-              <div className="flex-1">
-                <img
-                  src={selectedPhoto.src || "/placeholder.svg"}
-                  alt={selectedPhoto.alt}
-                  className="w-full h-auto object-contain max-h-[75vh]"
-                />
-              </div>
-              <div className="w-full md:w-64 space-y-4">
-                <h3 className="font-semibold text-lg">{selectedPhoto.title}</h3>
-                <div className="space-y-2 text-sm text-gray-600">
-                  <p>{selectedPhoto.camera}</p>
-                  <p>{selectedPhoto.film}</p>
-                  <p>{selectedPhoto.date}</p>
-                </div>
-              </div>
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
-
-      {/* Song Dialog */}
       <Dialog open={!!selectedSong} onOpenChange={() => setSelectedSong(null)}>
         <DialogContent className="max-w-[90vw] max-h-[90vh] p-8">
-          <button
-            onClick={() => setSelectedSong(null)}
-            className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
-          >
-            <X className="h-4 w-4" />
-            <span className="sr-only">Close</span>
-          </button>
-
           {selectedSong && (
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="flex-1">
@@ -210,16 +262,16 @@ export default function Page() {
               <div className="w-full md:w-64 space-y-6">
                 <div className="space-y-2">
                   <h3 className="text-xl font-bold">{selectedSong.title}</h3>
-                  <p className="text-gray-600">{selectedSong.artist}</p>
-                  <p className="text-gray-600">{selectedSong.album}</p>
-                  <p className="text-gray-600">{selectedSong.releaseDate}</p>
+                  <p className="text-muted-foreground">{selectedSong.artist}</p>
+                  <p className="text-muted-foreground">{selectedSong.album}</p>
+                  <p className="text-muted-foreground">{selectedSong.releaseDate}</p>
                 </div>
                 <div className="pt-6 border-t space-y-4">
                   <a
                     href={selectedSong.spotifyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-gray-600 hover:text-black transition-colors"
+                    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     <Music2 className="h-4 w-4" />
                     Listen on Spotify
@@ -229,7 +281,7 @@ export default function Page() {
                     href={selectedSong.appleMusicUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-gray-600 hover:text-black transition-colors"
+                    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     <Music2 className="h-4 w-4" />
                     Listen on Apple Music

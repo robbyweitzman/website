@@ -15,13 +15,18 @@ const posts: BlogPost[] = [
       <>
         Be overly-curious.
         <br />
+        <br />
         Be skeptical.
+        <br />
         <br />
         Question what you see.
         <br />
+        <br />
         Question statements you hear.
         <br />
+        <br />
         Question answers you receive.
+        <br />
         <br />
         <br />
         <i>September 29, 2022</i>

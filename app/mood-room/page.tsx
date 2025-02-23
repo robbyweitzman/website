@@ -212,6 +212,7 @@ export default function MoodRoomPage() {
                   className="w-full h-auto object-contain"
                   draggable="false"
                   priority
+                  unoptimized
                 />
               </div>
             </div>

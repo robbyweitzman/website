@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { X } from "lucide-react"
 import { type Photo, photos } from "../data/photos"
+import Image from "next/image"
 
 export default function PhotosPage() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null)
@@ -42,10 +43,13 @@ export default function PhotosPage() {
                 onClick={() => setSelectedPhoto(photo)}
                 className="w-full aspect-[3/4] rounded-lg overflow-hidden focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
               >
-                <img
+                <Image
                   src={photo.src || "/placeholder.svg"}
                   alt={photo.alt}
+                  width={900}
+                  height={600}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  unoptimized
                 />
               </button>
             ))}
@@ -66,10 +70,13 @@ export default function PhotosPage() {
           {selectedPhoto && (
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="flex-1">
-                <img
+                <Image
                   src={selectedPhoto.src || "/placeholder.svg"}
                   alt={selectedPhoto.alt}
+                  width={1200}
+                  height={800}
                   className="w-full h-auto object-contain max-h-[75vh]"
+                  unoptimized
                 />
               </div>
               <div className="w-full md:w-64 space-y-4">

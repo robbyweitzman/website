@@ -4,17 +4,10 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "placehold.co",
-      },
-      {
-        protocol: "https",
-        hostname: "sneakerbardetroit.com",
-      },
-      {
-        protocol: "https",
-        hostname: "upload.wikimedia.org",
+        hostname: "*",
       },
     ],
+    unoptimized: true,
   },
 }
 

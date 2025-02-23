@@ -11,7 +11,7 @@ const posts: BlogPost[] = [
   {
     slug: "What I've learned this summer at Supernode Ventures.",
     title: "What I've learned this summer at Supernode Ventures.",
-    content: "Be overly-curious and skeptical. Question what you see. Question statements, question answers.",
+    content: "Be overly-curious and skeptical. Question what you see. Question statements, question answers. Originally written October 2022.",
   },
   {
     slug: "future-of-web-development",

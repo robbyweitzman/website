@@ -52,12 +52,12 @@ export default function Page() {
               </li>
               <li>
                 <Link href="/ideas/post2" className="text-gray-600 hover:text-black">
-                  A Thought
+                  • A thought
                 </Link>
               </li>
               <li>
                 <Link href="/ideas/post3" className="text-gray-600 hover:text-black">
-                  An opinion
+                  • Another thought
                 </Link>
               </li>
             </ul>

@@ -133,7 +133,7 @@ export default function SotdPage() {
         smoothScrollToIndex(nearestIndex)
       }, 100)
     },
-    [displayIndex, smoothScrollToIndex, songs.length],
+    [displayIndex, smoothScrollToIndex],
   )
 
   useEffect(() => {
@@ -185,8 +185,8 @@ export default function SotdPage() {
             robby weitzman
           </Link>
           <div className="flex items-center gap-6">
-            <Link href="/muse" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              muse
+            <Link href="/mood-room" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              mood room
             </Link>
             <Link href="/photos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               photos
@@ -296,3 +296,4 @@ export default function SotdPage() {
     </main>
   )
 }
+

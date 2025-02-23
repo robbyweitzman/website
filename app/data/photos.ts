@@ -6,6 +6,8 @@ export interface Photo {
   camera: string
   film: string
   date: string
+  width: number
+  height: number
 }
 
 export const photos: Photo[] = [

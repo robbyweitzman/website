@@ -47,7 +47,7 @@ export default function Page() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/ideas/supernode-learnings" className="text-gray-600 hover:text-black">
-                  A sentence on what I learned at Supernode Ventures.
+                  • A few sentences on what I learned at Supernode Ventures in 2022.
                 </Link>
               </li>
               <li>

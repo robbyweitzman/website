@@ -60,7 +60,7 @@ const initialPhotos: Omit<Photo, "position" | "rotation" | "zIndex">[] = [
   },
 ]
 
-export default function MusePage() {
+export default function MoodRoomPage() {
   const [photos, setPhotos] = useState<Photo[]>([])
   const [draggedPhoto, setDraggedPhoto] = useState<string | null>(null)
   const [offset, setOffset] = useState({ x: 0, y: 0 })

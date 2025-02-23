@@ -47,14 +47,14 @@ const initialPhotos: Omit<Photo, "position" | "rotation" | "zIndex">[] = [
   },
   {
     id: "5",
-    src: "/mood-room/kobe-5.jpg",
+    src: "https://sneakerbardetroit.com/wp-content/uploads/2017/05/Kobe-5-Big-Stage.jpg",
     alt: "Kobe 5",
     width: 800,
     height: 465,
   },
   {
     id: "6",
-    src: "/mood-room/senna-lotus.jpg",
+    src: "https://upload.wikimedia.org/wikipedia/commons/6/65/Senna_Brands_1986.jpg",
     alt: "Senna, Lotus 98T",
     width: 900,
     height: 600,

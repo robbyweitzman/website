@@ -140,9 +140,9 @@ export default function MoodRoomPage() {
     // Required for Firefox
     e.dataTransfer.setData("text/plain", id)
     // Make the drag image transparent
-    const img = new Image(0, 0); // Passing the required arguments
-img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-e.dataTransfer.setDragImage(img, 0, 0);
+    const img = new Image(); // Use the default constructor
+    img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+    e.dataTransfer.setDragImage(img, 0, 0);
   }
 
   const handleDrag = (e: React.DragEvent) => {

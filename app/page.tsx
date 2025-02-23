@@ -22,8 +22,8 @@ export default function Page() {
             robby weitzman
           </Link>
           <div className="flex items-center gap-6">
-            <Link href="/muse" className="text-sm text-gray-600 hover:text-black">
-              muse
+            <Link href="/mood-room" className="text-sm text-gray-600 hover:text-black">
+              mood room
             </Link>
             <Link href="/photos" className="text-sm text-gray-600 hover:text-black">
               photos
@@ -43,21 +43,21 @@ export default function Page() {
           {/* Ideas Column */}
           <div className="space-y-4 md:px-6">
             <h2 className="text-2xl font-semibold">Ideas</h2>
-            <p className="text-gray-600">Thoughts and ideas.</p>
+            <p className="text-gray-600">Some of the things I am putting thought toward.</p>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/ideas/minimalist-design-principles" className="text-gray-600 hover:text-black">
-                  Idea
+                  Minimalist Design Principles
                 </Link>
               </li>
               <li>
                 <Link href="/ideas/future-of-web-development" className="text-gray-600 hover:text-black">
-                  Thought
+                  The Future of Web Development
                 </Link>
               </li>
               <li>
                 <Link href="/ideas/creative-process-notes" className="text-gray-600 hover:text-black">
-                  Idea and a thought about the idea
+                  Creative Process Notes
                 </Link>
               </li>
             </ul>

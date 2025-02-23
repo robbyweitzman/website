@@ -18,7 +18,7 @@ export const songs: Song[] = [
       album: "Eat a Peach",
       releaseDate: "February 12, 1972",
       albumArt: "https://m.media-amazon.com/images/I/71bF-Z3JNCL._UF1000,1000_QL80_.jpg",
-      date: "February 22, 2024",
+      date: "February 23, 2024",
       spotifyUrl: "https://open.spotify.com/track/6iX1QW1gGIVNEItnqyvFfH",
       appleMusicUrl: "https://music.apple.com/us/album/blue-sky/1469584912?i=1469585646",
     },

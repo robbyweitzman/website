@@ -3,7 +3,7 @@ import Link from "next/link"
 interface BlogPost {
   slug: string
   title: string
-  content: string
+  content: React.ReactNode // Change this line to support JSX content
 }
 
 // This would typically come from a CMS or database
@@ -11,7 +11,22 @@ const posts: BlogPost[] = [
   {
     slug: "supernode-learnings",
     title: "A few sentences on what I learned at Supernode Ventures in 2022.",
-    content: "Coming soon...",
+    content: (
+      <>
+        Be overly-curious.
+        <br />
+        Be skeptical.
+        <br />
+        Question what you see.
+        <br />
+        Question statements you hear.
+        <br />
+        Question answers you receive.
+        <br />
+        <br />
+        <i>September 29, 2022</i>
+      </>
+    ),
   },
   {
     slug: "post2",
@@ -65,4 +80,3 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
     </main>
   )
 }
-

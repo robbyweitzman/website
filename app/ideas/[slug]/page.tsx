@@ -24,7 +24,7 @@ const posts: BlogPost[] = [
         Question answers you receive.
         <br />
         <br />
-        <i>September 29, 2022
+        <i>September 29, 2022</i>
       </>
     ),
   },

@@ -6,12 +6,13 @@ import Image from "next/image"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { X, Music2, ExternalLink } from "lucide-react"
 import { type Photo, photos } from "./data/photos"
-import { type Song, getCurrentSong } from "./data/songs"
+import { type Song, songs, getCurrentSong } from "./data/songs"
 
 export default function Page() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null)
   const [selectedSong, setSelectedSong] = useState<Song | null>(null)
   const currentSong = getCurrentSong()
+  const previousSongs = songs.slice(1) // All songs except the current one
 
   return (
     <main className="min-h-screen bg-[#FFFAF1]">
@@ -86,18 +87,60 @@ export default function Page() {
           </div>
 
           {/* Song of the Day Column */}
-          <div className="space-y-4 md:px-6">
-            <h2 className="text-2xl font-semibold">SOTD</h2>
-            <p className="text-gray-600">Song of the day.</p>
-            <button
-              onClick={() => setSelectedSong(currentSong)}
-              className="w-full p-4 rounded-lg bg-gray-100 text-left hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
-            >
-              <p className="font-medium">Currently Playing:</p>
-              <p className="text-sm text-gray-600">
-                {currentSong.title} - {currentSong.artist}
-              </p>
-            </button>
+          <div className="space-y-6 md:px-6">
+            <div>
+              <h2 className="text-2xl font-semibold">SOTD</h2>
+              <p className="text-gray-600">Song of the day.</p>
+            </div>
+
+            {/* Current Song */}
+            <div className="space-y-2">
+              <p className="text-sm font-medium text-gray-600">Today's Song:</p>
+              <button
+                onClick={() => setSelectedSong(currentSong)}
+                className="w-full p-4 rounded-lg bg-gray-100 text-left hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="flex-1">
+                    <p className="font-medium">{currentSong.title}</p>
+                    <p className="text-sm text-gray-600">{currentSong.artist}</p>
+                    <p className="text-xs text-gray-500 mt-1">{currentSong.date}</p>
+                  </div>
+                  <img
+                    src={currentSong.albumArt || "/placeholder.svg"}
+                    alt={`${currentSong.title} album art`}
+                    className="w-16 h-16 rounded-md object-cover"
+                  />
+                </div>
+              </button>
+            </div>
+
+            {/* Previous Songs */}
+            <div className="space-y-2">
+              <p className="text-sm font-medium text-gray-600">SOYD</p>
+              <div className="space-y-2">
+                {previousSongs.map((song) => (
+                  <button
+                    key={song.id}
+                    onClick={() => setSelectedSong(song)}
+                    className="w-full p-3 rounded-lg bg-gray-50 text-left hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="flex-1">
+                        <p className="font-medium text-sm">{song.title}</p>
+                        <p className="text-sm text-gray-600">{song.artist}</p>
+                        <p className="text-xs text-gray-500 mt-1">{song.date}</p>
+                      </div>
+                      <img
+                        src={song.albumArt || "/placeholder.svg"}
+                        alt={`${song.title} album art`}
+                        className="w-12 h-12 rounded-md object-cover"
+                      />
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

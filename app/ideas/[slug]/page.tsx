@@ -13,7 +13,6 @@ const posts: BlogPost[] = [
     title: "A sentence on what I learned at Supernode Ventures.",
     content: "Be overly-curious and skeptical. Question what you see. Question statements, question answers.\n\n*September 29 2022*",
   },
-];
   {
     slug: "future-of-web-development",
     title: "The Future of Web Development",
@@ -24,7 +23,7 @@ const posts: BlogPost[] = [
     title: "Creative Process Notes",
     content: "Content for creative process notes...",
   },
-]
+];
 
 export default function BlogPost({ params }: { params: { slug: string } }) {
   const post = posts.find((post) => post.slug === params.slug)

@@ -13,6 +13,17 @@ export interface Song {
 export const songs: Song[] = [
   {
       id: "1",
+      title: "Blue Sky",
+      artist: "THe Allman Brothers Band",
+      album: "Eat a Peach",
+      releaseDate: "February 12, 1972",
+      albumArt: "https://m.media-amazon.com/images/I/71bF-Z3JNCL._UF1000,1000_QL80_.jpg",
+      date: "February 22, 2024",
+      spotifyUrl: "https://open.spotify.com/track/6iX1QW1gGIVNEItnqyvFfH",
+      appleMusicUrl: "https://music.apple.com/us/album/blue-sky/1469584912?i=1469585646",
+    },
+  {
+      id: "2",
       title: "Wet Sand",
       artist: "Red Hot Chili Peppers",
       album: "Stadium Arcadium",
@@ -23,7 +34,7 @@ export const songs: Song[] = [
       appleMusicUrl: "https://music.apple.com/us/song/wet-sand/945569010",
     },
     {
-      id: "2",
+      id: "3",
       title: "DIE TRYING",
       artist: "PARTYNEXTDOOR, Drake, Yebba",
       album: "$OME $EXY $ONGS 4 U",
@@ -34,7 +45,7 @@ export const songs: Song[] = [
       appleMusicUrl: "https://music.apple.com/us/song/die-trying/1796127376",
     },
     {
-      id: "3",
+      id: "4",
       title: "Señorita",
       artist: "Justin Timberlake",
       album: "Justified",

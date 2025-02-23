@@ -106,10 +106,13 @@ export default function Page() {
                     <p className="text-sm text-gray-600">{currentSong.artist}</p>
                     <p className="text-xs text-gray-500 mt-1">{currentSong.date}</p>
                   </div>
-                  <img
+                  <Image
                     src={currentSong.albumArt || "/placeholder.svg"}
                     alt={`${currentSong.title} album art`}
+                    width={64}
+                    height={64}
                     className="w-16 h-16 rounded-md object-cover"
+                    unoptimized
                   />
                 </div>
               </button>
@@ -131,10 +134,13 @@ export default function Page() {
                         <p className="text-sm text-gray-600">{song.artist}</p>
                         <p className="text-xs text-gray-500 mt-1">{song.date}</p>
                       </div>
-                      <img
+                      <Image
                         src={song.albumArt || "/placeholder.svg"}
                         alt={`${song.title} album art`}
+                        width={48}
+                        height={48}
                         className="w-12 h-12 rounded-md object-cover"
+                        unoptimized
                       />
                     </div>
                   </button>
@@ -192,10 +198,13 @@ export default function Page() {
           {selectedSong && (
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="flex-1">
-                <img
+                <Image
                   src={selectedSong.albumArt || "/placeholder.svg"}
                   alt={`${selectedSong.title} by ${selectedSong.artist}`}
+                  width={800}
+                  height={800}
                   className="w-full h-auto object-contain max-h-[75vh] rounded-lg"
+                  unoptimized
                 />
               </div>
               <div className="w-full md:w-64 space-y-6">

@@ -10,7 +10,7 @@ interface BlogPost {
 const posts: BlogPost[] = [
   {
     slug: "supernode-learnings",
-    title: "What I've learned this summer at Supernode Ventures.",
+    title: "One sentence on waht I learned at Supernode Ventures.",
     content: "Be overly-curious and skeptical. Question what you see. Question statements, question answers. Originally written October 2022.",
   },
   {

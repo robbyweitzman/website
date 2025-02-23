@@ -22,7 +22,7 @@ export default function Page() {
             robby weitzman
           </Link>
           <div className="flex items-center gap-6">
-            <Link href="/mood-board" className="text-sm text-gray-600 hover:text-black">
+            <Link href="/mood-room" className="text-sm text-gray-600 hover:text-black">
               mood room
             </Link>
             <Link href="/photos" className="text-sm text-gray-600 hover:text-black">
@@ -52,12 +52,12 @@ export default function Page() {
               </li>
               <li>
                 <Link href="/ideas/post2" className="text-gray-600 hover:text-black">
-                  • A Thought
+                  A Thought
                 </Link>
               </li>
               <li>
                 <Link href="/ideas/post3" className="text-gray-600 hover:text-black">
-                  • An opinion
+                  An opinion
                 </Link>
               </li>
             </ul>

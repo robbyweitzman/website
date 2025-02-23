@@ -52,9 +52,6 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
             <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               about
             </Link>
-            <Link href="/mood-room" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              mood room
-            </Link>
           </div>
         </div>
       </header>
@@ -68,4 +65,3 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
     </main>
   )
 }
-

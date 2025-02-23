@@ -46,18 +46,18 @@ export default function Page() {
             <p className="text-gray-600">Some of the things I am putting thought toward.</p>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/ideas/minimalist-design-principles" className="text-gray-600 hover:text-black">
-                  Minimalist Design Principles
+                <Link href="/ideas/post1" className="text-gray-600 hover:text-black">
+                  An Idea
                 </Link>
               </li>
               <li>
-                <Link href="/ideas/future-of-web-development" className="text-gray-600 hover:text-black">
-                  The Future of Web Development
+                <Link href="/ideas/post2" className="text-gray-600 hover:text-black">
+                  A Thought
                 </Link>
               </li>
               <li>
-                <Link href="/ideas/creative-process-notes" className="text-gray-600 hover:text-black">
-                  Creative Process Notes
+                <Link href="/ideas/post3" className="text-gray-600 hover:text-black">
+                  An opinion
                 </Link>
               </li>
             </ul>

@@ -29,14 +29,14 @@ const posts: BlogPost[] = [
     ),
   },
   {
-    slug: "future-of-web-development",
-    title: "The Future of Web Development",
-    content: "Content for future of web development...",
+    slug: "post2",
+    title: "Coming soon",
+    content: "Coming soon...",
   },
   {
-    slug: "creative-process-notes",
-    title: "Creative Process Notes",
-    content: "Content for creative process notes...",
+    slug: "post3",
+    title: "Coming soon",
+    content: "Coming soon...",
   },
 ];
 

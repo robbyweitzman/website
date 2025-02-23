@@ -14,7 +14,7 @@ export const songs: Song[] = [
   {
       id: "1",
       title: "Blue Sky",
-      artist: "THe Allman Brothers Band",
+      artist: "The Allman Brothers Band",
       album: "Eat a Peach",
       releaseDate: "February 12, 1972",
       albumArt: "https://m.media-amazon.com/images/I/71bF-Z3JNCL._UF1000,1000_QL80_.jpg",

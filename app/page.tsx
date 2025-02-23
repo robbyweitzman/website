@@ -22,7 +22,7 @@ export default function Page() {
             robby weitzman
           </Link>
           <div className="flex items-center gap-6">
-            <Link href="/mood-room" className="text-sm text-gray-600 hover:text-black">
+            <Link href="/mood-board" className="text-sm text-gray-600 hover:text-black">
               mood room
             </Link>
             <Link href="/photos" className="text-sm text-gray-600 hover:text-black">

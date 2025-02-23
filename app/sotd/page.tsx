@@ -66,7 +66,7 @@ export default function SotdPage() {
         smoothScrollToIndex(newIndex)
       }
     },
-    [currentIndex, isAnimating, smoothScrollToIndex, songs.length],
+    [currentIndex, isAnimating, smoothScrollToIndex],
   )
 
   const handleMouseDown = useCallback(
@@ -133,7 +133,7 @@ export default function SotdPage() {
         smoothScrollToIndex(nearestIndex)
       }, 100)
     },
-    [displayIndex, smoothScrollToIndex],
+    [displayIndex, smoothScrollToIndex, songs.length],
   )
 
   useEffect(() => {
@@ -196,9 +196,6 @@ export default function SotdPage() {
             </Link>
             <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               about
-            </Link>
-            <Link href="/mood-room" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              mood room
             </Link>
           </div>
         </div>
@@ -299,4 +296,3 @@ export default function SotdPage() {
     </main>
   )
 }
-

@@ -3,6 +3,7 @@
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
+import Image from "next/image"
 
 interface Photo {
   id: string
@@ -46,14 +47,14 @@ const initialPhotos: Omit<Photo, "position" | "rotation" | "zIndex">[] = [
   },
   {
     id: "5",
-    src: "https://sneakerbardetroit.com/wp-content/uploads/2017/05/Kobe-5-Big-Stage.jpg",
+    src: "/mood-room/kobe-5.jpg",
     alt: "Kobe 5",
     width: 800,
     height: 465,
   },
   {
     id: "6",
-    src: "https://upload.wikimedia.org/wikipedia/commons/6/65/Senna_Brands_1986.jpg",
+    src: "/mood-room/senna-lotus.jpg",
     alt: "Senna, Lotus 98T",
     width: 900,
     height: 600,
@@ -203,13 +204,14 @@ export default function MoodRoomPage() {
               }}
             >
               <div className="w-full bg-white p-3 shadow-lg hover:shadow-xl transition-shadow">
-                <img
+                <Image
                   src={photo.src || "/placeholder.svg"}
                   alt={photo.alt}
                   width={scaledDimensions.width}
                   height={scaledDimensions.height}
                   className="w-full h-auto object-contain"
                   draggable="false"
+                  priority
                 />
               </div>
             </div>

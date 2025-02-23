@@ -3,8 +3,6 @@
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
-import { Dialog, DialogContent } from "@/components/ui/dialog"
-import { X } from "lucide-react"
 
 interface Photo {
   id: string
@@ -64,7 +62,6 @@ const initialPhotos: Omit<Photo, "position" | "rotation" | "zIndex">[] = [
 
 export default function MusePage() {
   const [photos, setPhotos] = useState<Photo[]>([])
-  const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null)
   const [draggedPhoto, setDraggedPhoto] = useState<string | null>(null)
   const [offset, setOffset] = useState({ x: 0, y: 0 })
   const containerRef = useRef<HTMLDivElement>(null)
@@ -205,10 +202,7 @@ export default function MusePage() {
                 width: `${scaledDimensions.width}px`,
               }}
             >
-              <div
-                className="bg-white p-3 shadow-lg hover:shadow-xl transition-shadow"
-                onClick={() => setSelectedPhoto(photo.src)}
-              >
+              <div className="w-full bg-white p-3 shadow-lg hover:shadow-xl transition-shadow">
                 <img
                   src={photo.src || "/placeholder.svg"}
                   alt={photo.alt}
@@ -222,27 +216,6 @@ export default function MusePage() {
           )
         })}
       </div>
-
-      <Dialog open={!!selectedPhoto} onOpenChange={() => setSelectedPhoto(null)}>
-        <DialogContent className="max-w-[90vw] max-h-[90vh] p-8">
-          <button
-            onClick={() => setSelectedPhoto(null)}
-            className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
-          >
-            <X className="h-4 w-4" />
-            <span className="sr-only">Close</span>
-          </button>
-          {selectedPhoto && (
-            <div className="flex-1">
-              <img
-                src={selectedPhoto || "/placeholder.svg"}
-                alt="Enlarged view"
-                className="w-full h-auto object-contain max-h-[75vh] rounded-lg"
-              />
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
     </main>
   )
 }

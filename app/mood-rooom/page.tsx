@@ -18,45 +18,45 @@ interface Photo {
 const initialPhotos: Omit<Photo, "position" | "rotation" | "zIndex">[] = [
   {
     id: "1",
-    src: "/muse/Senna Muse.jpg",
-    alt: "Aryton Senna racing at the 1984 Monaco Gran Prix in the rain",
-    width: 3660,
-    height: 2440,
+    src: "https://placehold.co/800x600",
+    alt: "Inspiration 1",
+    width: 800,
+    height: 600,
   },
   {
     id: "2",
-    src: "/muse/Blackbirds.jpg",
-    alt: "Blackbird SR71s flying in tandem",
-    width: 1198,
-    height: 1800,
+    src: "https://placehold.co/600x800",
+    alt: "Inspiration 2",
+    width: 600,
+    height: 800,
   },
   {
     id: "3",
-    src: "/muse/Ronaldinho and Messi.jpg",
-    alt: "Ronaldinho and Messi",
-    width: 3940,
-    height: 2400,
+    src: "https://placehold.co/700x500",
+    alt: "Inspiration 3",
+    width: 700,
+    height: 500,
   },
   {
     id: "4",
-    src: "/muse/Senna at Spa.jpg",
-    alt: "Senna at Spa",
-    width: 1440,
-    height: 2180,
+    src: "https://placehold.co/900x600",
+    alt: "Inspiration 4",
+    width: 900,
+    height: 600,
   },
   {
     id: "5",
-    src: "https://sneakerbardetroit.com/wp-content/uploads/2017/05/Kobe-5-Big-Stage.jpg",
-    alt: "Kobe 5",
-    width: 800,
-    height: 465,
+    src: "https://placehold.co/500x700",
+    alt: "Inspiration 5",
+    width: 500,
+    height: 700,
   },
   {
     id: "6",
-    src: "https://upload.wikimedia.org/wikipedia/commons/6/65/Senna_Brands_1986.jpg",
-    alt: "Senna 98T",
-    width: 900,
-    height: 600,
+    src: "https://placehold.co/800x800",
+    alt: "Inspiration 6",
+    width: 800,
+    height: 800,
   },
 ]
 
@@ -168,8 +168,8 @@ export default function MusePage() {
             robby weitzman
           </Link>
           <div className="flex items-center gap-6">
-            <Link href="/muse" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              muse
+            <Link href="/mood-room" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              mood room
             </Link>
             <Link href="/photos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               photos
@@ -219,3 +219,4 @@ export default function MusePage() {
     </main>
   )
 }
+

@@ -9,9 +9,9 @@ interface BlogPost {
 // This would typically come from a CMS or database
 const posts: BlogPost[] = [
   {
-    slug: "minimalist-design-principles",
-    title: "Minimalist Design Principles",
-    content: "Content for minimalist design principles...",
+    slug: "What I've learned this summer at Supernode Ventures.",
+    title: "What I've learned this summer at Supernode Ventures.",
+    content: "Be overly-curious and skeptical. Question what you see. Question statements, question answers.",
   },
   {
     slug: "future-of-web-development",

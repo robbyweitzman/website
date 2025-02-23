@@ -2,8 +2,8 @@
 
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
+import Link from "next/link"
 import Image from "next/image"
-import { SiteHeader } from "@/components/site-header"
 
 interface Photo {
   id: string
@@ -162,8 +162,28 @@ e.dataTransfer.setDragImage(img, 0, 0);
   }
 
   return (
-    <main className="min-h-screen bg-background">
-      <SiteHeader />
+    <main className="min-h-screen bg-[#FFFAF1] overflow-hidden">
+      <header className="container px-8 md:px-16 py-6 mx-auto">
+        <div className="flex items-center justify-between">
+          <Link href="/" className="text-lg font-medium hover:text-muted-foreground transition-colors">
+            robby weitzman
+          </Link>
+          <div className="flex items-center gap-6">
+            <Link href="/mood-room" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              mood room
+            </Link>
+            <Link href="/photos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              photos
+            </Link>
+            <Link href="/sotd" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              sotd
+            </Link>
+            <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              about
+            </Link>
+          </div>
+        </div>
+      </header>
 
       <div className="relative w-full h-[calc(100vh-88px)]" ref={containerRef} onDragOver={(e) => e.preventDefault()}>
         {photos.map((photo) => {
@@ -183,7 +203,7 @@ e.dataTransfer.setDragImage(img, 0, 0);
                 width: `${scaledDimensions.width}px`,
               }}
             >
-             <div className="w-full bg-background p-3 shadow-lg hover:shadow-xl transition-shadow border rounded-lg">
+              <div className="w-full bg-white p-3 shadow-lg hover:shadow-xl transition-shadow">
                 <Image
                   src={photo.src || "/placeholder.svg"}
                   alt={photo.alt}
@@ -202,4 +222,3 @@ e.dataTransfer.setDragImage(img, 0, 0);
     </main>
   )
 }
-

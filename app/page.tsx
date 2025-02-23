@@ -43,11 +43,11 @@ export default function Page() {
           {/* Ideas Column */}
           <div className="space-y-4 md:px-6">
             <h2 className="text-2xl font-semibold">Ideas</h2>
-            <p className="text-gray-600">Some of the things I am putting thought toward.</p>
+            <p className="text-gray-600">Some of my thoughts.</p>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/ideas/post1" className="text-gray-600 hover:text-black">
-                  An Idea
+                <Link href="/ideas/supernode-learnings" className="text-gray-600 hover:text-black">
+                  Once sentence on what I learned at Supernode Ventures.
                 </Link>
               </li>
               <li>

@@ -11,22 +11,7 @@ const posts: BlogPost[] = [
   {
     slug: "supernode-learnings",
     title: "A few sentences on what I learned at Supernode Ventures in 2022.",
-    content: (
-      <>
-        Be overly-curious.
-        <br />
-        Be skeptical.
-        <br />
-        Question what you see.
-        <br />
-        Question statements you hear.
-        <br />
-        Question answers you receive.
-        <br />
-        <br />
-        <i>September 29, 2022</i>
-      </>
-    ),
+    content: "Coming soon...",
   },
   {
     slug: "post2",

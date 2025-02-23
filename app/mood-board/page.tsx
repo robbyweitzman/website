@@ -19,28 +19,28 @@ interface Photo {
 const initialPhotos: Omit<Photo, "position" | "rotation" | "zIndex">[] = [
   {
     id: "1",
-    src: "/mood-room/senna-monaco-1984.jpg",
+    src: "/mood-board/senna-monaco-1984.jpg",
     alt: "Aryton Senna, 1984 Monaco GP",
     width: 3660,
     height: 2440,
   },
   {
     id: "2",
-    src: "/mood-room/Blackbirds.jpg",
+    src: "/mood-board/Blackbirds.jpg",
     alt: "Blackbird SR71s flying in tandem",
     width: 1198,
     height: 1800,
   },
   {
     id: "3",
-    src: "/mood-room/Ronaldinho and Messi.jpg",
+    src: "/mood-board/Ronaldinho and Messi.jpg",
     alt: "Ronaldinho and Messi",
     width: 3940,
     height: 2400,
   },
   {
     id: "4",
-    src: "/mood-room/senna-marlboro-spa.jpg",
+    src: "/mood-board/senna-marlboro-spa.jpg",
     alt: "Senna at Spa",
     width: 1440,
     height: 2180,
@@ -61,7 +61,7 @@ const initialPhotos: Omit<Photo, "position" | "rotation" | "zIndex">[] = [
   },
 ]
 
-export default function MoodRoomPage() {
+export default function MoodBoardPage() { // Change function name as well
   const [photos, setPhotos] = useState<Photo[]>([])
   const [draggedPhoto, setDraggedPhoto] = useState<string | null>(null)
   const [offset, setOffset] = useState({ x: 0, y: 0 })
@@ -141,8 +141,8 @@ export default function MoodRoomPage() {
     e.dataTransfer.setData("text/plain", id)
     // Make the drag image transparent
     const img = document.createElement('img'); // Use the HTMLImageElement constructor
-img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-e.dataTransfer.setDragImage(img, 0, 0);
+    img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+    e.dataTransfer.setDragImage(img, 0, 0);
   }
 
   const handleDrag = (e: React.DragEvent) => {
@@ -169,8 +169,8 @@ e.dataTransfer.setDragImage(img, 0, 0);
             robby weitzman
           </Link>
           <div className="flex items-center gap-6">
-            <Link href="/mood-room" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              mood room
+            <Link href="/mood-board" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              mood board
             </Link>
             <Link href="/photos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               photos
@@ -222,4 +222,3 @@ e.dataTransfer.setDragImage(img, 0, 0);
     </main>
   )
 }
-

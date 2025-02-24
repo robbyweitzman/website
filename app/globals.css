@@ -79,3 +79,7 @@
   perspective: 1000px;
 }
 
+.custom-link {
+  text-decoration: underline;
+  color: #3b3b3b;
+}

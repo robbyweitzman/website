@@ -46,18 +46,13 @@ export default function Page() {
             <p className="text-gray-600">Some of my thoughts.</p>
             <ul className="space-y-2 text-sm">
               <li>
+                <Link href="/ideas/how-and-why-i-built-this-website" className="text-gray-600 hover:text-black">
+                  • How and why I build this website
+                </Link>
+              </li>
+              <li>
                 <Link href="/ideas/supernode-learnings" className="text-gray-600 hover:text-black">
                   • A few sentences on what I learned at Supernode Ventures in 2022.
-                </Link>
-              </li>
-              <li>
-                <Link href="/ideas/post2" className="text-gray-600 hover:text-black">
-                  • A thought
-                </Link>
-              </li>
-              <li>
-                <Link href="/ideas/post3" className="text-gray-600 hover:text-black">
-                  • Another thought
                 </Link>
               </li>
             </ul>

@@ -55,6 +55,17 @@ export const songs: Song[] = [
       spotifyUrl: "https://open.spotify.com/track/0aj2QKJvz6CePykmlTApiD",
       appleMusicUrl: "https://music.apple.com/us/album/se%C3%B1orita/252606580?i=252606581",
     },
+  {
+      id: "5",
+      title: "Teach Me How To Touch Me (KC Gilmore Remix)",
+      artist: "Soane, KC Gilmore",
+      album: "Teach Me How To Touch Me (KC Gilmore Remix) - Single",
+      releaseDate: "November 5, 2002",
+      albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/bf/eb/df/bfebdfbf-ac5a-a099-ca2b-8669af6554ce/cover.jpg/592x592bb.webp",
+      date: "February 28, 2020",
+      spotifyUrl: "https://open.spotify.com/track/5vaYVFncJFiu6D508YKUSO",
+      appleMusicUrl: "https://music.apple.com/us/album/teach-me-how-to-touch-me-kc-gilmore-remix-single/1515596988",
+    },
   ]
 
 export const getCurrentSong = () => songs[0]

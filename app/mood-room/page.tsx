@@ -63,8 +63,8 @@ const initialPhotos: Omit<Photo, "position" | "rotation" | "zIndex">[] = [
     id: "7",
     src: "https://i.pinimg.com/236x/b0/6c/34/b06c3454c28a7bc236ad56e7ef569f4a.jpg",
     alt: "Rob and Big and Meaty",
-    width: 708,
-    height: 876,
+    width: 472,
+    height: 584,
   },
    {
     id: "8",

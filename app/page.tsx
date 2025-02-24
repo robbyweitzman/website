@@ -46,8 +46,8 @@ export default function Page() {
             <p className="text-gray-600">Some of my thoughts.</p>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/ideas/how-and-why-i-built-this-website" className="text-gray-600 hover:text-black">
-                  • How and why I build this website
+                <Link href="/ideas/why-and-how-i-built-this-website" className="text-gray-600 hover:text-black">
+                  • Why and how I build this website
                 </Link>
               </li>
               <li>

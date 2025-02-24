@@ -39,7 +39,7 @@ const posts: BlogPost[] = [
   content: (
     <>
       Growing up, my father and I shared the hobby of photography. Actually, my first website ever was called nikondslr.something (I forget what it was hosted on. It had info about our cameras and what we liked to do.
-      <br/><br>
+      <br /><br />
       The hobby had distanced itself throughout high school and college. Last summer, I got inspired to start taking 35mm film photos, so I brought home some film for us to use on his Canon A1 and Nikon F4.
       <br /><br />
       I loved how mechanical the process was. Loading the film, manually advancing the film, adjusting the aperture and focus.

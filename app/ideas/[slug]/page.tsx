@@ -55,7 +55,7 @@ const posts: BlogPost[] = [
       <br /><br />
       I loaded up Grok, and spoke to it in the same way I would a friend sitting next to me. I described what I wanted to build, how I wanted it to look, and where I wanted to deploy it.
       <br /><br />
-      I first tried Replit after seeing the above video, but landed on using <a href="https://v0.dev/" className="custom-link">v0.dev!!</a> from Vercel because I wanted to prioritize a great looking front end.
+      I first tried Replit after seeing the above video, but landed on using <a href="https://v0.dev/" className="custom-link">v0.dev</a> from Vercel because I wanted to prioritize a great looking front end, and I had gathered Vercel was better suited for that.
       <br /><br />
       I started with the following prompt:
       <br /><br />

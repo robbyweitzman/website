@@ -58,7 +58,7 @@ export default function AboutPage() {
                 <div className="w-3 h-3 rounded-full bg-foreground relative z-10 mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background" />
                 <div className="flex-1 space-y-6 order-3">
                   <div>
-                    <p className="font-medium">Account Executive (Startups)</p>
+                    <p className="font-medium">Account Executive</p>
                     <p className="text-sm text-muted-foreground">November 2023 - Present</p>
                   </div>
                   <div>

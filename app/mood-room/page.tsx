@@ -75,7 +75,7 @@ const initialPhotos: Omit<Photo, "position" | "rotation" | "zIndex">[] = [
   },
    {
     id: "9",
-    src: "/mood-room/stig-jeremy",
+    src: "/mood-room/stig-jeremy.png",
     alt: "Stig and Jeremy",
     width: 2464,
     height: 1234,

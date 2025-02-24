@@ -63,7 +63,7 @@ const posts: BlogPost[] = [
       <br /><br />
       <img src="/ideas/screenshot-firstprompt.png" alt="Website v1" />
       <br /><br />
-      <a href="http://robbyweitzman.com" className="custom-link">My website was born!!</a> I continued adding and editing…
+      <a href="http://robbyweitzman.com" className="custom-link">My website was born!</a> I continued adding and editing…
       <br /><br />
       I wanted to have separate pages for each column, and described those to v0:
       <br /><br />
@@ -130,7 +130,7 @@ const posts: BlogPost[] = [
       <br /><br />
       A suggestions/feature request for Vercel:
       <br /><br />
-      I used v0.dev to generate all of the initial code. When I ran into errors, I would use Grok and Github agent to interpet the log errors I received in Vercel, and write the new code for the fix. After some time, the code in my repository was different from the code in v0.dev, and it started to become a slower process to make updates when they weren’t in sync.
+      I used v0.dev to generate all of the initial code. When I ran into errors, I would use Grok and Github agent to interpret the log errors I received in Vercel and write the new code for the fix. After some time, the code in my repository was different from the code in v0.dev, and it started to become a slower process to make updates when they weren’t in sync.
       <br /><br />
       Feature request: Include an easy way to import a Github repository/tree of folders and files into v0.dev. Currently, if I wanted to copy what I have in Github into v0.dev, I’d have to manually create each folder/file in v0.dev (please correct me if I’m wrong or if there are others ways!)
       <br /><br />

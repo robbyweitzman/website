@@ -41,8 +41,8 @@ export default function AboutPage() {
                 </div>
                 <div className="w-3 h-3 rounded-full bg-foreground relative z-10 mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background" />
                 <div className="flex-1 order-3">
-                  <p className="font-medium">Using Vercel and Grok</p>
-                  <p className="text-sm text-muted-foreground">February 2025</p>
+                  <p className="font-medium">Using Vercel, Grok, and Github</p>
+                  <p className="text-sm text-muted-foreground">February 22, 2025</p>
                 </div>
               </div>
             </div>

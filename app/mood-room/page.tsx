@@ -59,6 +59,27 @@ const initialPhotos: Omit<Photo, "position" | "rotation" | "zIndex">[] = [
     width: 900,
     height: 600,
   },
+  {
+    id: "7",
+    src: "https://i.pinimg.com/236x/b0/6c/34/b06c3454c28a7bc236ad56e7ef569f4a.jpg",
+    alt: "Rob and Big and Meaty",
+    width: 708,
+    height: 876,
+  },
+   {
+    id: "8",
+    src: "https://images.squarespace-cdn.com/content/v1/642fe9d50ff3d476932fc101/1723725733870-LBERDAXOIYRI9DZRI7A8/fighter%2B8.jpg",
+    alt: "Japan F15",
+    width: 798,
+    height: 564,
+  },
+   {
+    id: "9",
+    src: "/mood-room/stig-jeremy",
+    alt: "Stig and Jeremy",
+    width: 2464,
+    height: 1234,
+  },
 ]
 
 export default function MoodRoomPage() {

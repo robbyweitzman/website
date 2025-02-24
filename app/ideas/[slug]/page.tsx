@@ -34,14 +34,9 @@ const posts: BlogPost[] = [
     ),
   },
   {
-    slug: "post2",
-    title: "Coming soon",
-    content: "Coming soon...",
-  },
-  {
-    slug: "post3",
-    title: "Coming soon",
-    content: "Coming soon...",
+    slug: "why-and-how-i-built-this-website",
+    title: "Why and how I build this website",
+    content: "",
   },
 ];
 

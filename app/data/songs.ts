@@ -13,6 +13,17 @@ export interface Song {
 export const songs: Song[] = [
   {
       id: "1",
+      title: "Rock With You",
+      artist: "Michael Jackson",
+      album: "Off the Wall",
+      releaseDate: "July 10, 1979",
+      albumArt: "https://m.media-amazon.com/images/I/812EgYpATnL._UF1000,1000_QL80_.jpg",
+      date: "February 24, 2025",
+      spotifyUrl: "https://open.spotify.com/track/7oOOI85fVQvVnK5ynNMdW7?si=425e76b863294631",
+      appleMusicUrl: "https://music.apple.com/us/album/rock-with-you/186166282?i=186166358",
+    },
+  {
+      id: "2",
       title: "Blue Sky",
       artist: "The Allman Brothers Band",
       album: "Eat a Peach",
@@ -23,7 +34,7 @@ export const songs: Song[] = [
       appleMusicUrl: "https://music.apple.com/us/album/blue-sky/1469584912?i=1469585646",
     },
   {
-      id: "2",
+      id: "3",
       title: "Wet Sand",
       artist: "Red Hot Chili Peppers",
       album: "Stadium Arcadium",
@@ -34,7 +45,7 @@ export const songs: Song[] = [
       appleMusicUrl: "https://music.apple.com/us/song/wet-sand/945569010",
     },
     {
-      id: "3",
+      id: "4",
       title: "DIE TRYING",
       artist: "PARTYNEXTDOOR, Drake, Yebba",
       album: "$OME $EXY $ONGS 4 U",
@@ -45,7 +56,7 @@ export const songs: Song[] = [
       appleMusicUrl: "https://music.apple.com/us/song/die-trying/1796127376",
     },
     {
-      id: "4",
+      id: "5",
       title: "Señorita",
       artist: "Justin Timberlake",
       album: "Justified",
@@ -56,7 +67,7 @@ export const songs: Song[] = [
       appleMusicUrl: "https://music.apple.com/us/album/se%C3%B1orita/252606580?i=252606581",
     },
   {
-      id: "5",
+      id: "6",
       title: "Teach Me How To Touch Me (KC Gilmore Remix)",
       artist: "Soane, KC Gilmore",
       album: "Teach Me How To Touch Me (KC Gilmore Remix) - Single",

@@ -74,7 +74,16 @@ const posts: BlogPost[] = [
       <br /><br />
       So as Jeremy Clarkson once said, “I decided I needed a mood room.”
       <br /><br />
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/uPWUDU6sWvM?si=F4z0vBSt3iHrQnJB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/uPWUDU6sWvM?si=F4z0vBSt3iHrQnJB"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+      ></iframe>
       <br /><br />
       I told v0:
       <br /><br />

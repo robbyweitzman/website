@@ -1,10 +1,10 @@
 "use client"
 
 import { useState, useEffect, useCallback, useRef } from "react"
+import Link from "next/link"
 import { Music2, ExternalLink } from "lucide-react"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { type Song, songs } from "../data/songs"
-import { SiteHeader } from "@/components/site-header"
 
 export default function SotdPage() {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -19,10 +19,6 @@ export default function SotdPage() {
 
   const lastScrollTime = useRef(Date.now())
   const scrollTimeout = useRef<NodeJS.Timeout>()
-
-  // Add these refs after the existing refs
-  const touchStartX = useRef(0)
-  const isTouching = useRef(false)
 
   const smoothScrollToIndex = useCallback(
     (targetIndex: number) => {
@@ -109,43 +105,6 @@ export default function SotdPage() {
     [displayIndex, smoothScrollToIndex],
   )
 
-  // Add these handlers after the existing handlers
-  const handleTouchStart = useCallback(
-    (e: TouchEvent) => {
-      if (animationFrame.current) {
-        cancelAnimationFrame(animationFrame.current)
-      }
-      isTouching.current = true
-      touchStartX.current = e.touches[0].pageX
-      scrollLeft.current = currentIndex
-    },
-    [currentIndex],
-  )
-
-  const handleTouchMove = useCallback((e: TouchEvent) => {
-    if (!isTouching.current) return
-    e.preventDefault()
-
-    const x = e.touches[0].pageX
-    const walk = (touchStartX.current - x) / 200
-    const rawTarget = scrollLeft.current + walk
-    const targetIndex = Math.max(0, Math.min(songs.length - 1, rawTarget))
-
-    setDisplayIndex(targetIndex)
-  }, [])
-
-  const handleTouchEnd = useCallback(
-    (e: TouchEvent) => {
-      if (!isTouching.current) return
-      isTouching.current = false
-
-      const nearestIndex = Math.round(displayIndex)
-      setCurrentIndex(nearestIndex)
-      smoothScrollToIndex(nearestIndex)
-    },
-    [displayIndex, smoothScrollToIndex],
-  )
-
   const handleWheel = useCallback(
     (e: WheelEvent) => {
       e.preventDefault()
@@ -177,15 +136,11 @@ export default function SotdPage() {
     [displayIndex, smoothScrollToIndex],
   )
 
-  // Update the useEffect to include touch event listeners
   useEffect(() => {
     const container = document.getElementById("cover-flow-container")
     if (container) {
       container.addEventListener("wheel", handleWheel, { passive: false })
       container.addEventListener("mousedown", handleMouseDown)
-      container.addEventListener("touchstart", handleTouchStart, { passive: false })
-      container.addEventListener("touchmove", handleTouchMove, { passive: false })
-      container.addEventListener("touchend", handleTouchEnd)
       window.addEventListener("mousemove", handleMouseMove)
       window.addEventListener("mouseup", handleMouseUp)
     }
@@ -194,9 +149,6 @@ export default function SotdPage() {
       if (container) {
         container.removeEventListener("wheel", handleWheel)
         container.removeEventListener("mousedown", handleMouseDown)
-        container.removeEventListener("touchstart", handleTouchStart)
-        container.removeEventListener("touchmove", handleTouchMove)
-        container.removeEventListener("touchend", handleTouchEnd)
       }
       window.removeEventListener("mousemove", handleMouseMove)
       window.removeEventListener("mouseup", handleMouseUp)
@@ -207,16 +159,16 @@ export default function SotdPage() {
         cancelAnimationFrame(animationFrame.current)
       }
     }
-  }, [handleMouseDown, handleMouseMove, handleMouseUp, handleWheel, handleTouchStart, handleTouchMove, handleTouchEnd])
+  }, [handleMouseDown, handleMouseMove, handleMouseUp, handleWheel])
 
   const getTransform = (index: number) => {
     const diff = index - displayIndex
     if (diff === 0) {
       return `translateX(-50%) translateZ(0) rotateY(0deg)`
     } else if (diff < 0) {
-      return `translateX(calc(${diff * 50 - 50}%)) translateZ(-200px) rotateY(45deg)`
+      return `translateX(calc(${diff * 30 - 50}%)) translateZ(-200px) rotateY(45deg)`
     } else {
-      return `translateX(calc(${diff * 50 - 50}%)) translateZ(-200px) rotateY(-45deg)`
+      return `translateX(calc(${diff * 30 - 50}%)) translateZ(-200px) rotateY(-45deg)`
     }
   }
 
@@ -226,14 +178,34 @@ export default function SotdPage() {
   }
 
   return (
-    <main className="min-h-screen bg-background">
-      <SiteHeader />
+    <main className="min-h-screen bg-[#FFFAF1] overflow-hidden">
+      <header className="container px-8 md:px-16 py-6 mx-auto">
+        <div className="flex items-center justify-between">
+          <Link href="/" className="text-lg font-medium hover:text-muted-foreground transition-colors">
+            robby weitzman
+          </Link>
+          <div className="flex items-center gap-6">
+            <Link href="/mood-room" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              mood room
+            </Link>
+            <Link href="/photos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              photos
+            </Link>
+            <Link href="/sotd" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              sotd
+            </Link>
+            <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              about
+            </Link>
+          </div>
+        </div>
+      </header>
 
-      <div className="container px-8 md:px-16 py-12 mx-auto flex items-center justify-center min-h-[calc(100vh-88px)]">
-        <div className="relative w-full max-w-5xl">
+      <div className="container px-8 md:px-16 py-12 mx-auto">
+        <div className="relative h-[600px]">
           <div
             id="cover-flow-container"
-            className="relative w-full h-[600px] perspective-[1000px] cursor-grab active:cursor-grabbing touch-pan-x"
+            className="relative w-full h-full perspective-[1000px] cursor-grab active:cursor-grabbing"
           >
             <div className="absolute inset-0 flex items-center justify-center">
               {songs.map((song, index) => (

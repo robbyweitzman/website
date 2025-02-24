@@ -211,7 +211,7 @@ export default function SotdPage() {
               {songs.map((song, index) => (
                 <div
                   key={song.id}
-                  className="absolute left-1/2 transform -translate-x-1/2 w-[300px] transition-transform duration-300 ease-out"
+                  className="absolute left-1/2 transform -translate-x-1/2 w-[400px] transition-transform duration-300 ease-out"
                   style={{
                     transform: getTransform(index),
                     opacity: getOpacity(index),

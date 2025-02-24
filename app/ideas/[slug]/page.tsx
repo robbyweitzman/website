@@ -46,7 +46,7 @@ const posts: BlogPost[] = [
       <br /><br />
       After going through a couple rolls, we developed them and they looked awesome. Not too long after, I decided to buy this domain to upload the pictures and create an online photo gallery.
       <br /><br />
-      As time went on, I continued taking pictures with my dad, but never made the website I wanted to put them on. When I saw Replit's CEO, Amjad Masad, <a href="https://x.com/amasad/status/1892805615766163529" className="custom-link">making a brick breaker game using Replit and Grok this week
+      As time went on, I continued taking pictures with my dad, but never made the website I wanted to put them on. When I saw Replit's CEO, Amjad Masad, <a href="https://x.com/amasad/status/1892805615766163529" className="custom-link">making a brick breaker game in 3 minutes using Replit and Grok this week
 </a>, it opened my eyes to what you can really build with AI.
       <br /><br />
       I'm quite familiar with AI for certain use cases from both using it at Merge to help me automate sales processes/data entry, plus selling to new AI companies who need proprietary company data to run their enterprise search and agent products.

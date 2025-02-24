@@ -13,14 +13,14 @@ export interface Song {
 export const songs: Song[] = [
   {
       id: "1",
-      title: "Rock With You",
+      title: "Workin' Day and Night",
       artist: "Michael Jackson",
       album: "Off the Wall",
       releaseDate: "July 10, 1979",
       albumArt: "https://m.media-amazon.com/images/I/812EgYpATnL._UF1000,1000_QL80_.jpg",
       date: "February 24, 2025",
-      spotifyUrl: "https://open.spotify.com/track/7oOOI85fVQvVnK5ynNMdW7?si=425e76b863294631",
-      appleMusicUrl: "https://music.apple.com/us/album/rock-with-you/186166282?i=186166358",
+      spotifyUrl: "https://open.spotify.com/track/6BdiFsPMPkSEEO4fFXFVWX?si=c16643a975664ceb",
+      appleMusicUrl: "https://music.apple.com/us/album/workin-day-and-night/186166282?i=186166410",
     },
   {
       id: "2",

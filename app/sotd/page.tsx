@@ -208,44 +208,42 @@ export default function SotdPage() {
             className="relative w-full h-full perspective-[1000px] cursor-grab active:cursor-grabbing"
           >
             <div className="absolute inset-0 flex items-center justify-center">
-              {songs.map((song, index) => (
-                <div
-                  key={song.id}
-                  className="absolute left-1/2 w-[300px] transition-transform duration-300 ease-out"
-                  style={{
-                    transform: getTransform(index),
-                    opacity: getOpacity(index),
-                    zIndex: Math.round(displayIndex) === index ? 1 : 0,
-                  }}
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    if (!isDragging.current) {
-                      setSelectedSong(song)
-                    }
-                  }}
-                >
-                  <div className="relative aspect-square">
-                    <button className="w-full h-full focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-lg">
-                      <img
-                        src={song.albumArt || "/placeholder.svg"}
-                        alt={`${song.title} by ${song.artist}`}
-                        className="w-full h-full object-cover rounded-lg shadow-xl"
-                        draggable="false"
-                      />
-                    </button>
-                    {Math.round(displayIndex) === index && (
-                      <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent rounded-b-lg">
-                        <p className="text-white font-medium">{song.title}</p>
-                        <p className="text-white/80 text-sm">{song.artist}</p>
-                        <p className="text-white/60 text-xs mt-1">{song.date}</p>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
+  {songs.map((song, index) => (
+    <div
+      key={song.id}
+      className="absolute left-1/2 transform -translate-x-1/2 w-[300px] transition-transform duration-300 ease-out"
+      style={{
+        transform: getTransform(index),
+        opacity: getOpacity(index),
+        zIndex: Math.round(displayIndex) === index ? 1 : 0,
+      }}
+      onClick={(e) => {
+        e.stopPropagation()
+        if (!isDragging.current) {
+          setSelectedSong(song)
+        }
+      }}
+    >
+      <div className="relative aspect-square">
+        <button className="w-full h-full focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-lg">
+          <img
+            src={song.albumArt || "/placeholder.svg"}
+            alt={`${song.title} by ${song.artist}`}
+            className="w-full h-full object-cover rounded-lg shadow-xl"
+            draggable="false"
+          />
+        </button>
+        {Math.round(displayIndex) === index && (
+          <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent rounded-b-lg">
+            <p className="text-white font-medium">{song.title}</p>
+            <p className="text-white/80 text-sm">{song.artist}</p>
+            <p className="text-white/60 text-xs mt-1">{song.date}</p>
           </div>
-        </div>
+        )}
+      </div>
+    </div>
+  ))}
+</div>
       </div>
 
       <Dialog open={!!selectedSong} onOpenChange={() => setSelectedSong(null)}>

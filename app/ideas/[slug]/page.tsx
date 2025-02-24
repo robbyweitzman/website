@@ -46,7 +46,8 @@ const posts: BlogPost[] = [
       <br /><br />
       After going through a couple rolls, we developed them and they looked awesome. Not too long after, I decided to buy this domain to upload the pictures and create an online photo gallery.
       <br /><br />
-      As time went on, I continued taking pictures with my dad, but never made the website I wanted to put them on. When I saw Replit’s CEO <a href="https://x.com/amasad/status/1892805615766163529">making a brick breaker game using Replit and Grok this week</a>, it opened my eyes to what you can really build with AI.
+      As time went on, I continued taking pictures with my dad, but never made the website I wanted to put them on. When I saw Replit’s CEO <a href="https://x.com/amasad/status/1892805615766163529" className="custom-link">making a brick breaker game using Replit and Grok this week
+</a>, it opened my eyes to what you can really build with AI.
       <br /><br />
       I'm quite familiar with AI for certain use cases from both using it at Merge to help me automate sales processes/data entry, plus selling to new AI companies who need proprietary company data to run their enterprise search and agent products.
       <br /><br />
@@ -60,7 +61,7 @@ const posts: BlogPost[] = [
       <br /><br />
       <i>Create a clean, minimal landing page with 3 columns (Ideas, Photography, Song of the Day) separated by light grey vertical lines. Add an "About Me" section at the bottom linking to a placeholder page.</i>
       <br /><br />
-      <a href="http://robbyweitzman.com">My website was born!!</a> I continued adding and editing…
+      <a href="http://robbyweitzman.com" className="custom-link">My website was born!!</a> I continued adding and editing…
       <br /><br />
       I wanted to have separate pages for each column, and described those to v0:
       <br /><br />
@@ -109,7 +110,7 @@ const posts: BlogPost[] = [
       <br /><br />
       I was in disbelief! Something that would’ve taken me month to learn how to code manually was built with 2 sentences.
       <br /><br />
-      <a href="https://robbyweitzman.com/sotd">Go check out the SOTD here</a> (spoiled if you’re reading on Feb 23, 2025, sorry!).
+      <a href="https://robbyweitzman.com/sotd" className="custom-link">Go check out the SOTD here</a> (spoiled if you’re reading on Feb 23, 2025, sorry!).
       <br /><br />
       Friends, if you’re reading this, you know I’ve been sending both an Apple Music and Spotify link in the group chat every morning. I use Apple Music (it has better music quality IMO), but most of my friends use Spotify. My cousin showed me an Apple shortcut that was made which flips an Apple Music link to a Spotify link, and vice versa, which makes sharing songs with my friends a lot easier. I use this every day.
       <br /><br />

@@ -42,7 +42,7 @@ const posts: BlogPost[] = [
       <br /><br />
       The hobby had distanced itself throughout high school and college. But, Last summer I was inspired to start taking 35mm film photos, so I brought home some film for us to use on his Canon A1 and Nikon F4.
       <br /><br />
-      I loved how mechanical the process was. Loading the film, manually advancing the film, adjusting the aperture and focus.
+      I loved how mechanical the process was. Clicking the lens into the camera, loading the film, adjusting the aperture and focus, pressing the shutter button, manually advancing the film. It is a tactile feeling that's hard to replicate.
       <br /><br />
       After going through a couple rolls, we developed them and they looked awesome. Not too long after, I decided to buy this domain to upload the pictures and create an online photo gallery.
       <br /><br />

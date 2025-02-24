@@ -61,6 +61,8 @@ const posts: BlogPost[] = [
       <br /><br />
       <i>Create a clean, minimal landing page with 3 columns (Ideas, Photography, Song of the Day) separated by light grey vertical lines. Add an "About Me" section at the bottom linking to a placeholder page.</i>
       <br /><br />
+      <img src="/ideas/screenshot-firstprompt.png" alt="Website v1" />
+      <br /><br />
       <a href="http://robbyweitzman.com" className="custom-link">My website was born!!</a> I continued adding and editing…
       <br /><br />
       I wanted to have separate pages for each column, and described those to v0:
@@ -106,7 +108,7 @@ const posts: BlogPost[] = [
       <br /><br />
       It made this:
       <br /><br />
-      <img src="/sotd/coverflow.jpg" alt="Cover Flow example" />
+      <img src="/ideas/screenshot-sotd.png" alt="Cover Flow example" />
       <br /><br />
       I was in disbelief! Something that would’ve taken me month to learn how to code manually was built with 2 sentences.
       <br /><br />

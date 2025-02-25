@@ -118,7 +118,7 @@ const posts: BlogPost[] = [
       <br /><br />
       <a href="https://robbyweitzman.com/sotd" className="custom-link">Go check out the SOTD here</a> (spoiled if you’re reading on Feb 23, 2025, sorry!).
       <br /><br />
-      Friends, if you’re reading this, you know I’ve been sending both an Apple Music and Spotify link in the group chat every morning. I use Apple Music (it has better music quality IMO), but most of my friends use Spotify. My cousin showed me an Apple shortcut that can quiclkly translate an Apple Music link to a Spotify link, and vice versa, which makes sharing songs with my friends a lot easier. I use this every day.
+      Friends, if you’re reading this, you know I’ve been sending both an Apple Music and Spotify link in the group chat every morning. I use Apple Music (it has better music quality IMO), but most of my friends use Spotify. My cousin showed me an Apple shortcut that can quickly translate an Apple Music link to a Spotify link, and vice versa, which makes sharing songs with my friends a lot easier. I use this every day.
       <br /><br />
       Now, instead of separate links, you can expect me to send you a link to <a href="https://robbyweitzman.com/sotd" className="custom-link">robbyweitzman.com/sotd</a>. It has links to both platforms and you can see in one view what I probably sent you yesterday, and the day before, and the day before, and the day before…….
       <br /><br />

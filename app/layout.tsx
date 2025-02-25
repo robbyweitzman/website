@@ -1,6 +1,6 @@
 import type React from "react"
 import "./globals.css"
-import { Analytics } from '@vercel/analytics/next'
+import { Analytics } from '@vercel/analytics/react'
 
 export const metadata = {
   generator: 'v0.dev'

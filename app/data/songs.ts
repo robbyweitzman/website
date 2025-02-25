@@ -12,7 +12,18 @@ export interface Song {
 
 export const songs: Song[] = [
   {
-      id: "1",
+    id: "1",
+    title: "Me & U",
+    artist: "Tems",
+    album: "Me & U - Single",
+    releaseDate: "October 5, 2023",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Video116/v4/1f/3f/1c/1f3f1c05-2c33-724c-a76c-3691a53ee737/Jobf33e67e4-77ef-4be0-84bd-f116231a4adc-157017799-PreviewImage_Preview_Image_Intermediate_nonvideo_sdr_301392199_1579433950-Time1697039042989.png/632x632bb.webp",
+    date: "February 25, 2025",
+    spotifyUrl: "https://open.spotify.com/track/4nFrcGM7MY1mpoQCC7Kefj",
+    appleMusicUrl: "https://music.apple.com/us/album/me-u-single/1710052036",
+  },
+  {
+      id: "2",
       title: "Workin' Day and Night",
       artist: "Michael Jackson",
       album: "Off the Wall",
@@ -23,7 +34,7 @@ export const songs: Song[] = [
       appleMusicUrl: "https://music.apple.com/us/album/workin-day-and-night/186166282?i=186166410",
     },
   {
-      id: "2",
+      id: "3",
       title: "Blue Sky",
       artist: "The Allman Brothers Band",
       album: "Eat a Peach",
@@ -34,7 +45,7 @@ export const songs: Song[] = [
       appleMusicUrl: "https://music.apple.com/us/album/blue-sky/1469584912?i=1469585646",
     },
   {
-      id: "3",
+      id: "4",
       title: "Wet Sand",
       artist: "Red Hot Chili Peppers",
       album: "Stadium Arcadium",
@@ -45,7 +56,7 @@ export const songs: Song[] = [
       appleMusicUrl: "https://music.apple.com/us/song/wet-sand/945569010",
     },
     {
-      id: "4",
+      id: "5",
       title: "DIE TRYING",
       artist: "PARTYNEXTDOOR, Drake, Yebba",
       album: "$OME $EXY $ONGS 4 U",
@@ -56,7 +67,7 @@ export const songs: Song[] = [
       appleMusicUrl: "https://music.apple.com/us/song/die-trying/1796127376",
     },
     {
-      id: "5",
+      id: "6",
       title: "Señorita",
       artist: "Justin Timberlake",
       album: "Justified",
@@ -67,7 +78,7 @@ export const songs: Song[] = [
       appleMusicUrl: "https://music.apple.com/us/album/se%C3%B1orita/252606580?i=252606581",
     },
   {
-      id: "6",
+      id: "7",
       title: "Teach Me How To Touch Me (KC Gilmore Remix)",
       artist: "Soane, KC Gilmore",
       album: "Teach Me How To Touch Me (KC Gilmore Remix) - Single",

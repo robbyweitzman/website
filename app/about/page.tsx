@@ -2,8 +2,11 @@ import Link from "next/link"
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#FFFAF1]">
-      <header className="container px-8 md:px-16 py-6 mx-auto">
+    <main className="min-h-screen bg-[#FFFAF1] relative">
+      {/* Timeline line that runs from top to the last bullet */}
+      <div className="absolute left-[29px] md:left-1/2 top-0 bottom-[100px] w-px bg-gray-200 transform md:-translate-x-1/2 z-0" />
+      
+      <header className="container px-8 md:px-16 py-6 mx-auto relative z-10">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-lg font-medium hover:text-muted-foreground transition-colors">
             robby weitzman
@@ -28,9 +31,6 @@ export default function AboutPage() {
       <div className="container px-8 md:px-16 py-12 mx-auto">
         <div className="max-w-[800px] mx-auto">
           <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-0 md:left-1/2 h-full w-px bg-gray-200 transform -translate-x-1/2" />
-
             {/* Website */}
             <div className="relative mb-16">
               <div className="flex flex-col md:flex-row items-start gap-8">

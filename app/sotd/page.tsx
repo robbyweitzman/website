@@ -20,6 +20,10 @@ export default function SotdPage() {
   const lastScrollTime = useRef(Date.now())
   const scrollTimeout = useRef<NodeJS.Timeout>()
 
+  // Add these refs for touch handling
+  const touchStartX = useRef(0)
+  const touchStartTime = useRef(0)
+
   const smoothScrollToIndex = useCallback(
     (targetIndex: number) => {
       const startTime = Date.now()
@@ -136,22 +140,82 @@ export default function SotdPage() {
     [displayIndex, smoothScrollToIndex],
   )
 
+  // Add these touch event handlers
+  const handleTouchStart = useCallback(
+    (e: TouchEvent) => {
+      if (animationFrame.current) {
+        cancelAnimationFrame(animationFrame.current)
+      }
+      isDragging.current = true
+      touchStartX.current = e.touches[0].pageX
+      touchStartTime.current = Date.now()
+      scrollLeft.current = currentIndex
+    },
+    [currentIndex],
+  )
+
+  const handleTouchMove = useCallback((e: TouchEvent) => {
+    if (!isDragging.current) return
+    e.preventDefault()
+
+    const x = e.touches[0].pageX
+    const walk = (touchStartX.current - x) / 200
+    const rawTarget = scrollLeft.current + walk
+    const targetIndex = Math.max(0, Math.min(songs.length - 1, rawTarget))
+
+    setDisplayIndex(targetIndex)
+  }, [])
+
+  const handleTouchEnd = useCallback(
+    (e: TouchEvent) => {
+      if (!isDragging.current) return
+      isDragging.current = false
+
+      const touchEndX = e.changedTouches[0].pageX
+      const touchEndTime = Date.now()
+      
+      // Calculate swipe velocity for momentum effect
+      const touchDuration = touchEndTime - touchStartTime.current
+      const touchDistance = touchStartX.current - touchEndX
+      
+      // If it was a quick swipe, move to next/previous
+      if (touchDuration < 300 && Math.abs(touchDistance) > 50) {
+        const direction = touchDistance > 0 ? 1 : -1
+        const targetIndex = Math.max(0, Math.min(songs.length - 1, currentIndex + direction))
+        setCurrentIndex(targetIndex)
+        smoothScrollToIndex(targetIndex)
+      } else {
+        // Otherwise snap to nearest
+        const nearestIndex = Math.round(displayIndex)
+        setCurrentIndex(nearestIndex)
+        smoothScrollToIndex(nearestIndex)
+      }
+    },
+    [currentIndex, displayIndex, smoothScrollToIndex],
+  )
+
   useEffect(() => {
     const container = document.getElementById("cover-flow-container")
     if (container) {
       container.addEventListener("wheel", handleWheel, { passive: false })
       container.addEventListener("mousedown", handleMouseDown)
+      container.addEventListener("touchstart", handleTouchStart, { passive: false })
       window.addEventListener("mousemove", handleMouseMove)
+      window.addEventListener("touchmove", handleTouchMove, { passive: false })
       window.addEventListener("mouseup", handleMouseUp)
+      window.addEventListener("touchend", handleTouchEnd)
     }
 
     return () => {
       if (container) {
         container.removeEventListener("wheel", handleWheel)
         container.removeEventListener("mousedown", handleMouseDown)
+        container.removeEventListener("touchstart", handleTouchStart)
       }
       window.removeEventListener("mousemove", handleMouseMove)
+      window.removeEventListener("touchmove", handleTouchMove)
       window.removeEventListener("mouseup", handleMouseUp)
+      window.removeEventListener("touchend", handleTouchEnd)
       if (scrollTimeout.current) {
         clearTimeout(scrollTimeout.current)
       }
@@ -159,12 +223,17 @@ export default function SotdPage() {
         cancelAnimationFrame(animationFrame.current)
       }
     }
-  }, [handleMouseDown, handleMouseMove, handleMouseUp, handleWheel])
+  }, [handleMouseDown, handleMouseMove, handleMouseUp, handleWheel, handleTouchStart, handleTouchMove, handleTouchEnd])
 
   const getTransform = (index: number) => {
     const diff = index - displayIndex
-    if (diff === 0) {
-      return `translateX(-50%) translateZ(0) rotateY(0deg)`
+    const absDiff = Math.abs(diff)
+    
+    // Create a wider sweet spot - consider albums within 0.3 units to be "in focus"
+    if (absDiff < 0.3) {
+      // Gradually adjust rotation within the sweet spot for smooth transition
+      const rotationFactor = diff * (1/0.3) * 45
+      return `translateX(-50%) translateZ(0) rotateY(${rotationFactor}deg)`
     } else if (diff < 0) {
       return `translateX(calc(${diff * 30 - 50}%)) translateZ(-200px) rotateY(45deg)`
     } else {
@@ -174,48 +243,54 @@ export default function SotdPage() {
 
   const getOpacity = (index: number) => {
     const diff = Math.abs(index - displayIndex)
+    // Increase opacity for items closer to the center
     return Math.max(0, 1 - diff * 0.3)
+  }
+
+  // New function to determine if an album is in focus with a tolerance
+  const isInFocus = (index: number) => {
+    return Math.abs(index - displayIndex) < 0.3
   }
 
   return (
     <main className="min-h-screen bg-[#FFFAF1] overflow-hidden">
-      <header className="container px-8 md:px-16 py-6 mx-auto">
+      <header className="container px-8 md:px-16 py-4 sm:py-5 md:py-6 mx-auto">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-lg font-medium hover:text-muted-foreground transition-colors">
             robby weitzman
           </Link>
-          <div className="flex items-center gap-6">
-            <Link href="/mood-room" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
+            <Link href="/mood-room" className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors">
               mood room
             </Link>
-            <Link href="/photos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/photos" className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors">
               photos
             </Link>
-            <Link href="/sotd" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/sotd" className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors">
               sotd
             </Link>
-            <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/about" className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors">
               about
             </Link>
           </div>
         </div>
       </header>
 
-      <div className="container px-8 md:px-16 py-12 mx-auto">
-        <div className="relative h-[600px]">
+      <div className="container px-8 md:px-16 py-4 sm:py-8 md:py-12 mx-auto">
+        <div className="relative h-[400px] sm:h-[450px] md:h-[500px] lg:h-[600px]">
           <div
             id="cover-flow-container"
             className="relative w-full h-full perspective-[1000px] cursor-grab active:cursor-grabbing"
           >
-            <div className="absolute inset-0 flex items-center justify-center">
+            <div className="absolute inset-0 flex items-center justify-center pt-0 md:pt-4 lg:pt-0">
               {songs.map((song, index) => (
                 <div
                   key={song.id}
-                  className="absolute left-1/2 transform -translate-x-1/2 w-[400px] transition-transform duration-300 ease-out"
+                  className="absolute left-1/2 transform -translate-x-1/2 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] transition-transform duration-300 ease-out"
                   style={{
                     transform: getTransform(index),
                     opacity: getOpacity(index),
-                    zIndex: Math.round(displayIndex) === index ? 1 : 0,
+                    zIndex: isInFocus(index) ? 1 : 0,
                   }}
                   onClick={(e) => {
                     e.stopPropagation()
@@ -233,10 +308,10 @@ export default function SotdPage() {
                         draggable="false"
                       />
                     </button>
-                    {Math.round(displayIndex) === index && (
-                      <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent rounded-b-lg">
-                        <p className="text-white font-medium">{song.title}</p>
-                        <p className="text-white/80 text-sm">{song.artist}</p>
+                    {isInFocus(index) && (
+                      <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 bg-gradient-to-t from-black/80 to-transparent rounded-b-lg">
+                        <p className="text-white font-medium text-sm sm:text-base">{song.title}</p>
+                        <p className="text-white/80 text-xs sm:text-sm">{song.artist}</p>
                         <p className="text-white/60 text-xs mt-1">{song.date}</p>
                       </div>
                     )}

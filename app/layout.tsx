@@ -1,6 +1,7 @@
 import type React from "react"
 import "./globals.css"
-import Script from "next/script"
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata = {
   generator: 'v0.dev'
@@ -15,10 +16,8 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
-        <Script
-          src="https://va.vercel-scripts.com/v1/speed-insights/script.js"
-          strategy="afterInteractive"
-        />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

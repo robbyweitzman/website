@@ -13,6 +13,17 @@ export interface Song {
 export const songs: Song[] = [
   {
     id: "1",
+    title: "Are You What You Want to Be?",
+    artist: "Foster the People",
+    album: "Supermodel",
+    releaseDate: "March 14, 2024",
+    albumArt: "https://m.media-amazon.com/images/I/71v8dy5R4BL.jpg",
+    date: "February 26, 2025",
+    spotifyUrl: "https://open.spotify.com/track/3CVPyuuD6HxWXgPbbGqbg6",
+    appleMusicUrl: "https://music.apple.com/us/album/are-you-what-you-want-to-be/793285794?i=793286896",
+  },
+  {
+    id: "2",
     title: "Me & U",
     artist: "Tems",
     album: "Me & U - Single",
@@ -23,7 +34,7 @@ export const songs: Song[] = [
     appleMusicUrl: "https://music.apple.com/us/album/me-u-single/1710052036",
   },
   {
-      id: "2",
+      id: "3",
       title: "Workin' Day and Night",
       artist: "Michael Jackson",
       album: "Off the Wall",
@@ -34,7 +45,7 @@ export const songs: Song[] = [
       appleMusicUrl: "https://music.apple.com/us/album/workin-day-and-night/186166282?i=186166410",
     },
   {
-      id: "3",
+      id: "4",
       title: "Blue Sky",
       artist: "The Allman Brothers Band",
       album: "Eat a Peach",
@@ -45,7 +56,7 @@ export const songs: Song[] = [
       appleMusicUrl: "https://music.apple.com/us/album/blue-sky/1469584912?i=1469585646",
     },
   {
-      id: "4",
+      id: "5",
       title: "Wet Sand",
       artist: "Red Hot Chili Peppers",
       album: "Stadium Arcadium",
@@ -56,7 +67,7 @@ export const songs: Song[] = [
       appleMusicUrl: "https://music.apple.com/us/song/wet-sand/945569010",
     },
     {
-      id: "5",
+      id: "6",
       title: "DIE TRYING",
       artist: "PARTYNEXTDOOR, Drake, Yebba",
       album: "$OME $EXY $ONGS 4 U",
@@ -67,7 +78,7 @@ export const songs: Song[] = [
       appleMusicUrl: "https://music.apple.com/us/song/die-trying/1796127376",
     },
     {
-      id: "6",
+      id: "7",
       title: "Señorita",
       artist: "Justin Timberlake",
       album: "Justified",
@@ -78,7 +89,7 @@ export const songs: Song[] = [
       appleMusicUrl: "https://music.apple.com/us/album/se%C3%B1orita/252606580?i=252606581",
     },
   {
-      id: "7",
+      id: "8",
       title: "Teach Me How To Touch Me (KC Gilmore Remix)",
       artist: "Soane, KC Gilmore",
       album: "Teach Me How To Touch Me (KC Gilmore Remix) - Single",

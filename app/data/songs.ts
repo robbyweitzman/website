@@ -13,6 +13,17 @@ export interface Song {
 export const songs: Song[] = [
   {
     id: "1",
+    title: "TEMPTATION",
+    artist: "Joey Bada$$",
+    album: "ALL-AMERIKKKAN BADA$$",
+    releaseDate: "April 7, 2017",
+    albumArt: "https://m.media-amazon.com/images/I/719fb+JqV6L.jpg",
+    date: "March 4, 2025",
+    spotifyUrl: "https://open.spotify.com/track/3gJDgenxLephg09x86IxPs?si=5a37c261f66e4b06",
+    appleMusicUrl: "https://music.apple.com/us/album/temptation/1504166825?i=1504167052",
+  },
+  {
+    id: "2",
     title: "Best Be Believing",
     artist: "AlunaGeorge",
     album: "Body Music  ",
@@ -23,7 +34,7 @@ export const songs: Song[] = [
     appleMusicUrl: "https://music.apple.com/ie/album/best-be-believing/1445695088?i=1445695308",
   },
   {
-    id: "2",
+    id: "3",
     title: "Beautiful (feat. Pharrell & Uncle Charlie Wilson)",
     artist: "Snoop Dogg",
     album: "The Best of Snoop Dogg",
@@ -34,7 +45,7 @@ export const songs: Song[] = [
     appleMusicUrl: "https://music.apple.com/us/album/beautiful-feat-pharrell-uncle-charlie-wilson/713292736?i=713292791",
   },
   {
-    id: "3",
+    id: "4",
     title: "Get It Together",
     artist: "Drake",
     album: "More Life",
@@ -45,7 +56,7 @@ export const songs: Song[] = [
     appleMusicUrl: "https://music.apple.com/us/album/get-it-together-feat-black-coffee-jorja-smith/1440890708?i=1440891506",
   },
   {
-    id: "4",
+    id: "5",
     title: "I Just Want to Love U (Give It 2 Me)",
     artist: "JAY-Z",
     album: "The Dynasty: Roc La Familia",
@@ -56,7 +67,7 @@ export const songs: Song[] = [
     appleMusicUrl: "https://music.apple.com/us/album/i-just-wanna-love-u-give-it-2-me/1440924901?i=1440925175",
   },
   {
-    id: "5",
+    id: "6",
     title: "Nokia",
     artist: "PARTYNEXTDOOR, Drake, Yebba",
     album: "$OME $EXY $ONGS 4 U",
@@ -67,7 +78,7 @@ export const songs: Song[] = [
     appleMusicUrl: "https://music.apple.com/us/album/nokia/1796127242?i=1796127375",
   },
   {
-    id: "6",
+    id: "7",
     title: "Entre Dos Aguas",
     artist: "Paco de Lucía",
     album: "Entre Dos Aguas",
@@ -78,7 +89,7 @@ export const songs: Song[] = [
     appleMusicUrl: "https://music.apple.com/us/album/entre-dos-aguas/1451208136?i=1451208220",
   },
   {
-    id: "7",
+    id: "8",
     title: "Are You What You Want to Be?",
     artist: "Foster the People",
     album: "Supermodel",
@@ -89,7 +100,7 @@ export const songs: Song[] = [
     appleMusicUrl: "https://music.apple.com/us/album/are-you-what-you-want-to-be/793285794?i=793286896",
   },
   {
-    id: "8",
+    id: "9",
     title: "Me & U",
     artist: "Tems",
     album: "Me & U - Single",
@@ -100,7 +111,7 @@ export const songs: Song[] = [
     appleMusicUrl: "https://music.apple.com/us/album/me-u-single/1710052036",
   },
   {
-    id: "9",
+    id: "10",
     title: "Workin' Day and Night",
     artist: "Michael Jackson",
     album: "Off the Wall",
@@ -111,7 +122,7 @@ export const songs: Song[] = [
     appleMusicUrl: "https://music.apple.com/us/album/workin-day-and-night/186166282?i=186166410",
   },
   {
-    id: "10",
+    id: "11",
     title: "Blue Sky",
     artist: "The Allman Brothers Band",
     album: "Eat a Peach",
@@ -122,7 +133,7 @@ export const songs: Song[] = [
     appleMusicUrl: "https://music.apple.com/us/album/blue-sky/1469584912?i=1469585646",
   },
   {
-    id: "11",
+    id: "12",
     title: "Wet Sand",
     artist: "Red Hot Chili Peppers",
     album: "Stadium Arcadium",
@@ -133,7 +144,7 @@ export const songs: Song[] = [
     appleMusicUrl: "https://music.apple.com/us/song/wet-sand/945569010",
   },
   {
-    id: "12",
+    id: "13",
     title: "DIE TRYING",
     artist: "PARTYNEXTDOOR, Drake, Yebba",
     album: "$OME $EXY $ONGS 4 U",
@@ -144,7 +155,7 @@ export const songs: Song[] = [
     appleMusicUrl: "https://music.apple.com/us/song/die-trying/1796127376",
   },
   {
-    id: "13",
+    id: "14",
     title: "Señorita",
     artist: "Justin Timberlake",
     album: "Justified",
@@ -155,7 +166,7 @@ export const songs: Song[] = [
     appleMusicUrl: "https://music.apple.com/us/album/se%C3%B1orita/252606580?i=252606581",
   },
   {
-    id: "14",
+    id: "15",
     title: "Teach Me How To Touch Me (KC Gilmore Remix)",
     artist: "Soane, KC Gilmore",
     album: "Teach Me How To Touch Me (KC Gilmore Remix) - Single",
@@ -167,5 +178,11 @@ export const songs: Song[] = [
   },
 ]
 
-export const getCurrentSong = () => songs[0]
+export const getCurrentSong = () => {
+  const today = new Date()
+  return songs.find(song => {
+    const songDate = new Date(song.date)
+    return songDate <= today
+  }) || songs[0]
+}
 

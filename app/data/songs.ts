@@ -12,12 +12,32 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Miss Me (feat. Lil Wayne)",
+    artist: "Drake",
+    album: "Thank Me Later",
+    releaseDate: "June 15, 2010",
+    albumArt: "https://m.media-amazon.com/images/I/71AqTS+-SYL._UF1000,1000_QL80_.jpg",
+    date: "March 7, 2025",
+    spotifyUrl: "https://open.spotify.com/track/1U4mweNwisxNj23ffuC9gO?si=ecd7f88ac9d241d4",
+    appleMusicUrl: "https://music.apple.com/us/album/miss-me-feat-lil-wayne/1440762388?i=1440762730",
+  },
+  {
+    title: "Apparently",
+    artist: "J. Cole",
+    album: "2014 Forest Hills Drive",
+    releaseDate: "December 9, 2014",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/92/b9/62/92b9624d-e9fb-0e4f-f14b-6f1f96c0a3e0/21UM1IM54414.rgb.jpg/632x632bb.webp",
+    date: "March 6, 2025",
+    spotifyUrl: "https://open.spotify.com/track/5O59s7bCgTFsXDXlWecyQ1?si=46f349ae8bc6447d",
+    appleMusicUrl: "https://music.apple.com/us/album/apparently/1600766204?i=1600766449",
+  },
+  {
     title: "Us Against the World (Remix)",
     artist: "Strandz, Digga D",
     album: "Us Against the World (Remix) - Single",
     releaseDate: "February 18, 2023",
     albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/23/ae/10/23ae10fe-c3ad-1ce7-16c6-59a69b4b4898/196589895424.jpg/632x632bb.webp",
-    date: "February 18, 2023",
+    date: "March 5, 2025",
     spotifyUrl: "https://open.spotify.com/track/0pGecxPm2EOIQgc241d38t?si=e97ef6a7bea641d1",
     appleMusicUrl: "https://music.apple.com/us/album/us-against-the-world-remix/1670656975?i=1670656977",
   },

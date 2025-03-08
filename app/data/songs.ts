@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "17",
+    artist: "MK",
+    album: "17 - Single",
+    releaseDate: "September 1, 2017",
+    albumArt: "https://i.scdn.co/image/ab67616d0000b273ee9487095bf2e593ac06f0d3",
+    date: "March 8, 2025",
+    spotifyUrl: "https://open.spotify.com/track/15DwFznkBJir7AK9PyMyRR?si=46738986b06947b6",
+    appleMusicUrl: "https://music.apple.com/us/album/17/1269598149?i=1269598586",
+  },
+  {
     title: "Miss Me (feat. Lil Wayne)",
     artist: "Drake",
     album: "Thank Me Later",

@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Places",
+    artist: "Martin Solveig",
+    album: "Places - Single",
+    releaseDate: "March 25, 2016",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/ff/16/3e/ff163eaa-1271-c2ae-88b2-81c8c19ee957/00602557265057.rgb.jpg/1200x1200bb.jpg",
+    date: "March 10, 2025",
+    spotifyUrl: "https://open.spotify.com/track/4QcDkuGQx9824a6X9BZF4e?si=5fe1396723604536",
+    appleMusicUrl: "https://music.apple.com/us/album/places-feat-ina-wroldsen/1444854311?i=1444854315",
+  },
+  {
     title: "17",
     artist: "MK",
     album: "17 - Single",

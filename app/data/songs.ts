@@ -12,12 +12,22 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "COLLEGE PARK SPRING MIX 2022",
+    artist: "Robby Weitzman",
+    album: "COLLEGE PARK SPRING MIX 2022 - Single",
+    releaseDate: "March 10, 2022",
+    albumArt: "https://www.dailylocal.com/wp-content/uploads/2021/08/9c77544cc7b45982097e9c723a72f1a6.jpg?w=1200&resize=900,900",
+    date: "March 10, 2025",
+    spotifyUrl: "https://soundcloud.com/robbyweitzman/college-park-spring-mix-2022",
+    appleMusicUrl: "https://soundcloud.com/robbyweitzman/college-park-spring-mix-2022",
+  },
+  {
     title: "Places",
     artist: "Martin Solveig",
     album: "Places - Single",
     releaseDate: "March 25, 2016",
     albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/ff/16/3e/ff163eaa-1271-c2ae-88b2-81c8c19ee957/00602557265057.rgb.jpg/1200x1200bb.jpg",
-    date: "March 10, 2025",
+    date: "March 9, 2025",
     spotifyUrl: "https://open.spotify.com/track/4QcDkuGQx9824a6X9BZF4e?si=5fe1396723604536",
     appleMusicUrl: "https://music.apple.com/us/album/places-feat-ina-wroldsen/1444854311?i=1444854315",
   },

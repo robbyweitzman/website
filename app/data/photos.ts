@@ -79,7 +79,7 @@ export const photos: Photo[] = [
     },
     {
       id: "7",
-      src: "/photos/Blue Defender.jpg",
+      src: "/photos/Blue Defender.jpeg",
       alt: "Blue Defender",
       title: "Blue Defender",
       camera: "Canon A1",

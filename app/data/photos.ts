@@ -19,8 +19,8 @@ export const photos: Photo[] = [
       camera: "Canon A1",
       film: "Kodak Color Plus",
       date: "September 16, 2024",
-      width: 900,
-      height: 600,
+      width: 2700,
+      height: 1800,
     },
     {
       id: "2",
@@ -30,8 +30,8 @@ export const photos: Photo[] = [
       camera: "Canon A1",
       film: "Kodak UltraMax",
       date: "September 22, 2024",
-      width: 900,
-      height: 600,
+      width: 2700,
+      height: 1800,
     },
      {
       id: "3",
@@ -41,8 +41,8 @@ export const photos: Photo[] = [
       camera: "Canon A1",
       film: "Kodak UltraMax",
       date: "September 22, 2024",
-      width: 900,
-      height: 600,
+      width: 2700,
+      height: 1800,
     },
     {
       id: "4",
@@ -52,8 +52,8 @@ export const photos: Photo[] = [
       camera: "Canon A1",
       film: "Kodak UltraMax",
       date: "September 22, 2024",
-      width: 900,
-      height: 600,
+      width: 2700,
+      height: 1800,
     },
     {
       id: "5",
@@ -63,8 +63,8 @@ export const photos: Photo[] = [
       camera: "Nikon F4",
       film: "Kodak UltraMax",
       date: "September 14, 2024",
-      width: 900,
-      height: 600,
+      width: 2700,
+      height: 1800,
     },
     {
       id: "6",
@@ -74,8 +74,8 @@ export const photos: Photo[] = [
       camera: "Nikon F4",
       film: "Kodak UltraMax",
       date: "September 14, 2024",
-      width: 900,
-      height: 600,
+      width: 2700,
+      height: 1800,
     },
     {
       id: "7",
@@ -85,8 +85,8 @@ export const photos: Photo[] = [
       camera: "Canon A1",
       film: "Kodak UltraMax",
       date: "September 22, 2024",
-      width: 900,
-      height: 600,
+      width: 2700,
+      height: 1800,
     },
     {
       id: "8",
@@ -96,8 +96,8 @@ export const photos: Photo[] = [
       camera: "Canon A1",
       film: "Kodak UltraMax",
       date: "September 22, 2024",
-      width: 900,
-      height: 600,
+      width: 2700,
+      height: 1800,
     },
     {
       id: "9",
@@ -107,8 +107,8 @@ export const photos: Photo[] = [
       camera: "Canon A1",
       film: "Kodak Portra 800",
       date: "September 21, 2024",
-      width: 900,
-      height: 600,
+      width: 2700,
+      height: 1800,
     },
   ]
 

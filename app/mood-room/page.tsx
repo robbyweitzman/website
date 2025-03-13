@@ -84,8 +84,8 @@ const initialPhotos: Omit<Photo, "position" | "rotation" | "zIndex">[] = [
     id: "10",
     src: "/mood-room/iPod Classic.png",
     alt: "iPod Classic",
-    width: 568,
-    height: 954,
+    width: 284,
+    height: 477,
   },
 ]
 

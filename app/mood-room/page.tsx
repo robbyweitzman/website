@@ -80,6 +80,13 @@ const initialPhotos: Omit<Photo, "position" | "rotation" | "zIndex">[] = [
     width: 2464,
     height: 1234,
   },
+  {
+    id: "10",
+    src: "/mood-room/iPod Classic.png",
+    alt: "iPod Classic",
+    width: 568,
+    height: 954,
+  },
 ]
 
 export default function MoodRoomPage() {

@@ -12,14 +12,24 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Lifeline (feat. Aiko)",
+    artist: "Punctual",
+    album: "Lifeline (feat. Aiko) - Single",
+    releaseDate: "December 13, 2024",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/05/3c/4a/053c4a61-1e93-53ee-613b-8f84d0d1de99/cover.jpg/632x632bb.webp",
+    date: "March 10, 2025",
+    spotifyUrl: "https://soundcloud.com/robbyweitzman/college-park-spring-mix-2022",
+    appleMusicUrl: "https://soundcloud.com/robbyweitzman/college-park-spring-mix-2022",
+  },
+  {
     title: "COLLEGE PARK SPRING MIX 2022",
     artist: "Robby Weitzman",
     album: "COLLEGE PARK SPRING MIX 2022 - Single",
     releaseDate: "March 10, 2022",
     albumArt: "https://www.dailylocal.com/wp-content/uploads/2021/08/9c77544cc7b45982097e9c723a72f1a6.jpg?w=1200&resize=900,900",
-    date: "March 10, 2025",
-    spotifyUrl: "https://soundcloud.com/robbyweitzman/college-park-spring-mix-2022",
-    appleMusicUrl: "https://soundcloud.com/robbyweitzman/college-park-spring-mix-2022",
+    date: "March 30, 2025",
+    spotifyUrl: "https://open.spotify.com/track/2hFvHni0OW4MTBvRGAtiw9",
+    appleMusicUrl: "https://music.apple.com/us/album/lifeline-feat-aiko/1780576751?i=1780577059",
   },
   {
     title: "Places",

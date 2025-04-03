@@ -12,14 +12,24 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Fire & Desire",
+    artist: "Drake",
+    album: "Views",
+    releaseDate: "April 29, 2016",
+    albumArt: "https://cdn-images.dzcdn.net/images/cover/56bdb7a86a27fadb96332c0c8f1b8e81/0x1900-000000-80-0-0.jpg",
+    date: "April 3, 2025",
+    spotifyUrl: "https://open.spotify.com/track/4BhGTc3Cgay2U1QcTS7vQe",
+    appleMusicUrl: "https://music.apple.com/us/song/fire-desire/1440841725",
+  },
+  {
     title: "Lifeline (feat. Aiko)",
     artist: "Punctual",
     album: "Lifeline (feat. Aiko) - Single",
     releaseDate: "December 13, 2024",
     albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/05/3c/4a/053c4a61-1e93-53ee-613b-8f84d0d1de99/cover.jpg/632x632bb.webp",
-    date: "March 10, 2025",
-    spotifyUrl: "https://soundcloud.com/robbyweitzman/college-park-spring-mix-2022",
-    appleMusicUrl: "https://soundcloud.com/robbyweitzman/college-park-spring-mix-2022",
+    date: "March 30, 2025",
+    spotifyUrl: "https://open.spotify.com/track/2hFvHni0OW4MTBvRGAtiw9",
+    appleMusicUrl: "https://music.apple.com/us/album/lifeline-feat-aiko/1780576751?i=1780577059",
   },
   {
     title: "COLLEGE PARK SPRING MIX 2022",

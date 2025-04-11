@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Through My System (feat. Emi Grace)",
+    artist: "it's murph & Arlo",
+    album: "Through My System (feat. Emi Grace) - Single",
+    releaseDate: "April 11, 2025",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f7/ca/f3/f7caf3f2-2956-9609-85d2-beee8efbe92d/193436422123_TMSFINAL.jpg/632x632bb.webp",
+    date: "April 11, 2025",
+    spotifyUrl: "https://open.spotify.com/track/30uUMdzRVdYd9KuP9rJXxo?si=6AsNdoWFTqeCh-DQBCglqA&nd=1&dlsi=d183d0d64ef64fe7",
+    appleMusicUrl: "https://music.apple.com/us/album/through-my-system-feat-emi-grace/1805658460?i=1805658462",
+  },
+  {
     title: "Fire & Desire",
     artist: "Drake",
     album: "Views",

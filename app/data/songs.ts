@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Yebba's Heartbreak",
+    artist: "Yebba",
+    album: "Certified Lover Boy",
+    releaseDate: "September 3, 2021",
+    albumArt: "https://media.pitchfork.com/photos/613214a114458bf5df99f2a9/1:1/w_3000,h_3000,c_limit/Drake-Certified-Lover-Boy.png",
+    date: "April 15, 2025",
+    spotifyUrl: "https://open.spotify.com/track/1PDP7mLiAMwhfmgIwzhOm2",
+    appleMusicUrl: "https://music.apple.com/us/album/yebbas-heartbreak/1584281467?i=1584281783",
+  },
+  {
     title: "Through My System (feat. Emi Grace)",
     artist: "it's murph & Arlo",
     album: "Through My System (feat. Emi Grace) - Single",

@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Forever",
+    artist: "Chris Brown",
+    album: "Forever - EP",
+    releaseDate: "November 2, 2007",
+    albumArt: "https://upload.wikimedia.org/wikipedia/en/e/e8/Chris_brown_4ever.jpg",
+    date: "April 21, 2025",
+    spotifyUrl: "https://open.spotify.com/track/3NZJlJemX3mzjf56MqC5ML?si=8ad3c75f94e0487a",
+    appleMusicUrl: "https://music.apple.com/us/album/forever-main-version/282988493?i=282988494",
+  },
+  {
     title: "Yebba's Heartbreak",
     artist: "Yebba",
     album: "Certified Lover Boy",

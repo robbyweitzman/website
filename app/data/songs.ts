@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "What Would Pluto Do",
+    artist: "Drake",
+    album: "For All the Dogs",
+    releaseDate: "November 2, 2007",
+    albumArt: "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0235fba7-d96c-4d90-a4f2-854458461d08_1200x1200.jpeg",
+    date: "April 28, 2025",
+    spotifyUrl: "https://open.spotify.com/track/1DAibqbopEYULPEtE8WHTE",
+    appleMusicUrl: "https://music.apple.com/us/album/what-would-pluto-do/1710685602?i=1710685813",
+  },
+  {
     title: "Forever",
     artist: "Chris Brown",
     album: "Forever - EP",

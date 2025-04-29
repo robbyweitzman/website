@@ -315,10 +315,18 @@ export const getSongsWithIds = () => {
 export const getCurrentSong = () => {
   const today = new Date()
   const songsWithIds = getSongsWithIds()
-  return songsWithIds.find(song => {
-    const songDate = new Date(song.date)
-    return songDate <= today
-  }) || songsWithIds[0]
+  
+  // Sort songs by date in ascending order
+  const sortedSongs = [...songsWithIds].sort((a, b) => 
+    new Date(a.date).getTime() - new Date(b.date).getTime()
+  )
+  
+  // Find the first song that hasn't happened yet
+  const nextSong = sortedSongs.find(song => 
+    new Date(song.date) >= today
+  )
+  
+  return nextSong || sortedSongs[sortedSongs.length - 1]
 }
 
 // Get all songs with IDs

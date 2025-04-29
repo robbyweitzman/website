@@ -12,6 +12,26 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Rock With You",
+    artist: "Michael Jackson",
+    album: "Off the Wall",
+    releaseDate: "July 10, 1979",
+    albumArt: "https://m.media-amazon.com/images/I/812EgYpATnL._UF1000,1000_QL80_.jpg",
+    date: "April 30, 2025",
+    spotifyUrl: "https://open.spotify.com/track/7oOOI85fVQvVnK5ynNMdW7?si=aa610ef4d3564525",
+    appleMusicUrl: "https://music.apple.com/us/album/rock-with-you/186166282?i=186166358",
+  },
+  {
+    title: "Shake That Thing",
+    artist: "Winfield Parker",
+    album: "Cooler Than Ice",
+    releaseDate: "April 26, 1969",
+    albumArt: "https://i.discogs.com/0BxBwbvuledCAv74jpjxW5Nho8dMcR386pZV_aPwwOM/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwMzk2/NTQtMTMxMjkwMzgz/Ni5qcGVn.jpeg",
+    date: "April 29, 2025",
+    spotifyUrl: "https://open.spotify.com/track/25sLaGv0IUBZ5Mqf5sKOC9",
+    appleMusicUrl: "https://music.apple.com/us/album/shake-that-thing/587662361?i=587662885",
+  },
+  {
     title: "What Would Pluto Do",
     artist: "Drake",
     album: "For All the Dogs",

@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "In the Moment (Adriatique Remix)",
+    artist: "RÜFÜS DU SOL",
+    album: "Inhale / Exhale Remixed",
+    releaseDate: "April 4, 2025",
+    albumArt: "https://images.genius.com/b87f3ce8001702e20fa41b3f889ba6a4.1000x1000x1.png",
+    date: "May 4, 2025",
+    spotifyUrl: "https://open.spotify.com/track/6YmTRcr74slEya3cvMsR6y",
+    appleMusicUrl: "https://music.apple.com/ie/song/in-the-moment-adriatique-remix/1805279587",
+  },
+  {
     title: "Rock With You",
     artist: "Michael Jackson",
     album: "Off the Wall",

@@ -134,6 +134,8 @@ const posts: BlogPost[] = [
       <br /><br />
       Feature request: Include an easy way to import a Github repository/tree of folders and files into v0.dev. Currently, if I wanted to copy what I have in Github into v0.dev, I’d have to manually create each folder/file in v0.dev (please correct me if I’m wrong or if there are others ways!)
       <br /><br />
+      <i>Edit: February 24, 2025 — Soon after writing this, I discovered this feature request is solved by Cursor.</i>
+      <br /><br />
       <i>February 23, 2025</i>
     </>
   ),

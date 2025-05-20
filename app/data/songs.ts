@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Maria Maria (feat. The Product G&B)",
+    artist: "Santana",
+    album: "Supernatural",
+    releaseDate: "June 15, 1999",
+    albumArt: "https://santana-online-store.myshopify.com/cdn/shop/files/SUPERNATURALLP-FRONT.jpg?v=1700158605",
+    date: "May 20, 2025",
+    spotifyUrl: "https://open.spotify.com/track/567UAkWoLBqZ709s3Qcbze",
+    appleMusicUrl: "https://music.apple.com/us/album/maria-maria-feat-the-product-g-b-radio-mix/354579273?i=354579342",
+  },
+  {
     title: "In the Moment (Adriatique Remix)",
     artist: "RÜFÜS DU SOL",
     album: "Inhale / Exhale Remixed",

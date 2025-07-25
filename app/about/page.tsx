@@ -31,6 +31,22 @@ export default function AboutPage() {
       <div className="container px-8 md:px-16 py-12 mx-auto">
         <div className="max-w-[800px] mx-auto">
           <div className="relative">
+            {/* Anthropic */}
+            <div className="relative mb-16">
+              <div className="flex flex-col md:flex-row items-start gap-8">
+                <div className="flex-1 order-2 md:order-1 md:text-right">
+                  <h3 className="font-semibold mb-2">Anthropic</h3>
+                  <p className="text-sm text-muted-foreground">New York City</p>
+                  <p className="text-sm text-muted-foreground">25 years old - present</p>
+                </div>
+                <div className="w-3 h-3 rounded-full bg-foreground relative z-10 mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background" />
+                <div className="flex-1 order-3">
+                  <p className="font-medium">GTM</p>
+                  <p className="text-sm text-muted-foreground">June 2025 - Present</p>
+                </div>
+              </div>
+            </div>
+
             {/* Website */}
             <div className="relative mb-16">
               <div className="flex flex-col md:flex-row items-start gap-8">

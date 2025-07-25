@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Which One",
+    artist: "Drake & Central Cee",
+    album: "Which One - Single",
+    releaseDate: "July 25, 2025",
+    albumArt: "https://linkstorage.linkfire.com/medialinks/images/ce826d51-9582-41c7-8a1e-e037775a60ca/artwork-440x440.jpg",
+    date: "July 25, 2025",
+    spotifyUrl: "https://open.spotify.com/track/5FMyXeZ0reYloRTiCkPprT",
+    appleMusicUrl: "https://music.apple.com/us/album/which-one/1828770371?i=1828770374",
+  },
+  {
     title: "Maria Maria (feat. The Product G&B)",
     artist: "Santana",
     album: "Supernatural",

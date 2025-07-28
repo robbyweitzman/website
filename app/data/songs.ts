@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "It's Not Right (&friends Remake]",
+    artist: "Gianni Romano, Emanuele Esposito, &friends",
+    album: "It's Not Right (&friends Remake) [feat. Helen Tesfazghi] [Radio Edit] - Single",
+    releaseDate: "March 21, 2025",
+    albumArt: "https://m.media-amazon.com/images/I/41enGcYhOVL._UXNaN_FMjpg_QL85_.jpg",
+    date: "July 28, 2025",
+    spotifyUrl: "https://open.spotify.com/track/0O1YaJDvpujsFmugniiFA6",
+    appleMusicUrl: "https://music.apple.com/us/album/its-not-right-friends-remake-feat-helen-tesfazghi-radio/1798200981?i=1798200995",
+  },
+  {
     title: "Which One",
     artist: "Drake & Central Cee",
     album: "Which One - Single",

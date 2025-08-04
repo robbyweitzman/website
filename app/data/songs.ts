@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Hey, Hey, What Can I Do",
+    artist: "Led Zepplin",
+    album: "Coda (Deluxe Edition",
+    releaseDate: "November 5, 1970",
+    albumArt: "https://i.scdn.co/image/ab67616d0000b2733b7bf70364c3f8643723398e",
+    date: "August 4, 2025",
+    spotifyUrl: "https://open.spotify.com/track/16VhHtoaOjTU4AJBNSBNQ1?si=e95346c635e6467b",
+    appleMusicUrl: "https://music.apple.com/us/album/hey-hey-what-can-i-do/999609825?i=999609842",
+  },
+  {
     title: "It's Not Right (&friends Remake]",
     artist: "Gianni Romano, Emanuele Esposito, &friends",
     album: "It's Not Right (&friends Remake) [feat. Helen Tesfazghi] [Radio Edit] - Single",

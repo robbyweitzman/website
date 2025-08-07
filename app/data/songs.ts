@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Never Walk Alone (Alex Wann Remix)",
+    artist: "BLOND:ISH & Stevie Appleton",
+    album: "Never Walk Alone (Alex Wann Remix) - Single",
+    releaseDate: "November 5, 1970",
+    albumArt: "https://i1.sndcdn.com/artworks-kpOgu3NQ6JKmhTtI-lUldpA-t500x500.png",
+    date: "August 7, 2025",
+    spotifyUrl: "https://open.spotify.com/track/4thF83xkGC9hLkzQ6TnW09",
+    appleMusicUrl: "https://music.apple.com/us/album/never-walk-alone-alex-wann-remix/1816199322?i=1816199323",
+  },
+  {
     title: "Hey, Hey, What Can I Do",
     artist: "Led Zepplin",
     album: "Coda (Deluxe Edition",

@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Ramble On",
+    artist: "Led Zepplin",
+    album: "Led Zeppelin II (Remastered)",
+    releaseDate: "October 22, 1969",
+    albumArt: "https://m.media-amazon.com/images/I/71+zclNEaeL.jpg",
+    date: "August 8, 2025",
+    spotifyUrl: "https://open.spotify.com/track/1oCOp1kVAgNlXX9Tx9mvzq",
+    appleMusicUrl: "https://music.apple.com/us/album/ramble-on/580708374?i=580708477",
+  },
+  {
     title: "Never Walk Alone (Alex Wann Remix)",
     artist: "BLOND:ISH & Stevie Appleton",
     album: "Never Walk Alone (Alex Wann Remix) - Single",

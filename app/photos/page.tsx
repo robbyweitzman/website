@@ -34,7 +34,8 @@ export default function PhotosPage() {
   }, [currentPhotoIndex])
 
   // Handle photo selection from grid
-  const handlePhotoSelect = useCallback((photo: Photo) => {
+  const handlePhotoSelect = useCallback((photo: Photo, e?: React.MouseEvent) => {
+    e?.preventDefault()
     const index = photos.findIndex(p => p.id === photo.id)
     setCurrentPhotoIndex(index)
     setSelectedPhoto(photo)
@@ -117,7 +118,8 @@ export default function PhotosPage() {
             {photos.map((photo) => (
               <button
                 key={photo.id}
-                onClick={() => handlePhotoSelect(photo)}
+                type="button"
+                onClick={(e) => handlePhotoSelect(photo, e)}
                 className="w-full aspect-[3/4] rounded-lg overflow-hidden focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
               >
                 <Image
@@ -168,7 +170,7 @@ export default function PhotosPage() {
                     alt={selectedPhoto.alt}
                     width={1200}
                     height={800}
-                    className={`w-full h-auto object-contain max-h-[80vh] rounded-lg shadow-lg transition-opacity duration-200 ${modalImageLoading ? 'opacity-0' : 'opacity-100'}`}
+                    className={`w-full h-auto object-contain max-h-[60vh] sm:max-h-[70vh] md:max-h-[80vh] rounded-lg shadow-lg transition-opacity duration-200 ${modalImageLoading ? 'opacity-0' : 'opacity-100'}`}
                     priority
                     sizes="(max-width: 768px) 95vw, 80vw"
                     onLoad={() => setModalImageLoading(false)}
@@ -214,7 +216,8 @@ export default function PhotosPage() {
               {/* Navigation arrows - bottom right */}
               <div className="absolute bottom-4 right-4 flex gap-2 z-10">
                 <button
-                  onClick={navigateToPrevious}
+                  type="button"
+                  onClick={(e) => { e.preventDefault(); navigateToPrevious(); }}
                   className="p-2 rounded-full bg-background/90 hover:bg-background border border-border shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                   disabled={currentPhotoIndex === 0}
                   aria-label="Previous photo"
@@ -223,7 +226,8 @@ export default function PhotosPage() {
                 </button>
                 
                 <button
-                  onClick={navigateToNext}
+                  type="button"
+                  onClick={(e) => { e.preventDefault(); navigateToNext(); }}
                   className="p-2 rounded-full bg-background/90 hover:bg-background border border-border shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                   disabled={currentPhotoIndex === photos.length - 1}
                   aria-label="Next photo"

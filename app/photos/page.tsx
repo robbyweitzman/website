@@ -10,10 +10,14 @@ import Image from "next/image"
 export default function PhotosPage() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null)
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
+  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set())
+  const [modalImageLoading, setModalImageLoading] = useState(false)
+  const [preloadedImages] = useState<Map<string, HTMLImageElement>>(new Map())
 
   // Navigation functions
   const navigateToNext = useCallback(() => {
     if (currentPhotoIndex < photos.length - 1) {
+      setModalImageLoading(true)
       const nextIndex = currentPhotoIndex + 1
       setCurrentPhotoIndex(nextIndex)
       setSelectedPhoto(photos[nextIndex])
@@ -22,6 +26,7 @@ export default function PhotosPage() {
 
   const navigateToPrevious = useCallback(() => {
     if (currentPhotoIndex > 0) {
+      setModalImageLoading(true)
       const prevIndex = currentPhotoIndex - 1
       setCurrentPhotoIndex(prevIndex)
       setSelectedPhoto(photos[prevIndex])
@@ -33,6 +38,27 @@ export default function PhotosPage() {
     const index = photos.findIndex(p => p.id === photo.id)
     setCurrentPhotoIndex(index)
     setSelectedPhoto(photo)
+    setModalImageLoading(true)
+    
+    // Preload adjacent images for better navigation (limit memory usage)
+    const preloadImage = (src: string, id: string) => {
+      if (preloadedImages.has(id)) return
+      
+      // Limit preloaded images to 3 to save memory
+      if (preloadedImages.size >= 3) {
+        const firstKey = preloadedImages.keys().next().value
+        if (firstKey) {
+          preloadedImages.delete(firstKey)
+        }
+      }
+      
+      const img = new window.Image()
+      img.src = src
+      preloadedImages.set(id, img)
+    }
+    
+    if (index > 0) preloadImage(photos[index - 1].src, photos[index - 1].id)
+    if (index < photos.length - 1) preloadImage(photos[index + 1].src, photos[index + 1].id)
   }, [])
 
   // Handle keyboard navigation
@@ -95,12 +121,17 @@ export default function PhotosPage() {
                 className="w-full aspect-[3/4] rounded-lg overflow-hidden focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
               >
                 <Image
-                  src={photo.src || "/placeholder.svg"}
+                  src={imageErrors.has(photo.id) ? "/placeholder.svg" : photo.src}
                   alt={photo.alt}
-                  width={900}
-                  height={600}
+                  width={300}
+                  height={400}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  unoptimized
+                  priority={photo.id === "1" || photo.id === "2"}
+                  loading={photo.id === "1" || photo.id === "2" ? "eager" : "lazy"}
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  onError={() => {
+                    setImageErrors(prev => new Set(prev).add(photo.id))
+                  }}
                 />
               </button>
             ))}
@@ -108,7 +139,18 @@ export default function PhotosPage() {
         </div>
       </div>
 
-      <Dialog open={!!selectedPhoto} onOpenChange={() => setSelectedPhoto(null)}>
+      <Dialog 
+        open={!!selectedPhoto} 
+        onOpenChange={() => {
+          setSelectedPhoto(null)
+          // Force garbage collection of modal content
+          setTimeout(() => {
+            if (window.gc) {
+              window.gc()
+            }
+          }, 100)
+        }}
+      >
         <DialogContent className="max-w-[95vw] sm:max-w-[90vw] md:max-w-6xl lg:max-w-7xl max-h-[95vh] p-4 sm:p-6 md:p-8 overflow-hidden">
           {selectedPhoto && (
             <div className="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-start h-full relative">
@@ -116,13 +158,24 @@ export default function PhotosPage() {
               {/* Photo */}
               <div className="flex-1 min-w-0 relative">
                 <div className="relative max-w-md mx-auto md:max-w-none">
+                  {modalImageLoading && (
+                    <div className="w-full h-80 bg-muted rounded-lg flex items-center justify-center">
+                      <div className="animate-pulse text-muted-foreground">Loading...</div>
+                    </div>
+                  )}
                   <Image
-                    src={selectedPhoto.src || "/placeholder.svg"}
+                    src={imageErrors.has(selectedPhoto.id) ? "/placeholder.svg" : selectedPhoto.src}
                     alt={selectedPhoto.alt}
                     width={1200}
                     height={800}
-                    className="w-full h-auto object-contain max-h-[80vh] rounded-lg shadow-lg"
-                    unoptimized
+                    className={`w-full h-auto object-contain max-h-[80vh] rounded-lg shadow-lg transition-opacity duration-200 ${modalImageLoading ? 'opacity-0' : 'opacity-100'}`}
+                    priority
+                    sizes="(max-width: 768px) 95vw, 80vw"
+                    onLoad={() => setModalImageLoading(false)}
+                    onError={() => {
+                      setModalImageLoading(false)
+                      setImageErrors(prev => new Set(prev).add(selectedPhoto.id))
+                    }}
                   />
                 </div>
               </div>

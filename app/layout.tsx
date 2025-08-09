@@ -3,6 +3,13 @@ import "./globals.css"
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  userScalable: true,
+}
+
 export const metadata = {
   generator: 'v0.dev',
   icons: {

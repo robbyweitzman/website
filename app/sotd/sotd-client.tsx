@@ -453,7 +453,7 @@ export default function SotdClient({ allSongs }: SotdClientProps) {
       </div>
 
       <Dialog open={!!selectedSong} onOpenChange={() => setSelectedSong(null)}>
-        <DialogContent className="max-w-[95vw] sm:max-w-[90vw] md:max-w-4xl max-h-[95vh] p-4 sm:p-6 md:p-8 overflow-hidden">
+        <DialogContent className="max-w-[85vw] sm:max-w-[90vw] md:max-w-4xl max-h-[95vh] p-4 sm:p-6 md:p-8 overflow-hidden">
           {selectedSong && (
             <div className="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-start h-full">
               {/* Loading state */}
@@ -464,8 +464,8 @@ export default function SotdClient({ allSongs }: SotdClientProps) {
               )}
               
               {/* Album Art */}
-              <div className="flex-1 min-w-0 relative">
-                <div className="relative aspect-square max-w-md mx-auto md:max-w-none">
+              <div className="flex-1 min-w-0 relative flex justify-center">
+                <div className="relative aspect-square max-w-[200px] sm:max-w-[250px] md:max-w-none">
                   <img
                     src={selectedSong.albumArt || "/placeholder.svg"}
                     alt={`${selectedSong.title} by ${selectedSong.artist}`}
@@ -479,24 +479,21 @@ export default function SotdClient({ allSongs }: SotdClientProps) {
                 <div className="flex-1">
                   {/* Song Info */}
                   <div className="space-y-3 mb-4 sm:mb-6">
-                    <div className="space-y-2">
+                    <div className="space-y-1">
                       <h3 className="text-lg sm:text-xl md:text-2xl font-bold leading-tight">
                         {selectedSong.title}
                       </h3>
                       <p className="text-base sm:text-lg text-muted-foreground font-medium">
                         {selectedSong.artist}
                       </p>
+                      <p className="text-sm text-muted-foreground font-medium">{selectedSong.album}</p>
+                      <p className="text-sm text-muted-foreground">Release Date: {selectedSong.releaseDate}</p>
                       
                       {/* Song of the Day badge */}
-                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-primary/10 text-primary rounded-full border border-primary/20">
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-primary/10 text-primary rounded-full border border-primary/20 mt-2">
                         <Music2 className="h-3 w-3" />
                         <span className="text-xs font-medium">Song of the Day: {selectedSong.date}</span>
                       </div>
-                    </div>
-                    
-                    <div className="space-y-1 text-sm text-muted-foreground">
-                      <p className="font-medium">{selectedSong.album}</p>
-                      <p>Release Date: {selectedSong.releaseDate}</p>
                     </div>
                   </div>
                   
@@ -542,11 +539,6 @@ export default function SotdClient({ allSongs }: SotdClientProps) {
                       </a>
                     </div>
                   </div>
-                </div>
-                
-                {/* Mobile close hint */}
-                <div className="md:hidden text-center pt-8">
-                  <p className="text-xs text-muted-foreground">Tap outside to close</p>
                 </div>
               </div>
             </div>

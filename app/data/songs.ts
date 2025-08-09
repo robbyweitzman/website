@@ -34,7 +34,7 @@ export const songs: Song[] = [
   {
     title: "Hey, Hey, What Can I Do",
     artist: "Led Zepplin",
-    album: "Coda (Deluxe Edition",
+    album: "Coda (Deluxe Edition)",
     releaseDate: "November 5, 1970",
     albumArt: "https://i.scdn.co/image/ab67616d0000b2733b7bf70364c3f8643723398e",
     date: "August 4, 2025",

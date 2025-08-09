@@ -182,55 +182,94 @@ export default function Page() {
 
       {/* Song Dialog */}
       <Dialog open={!!selectedSong} onOpenChange={() => setSelectedSong(null)}>
-        <DialogContent className="max-w-[90vw] max-h-[90vh] p-8">
-          <button
-            onClick={() => setSelectedSong(null)}
-            className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
-          >
-            <X className="h-4 w-4" />
-            <span className="sr-only">Close</span>
-          </button>
-
+        <DialogContent className="max-w-[95vw] sm:max-w-[90vw] md:max-w-4xl max-h-[95vh] p-4 sm:p-6 md:p-8 overflow-hidden">
           {selectedSong && (
-            <div className="flex flex-col md:flex-row gap-8 items-start">
-              <div className="flex-1">
-                <Image
-                  src={selectedSong.albumArt || "/placeholder.svg"}
-                  alt={`${selectedSong.title} by ${selectedSong.artist}`}
-                  width={800}
-                  height={800}
-                  className="w-full h-auto object-contain max-h-[75vh] rounded-lg"
-                  unoptimized
-                />
-              </div>
-              <div className="w-full md:w-64 space-y-6">
-                <div className="space-y-2">
-                  <h3 className="text-xl font-bold">{selectedSong.title}</h3>
-                  <p className="text-gray-600">{selectedSong.artist}</p>
-                  <p className="text-gray-600">{selectedSong.album}</p>
-                  <p className="text-gray-600">{selectedSong.releaseDate}</p>
+            <div className="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-start h-full">
+              {/* Album Art */}
+              <div className="flex-1 min-w-0 relative">
+                <div className="relative aspect-square max-w-md mx-auto md:max-w-none">
+                  <Image
+                    src={selectedSong.albumArt || "/placeholder.svg"}
+                    alt={`${selectedSong.title} by ${selectedSong.artist}`}
+                    width={800}
+                    height={800}
+                    className="w-full h-full object-cover rounded-lg shadow-lg"
+                    unoptimized
+                  />
                 </div>
-                <div className="pt-6 border-t space-y-4">
-                  <a
-                    href={selectedSong.spotifyUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-gray-600 hover:text-black transition-colors"
-                  >
-                    <Music2 className="h-4 w-4" />
-                    Listen on Spotify
-                    <ExternalLink className="h-3 w-3" />
-                  </a>
-                  <a
-                    href={selectedSong.appleMusicUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-gray-600 hover:text-black transition-colors"
-                  >
-                    <Music2 className="h-4 w-4" />
-                    Listen on Apple Music
-                    <ExternalLink className="h-3 w-3" />
-                  </a>
+              </div>
+              
+              {/* Song Details */}
+              <div className="w-full md:w-80 flex flex-col min-w-0 relative h-full">
+                <div className="flex-1">
+                  {/* Song Info */}
+                  <div className="space-y-3 mb-4 sm:mb-6">
+                    <div className="space-y-1">
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold leading-tight">
+                        {selectedSong.title}
+                      </h3>
+                      <p className="text-base sm:text-lg text-muted-foreground font-medium">
+                        {selectedSong.artist}
+                      </p>
+                      <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 rounded-full">
+                        <Music2 className="h-3 w-3 text-primary" />
+                        <span className="text-xs font-medium text-primary">Song of the Day: {selectedSong.date}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-1 text-sm text-muted-foreground">
+                      <p className="font-medium">{selectedSong.album}</p>
+                      <p>Release Date: {selectedSong.releaseDate}</p>
+                    </div>
+                  </div>
+                  
+                  {/* Streaming Links */}
+                  <div className="border-t pt-4 sm:pt-6 space-y-3">
+                    <h4 className="text-sm font-semibold text-foreground mb-3">Listen Now</h4>
+                    
+                    <div className="grid grid-cols-1 gap-3">
+                      <a
+                        href={selectedSong.spotifyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 p-3 rounded-lg border border-border bg-background/50 hover:bg-accent transition-all duration-200 group"
+                      >
+                        <div className="flex-shrink-0">
+                          <img src="/spotify_logo.png" alt="Spotify" className="h-5 w-5" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium group-hover:text-foreground transition-colors">
+                            Spotify
+                          </p>
+                          <p className="text-xs text-muted-foreground">Open in Spotify</p>
+                        </div>
+                        <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors flex-shrink-0" />
+                      </a>
+                      
+                      <a
+                        href={selectedSong.appleMusicUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 p-3 rounded-lg border border-border bg-background/50 hover:bg-accent transition-all duration-200 group"
+                      >
+                        <div className="flex-shrink-0">
+                          <img src="/apple_music_logo.png" alt="Apple Music" className="h-5 w-5" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium group-hover:text-foreground transition-colors">
+                            Apple Music
+                          </p>
+                          <p className="text-xs text-muted-foreground">Open in Apple Music</p>
+                        </div>
+                        <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors flex-shrink-0" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Mobile close hint */}
+                <div className="md:hidden text-center pt-8">
+                  <p className="text-xs text-muted-foreground">Tap outside to close</p>
                 </div>
               </div>
             </div>

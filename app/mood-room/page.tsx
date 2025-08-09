@@ -188,10 +188,10 @@ export default function MoodRoomPage() {
 
     // Required for Firefox
     e.dataTransfer.setData("text/plain", id)
-    // Make the drag image transparent
-    const img = document.createElement('img'); // Use the HTMLImageElement constructor
-img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-e.dataTransfer.setDragImage(img, 0, 0);
+    // Make the drag image transparent to prevent cursor changes
+    const img = document.createElement('img')
+    img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+    e.dataTransfer.setDragImage(img, 0, 0)
   }
 
   const handleDrag = (e: React.DragEvent) => {
@@ -245,7 +245,7 @@ e.dataTransfer.setDragImage(img, 0, 0);
               onDragStart={(e) => handleDragStart(e, photo.id)}
               onDrag={handleDrag}
               onDragEnd={handleDragEnd}
-              className="absolute cursor-move touch-none"
+              className={`absolute touch-none ${draggedPhoto === photo.id ? 'cursor-grabbing' : 'cursor-grab'}`}
               style={{
                 transform: `translate(${photo.position.x}px, ${photo.position.y}px) rotate(${photo.rotation}deg)`,
                 zIndex: photo.zIndex,

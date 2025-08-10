@@ -387,7 +387,7 @@ export default function SotdClient({ allSongs }: SotdClientProps) {
       <div className="relative h-[350px] sm:h-[400px] md:h-[450px] lg:h-[550px]">
         <div
           ref={containerRef}
-          className="relative w-full h-full perspective-[1000px] cursor-grab active:cursor-grabbing focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-lg"
+          className="relative w-full h-full perspective-[1000px] cursor-grab active:cursor-grabbing focus:outline-none rounded-lg"
           tabIndex={0}
           role="region"
           aria-label="Song carousel"

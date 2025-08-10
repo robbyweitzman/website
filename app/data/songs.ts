@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Listen to the Music",
+    artist: "The Doobie Brothers",
+    album: "Best of the Doobies (Remastered)",
+    releaseDate: "July 19, 1972",
+    albumArt: "https://i.scdn.co/image/ab67616d0000b273338ef055d7501cf241e7437e",
+    date: "August 10, 2025",
+    spotifyUrl: "https://open.spotify.com/track/2fja4gHzPsIXiK4bMeU0hN?si=dfa4cbadb18a41ed",
+    appleMusicUrl: "https://music.apple.com/us/album/listen-to-the-music/1110961242?i=1110962222",
+  },
+  {
     title: "Ramble On",
     artist: "Led Zepplin",
     album: "Led Zeppelin II (Remastered)",

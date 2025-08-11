@@ -45,7 +45,7 @@ export default function Page() {
           <div className="space-y-6 md:px-6">
             <div>
               <h2 className="text-2xl font-semibold">Ideas</h2>
-              <p className="text-gray-600">Some of my thoughts.</p>
+              <p className="text-gray-600">Some of my thoughts</p>
             </div>
             <div className="space-y-4" role="list">
               <article role="listitem">
@@ -91,15 +91,22 @@ export default function Page() {
                 <button
                   key={photo.id}
                   onClick={() => setSelectedPhoto(photo)}
-                  className="w-full h-[100px] rounded-lg overflow-hidden bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+                  className="relative w-full h-[200px] rounded-lg overflow-hidden bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 group"
                 >
                   <Image
                     src={photo.src || "/placeholder.svg"}
                     alt={photo.alt}
                     width={400}
                     height={400}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+                  <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
+                    <h3 className="font-medium text-sm mb-1 leading-tight">{photo.title}</h3>
+                    <div className="text-xs opacity-90">
+                      <p>{photo.film}</p>
+                    </div>
+                  </div>
                 </button>
               ))}
             </div>
@@ -109,7 +116,7 @@ export default function Page() {
           <div className="space-y-6 md:px-6">
             <div>
               <h2 className="text-2xl font-semibold">SOTD</h2>
-              <p className="text-gray-600">Song of the day.</p>
+              <p className="text-gray-600">Song of the day</p>
             </div>
 
             {/* Current Song */}

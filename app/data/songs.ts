@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "SPEED DEMON",
+    artist: "Justin Bieber",
+    album: "SWAG II",
+    releaseDate: "September 5, 2025",
+    albumArt: "https://ca-times.brightspotcdn.com/dims4/default/6868876/2147483647/strip/true/crop/3000x3000+0+0/resize/1200x1200!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F39%2F30%2F109724794e4991f8c21232322cb8%2Fjustin-bieber-swag-ii-1.jpg",
+    date: "September 8, 2025",
+    spotifyUrl: "https://open.spotify.com/track/4YmS7BALpAU0h4EAF4fYuh?si=44b570e0f50c45c3",
+    appleMusicUrl: "https://music.apple.com/us/album/speed-demon/1837867200?i=1837867201",
+  },
+  {
     title: "Listen to the Music",
     artist: "The Doobie Brothers",
     album: "Best of the Doobies (Remastered)",

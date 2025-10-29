@@ -1,4 +1,7 @@
+"use client"
+
 import Link from "next/link"
+import { DarkModeToggle } from "@/components/dark-mode-toggle"
 
 interface BlogPost {
   slug: string
@@ -150,33 +153,34 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <main className="min-h-screen bg-[#FFFAF1]">
+    <main className="min-h-screen bg-[#FFFAF1] dark:bg-background transition-colors">
       <header className="container px-8 md:px-16 py-6 mx-auto">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-lg font-medium hover:text-muted-foreground transition-colors">
+          <Link href="/" className="text-lg font-medium hover:text-gray-700 dark:text-foreground dark:hover:text-gray-300 transition-colors">
             robby weitzman
           </Link>
-          <div className="flex items-center gap-6">
-            <Link href="/mood-room" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <nav className="flex items-center gap-6">
+            <Link href="/mood-room" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
               mood room
             </Link>
-            <Link href="/photos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/photos" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
               photos
             </Link>
-            <Link href="/sotd" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/sotd" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
               sotd
             </Link>
-            <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/about" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
               about
             </Link>
-          </div>
+            <DarkModeToggle />
+          </nav>
         </div>
       </header>
 
       <article className="container px-8 md:px-16 py-12 mx-auto">
         <div className="max-w-[600px] mx-auto">
-          <h1 className="text-2xl font-semibold tracking-tight mb-8">{post.title}</h1>
-          <div className="prose prose-neutral">{post.content}</div>
+          <h1 className="text-2xl font-semibold tracking-tight mb-8 dark:text-foreground">{post.title}</h1>
+          <div className="prose prose-neutral dark:prose-invert max-w-none">{post.content}</div>
         </div>
       </article>
     </main>

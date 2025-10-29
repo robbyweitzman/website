@@ -4,6 +4,7 @@ import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { DarkModeToggle } from "@/components/dark-mode-toggle"
 
 interface Photo {
   id: string
@@ -211,7 +212,7 @@ export default function MoodRoomPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#FFFAF1] overflow-hidden">
+    <main className="min-h-screen bg-[#FFFAF1] dark:bg-background overflow-hidden transition-colors">
       <header className="container px-8 md:px-16 py-6 mx-auto">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-lg font-medium hover:text-muted-foreground transition-colors">
@@ -230,6 +231,7 @@ export default function MoodRoomPage() {
             <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               about
             </Link>
+            <DarkModeToggle />
           </div>
         </div>
       </header>
@@ -252,7 +254,7 @@ export default function MoodRoomPage() {
                 width: `${scaledDimensions.width}px`,
               }}
             >
-              <div className="w-full bg-white p-3 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="w-full bg-white dark:bg-gray-800 p-3 shadow-lg hover:shadow-xl transition-shadow">
                 <Image
                   src={photo.src || "/placeholder.svg"}
                   alt={photo.alt}

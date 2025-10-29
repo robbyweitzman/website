@@ -6,6 +6,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { ChevronLeft, ChevronRight, Camera } from "lucide-react"
 import { type Photo, photos } from "../data/photos"
 import Image from "next/image"
+import { DarkModeToggle } from "@/components/dark-mode-toggle"
 
 export default function PhotosPage() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null)
@@ -89,7 +90,7 @@ export default function PhotosPage() {
   }, [selectedPhoto, navigateToNext, navigateToPrevious])
 
   return (
-    <main className="min-h-screen bg-[#FFFAF1]">
+    <main className="min-h-screen bg-[#FFFAF1] dark:bg-background transition-colors">
       <header className="container px-8 md:px-16 py-6 mx-auto">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-lg font-medium hover:text-muted-foreground transition-colors">
@@ -108,6 +109,7 @@ export default function PhotosPage() {
             <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               about
             </Link>
+            <DarkModeToggle />
           </div>
         </div>
       </header>

@@ -1,10 +1,11 @@
 import Link from "next/link"
+import { DarkModeToggle } from "@/components/dark-mode-toggle"
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#FFFAF1] relative">
+    <main className="min-h-screen bg-[#FFFAF1] dark:bg-background relative transition-colors">
       {/* Timeline line that runs from top to the last bullet */}
-      <div className="absolute left-[29px] md:left-1/2 top-0 bottom-[100px] w-px bg-gray-200 transform md:-translate-x-1/2 z-0" />
+      <div className="absolute left-[29px] md:left-1/2 top-0 bottom-[100px] w-px bg-gray-200 dark:bg-gray-700 transform md:-translate-x-1/2 z-0" />
       
       <header className="container px-6 sm:px-8 md:px-16 py-4 md:py-6 mx-auto relative z-10">
         <div className="flex items-center justify-between">
@@ -24,6 +25,7 @@ export default function AboutPage() {
             <Link href="/about" className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors">
               about
             </Link>
+            <DarkModeToggle />
           </div>
         </div>
       </header>

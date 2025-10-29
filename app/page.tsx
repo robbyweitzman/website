@@ -7,6 +7,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { X, Music2, ExternalLink } from "lucide-react"
 import { type Photo, photos } from "./data/photos"
 import { type Song, getCurrentSong, getAllSongs } from "./data/songs"
+import { DarkModeToggle } from "@/components/dark-mode-toggle"
 
 export default function Page() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null)
@@ -16,49 +17,50 @@ export default function Page() {
   const previousSongs = allSongs.slice(1) // All songs except the current one
 
   return (
-    <main className="min-h-screen bg-[#FFFAF1]">
+    <main className="min-h-screen bg-[#FFFAF1] dark:bg-background transition-colors">
       <header className="container px-8 md:px-16 py-6 mx-auto">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-lg font-medium hover:text-gray-700 transition-colors">
+          <Link href="/" className="text-lg font-medium hover:text-gray-700 dark:text-foreground dark:hover:text-gray-300 transition-colors">
             robby weitzman
           </Link>
           <nav className="flex items-center gap-6">
-            <Link href="/mood-room" className="text-sm text-gray-600 hover:text-black transition-colors">
+            <Link href="/mood-room" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
               mood room
             </Link>
-            <Link href="/photos" className="text-sm text-gray-600 hover:text-black transition-colors">
+            <Link href="/photos" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
               photos
             </Link>
-            <Link href="/sotd" className="text-sm text-gray-600 hover:text-black transition-colors">
+            <Link href="/sotd" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
               sotd
             </Link>
-            <Link href="/about" className="text-sm text-gray-600 hover:text-black transition-colors">
+            <Link href="/about" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
               about
             </Link>
+            <DarkModeToggle />
           </nav>
         </div>
       </header>
 
       <div className="container px-8 md:px-16 py-12 mx-auto">
-        <div className="grid grid-cols-1 gap-12 md:gap-8 md:grid-cols-3 md:divide-x md:divide-gray-200">
+        <div className="grid grid-cols-1 gap-12 md:gap-8 md:grid-cols-3 md:divide-x md:divide-gray-200 dark:md:divide-gray-700">
           {/* Ideas Column */}
           <div className="space-y-6 md:px-6">
             <div>
-              <h2 className="text-2xl font-semibold">Ideas</h2>
-              <p className="text-gray-600">Some of my thoughts</p>
+              <h2 className="text-2xl font-semibold dark:text-foreground">Ideas</h2>
+              <p className="text-gray-600 dark:text-gray-400">Some of my thoughts</p>
             </div>
             <div className="space-y-4" role="list">
               <article role="listitem">
                 <Link 
                   href="/ideas/why-and-how-i-built-this-website" 
-                  className="block p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 active:bg-gray-200 md:hover:shadow-sm"
+                  className="block p-4 rounded-lg bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 active:bg-gray-200 dark:active:bg-gray-600 md:hover:shadow-sm"
                   aria-label="Read article: Why and how I built this website"
                 >
                   <div className="space-y-1">
-                    <h3 className="font-medium text-gray-900 group-hover:text-black">
+                    <h3 className="font-medium text-gray-900 dark:text-gray-100 group-hover:text-black dark:group-hover:text-white">
                       Why and how I built this website
                     </h3>
-                    <time className="text-xs text-gray-500" dateTime="2025-02-23">February 23, 2025</time>
+                    <time className="text-xs text-gray-500 dark:text-gray-400" dateTime="2025-02-23">February 23, 2025</time>
                   </div>
                 </Link>
               </article>
@@ -66,14 +68,14 @@ export default function Page() {
               <article role="listitem">
                 <Link 
                   href="/ideas/supernode-learnings" 
-                  className="block p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 active:bg-gray-200 md:hover:shadow-sm"
+                  className="block p-4 rounded-lg bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 active:bg-gray-200 dark:active:bg-gray-600 md:hover:shadow-sm"
                   aria-label="Read article: A few sentences on what I learned at Supernode Ventures"
                 >
                   <div className="space-y-1">
-                    <h3 className="font-medium text-gray-900 group-hover:text-black">
+                    <h3 className="font-medium text-gray-900 dark:text-gray-100 group-hover:text-black dark:group-hover:text-white">
                       A few sentences on what I learned at Supernode Ventures
                     </h3>
-                    <time className="text-xs text-gray-500" dateTime="2022-09-29">September 29, 2022</time>
+                    <time className="text-xs text-gray-500 dark:text-gray-400" dateTime="2022-09-29">September 29, 2022</time>
                   </div>
                 </Link>
               </article>
@@ -83,8 +85,8 @@ export default function Page() {
           {/* Photography Column */}
           <div className="space-y-6 md:px-6">
             <div>
-              <h2 className="text-2xl font-semibold">Photography</h2>
-              <p className="text-gray-600">35mm captures</p>
+              <h2 className="text-2xl font-semibold dark:text-foreground">Photography</h2>
+              <p className="text-gray-600 dark:text-gray-400">35mm captures</p>
             </div>
             <div className="grid gap-4 grid-cols-2">
               {photos.map((photo) => (
@@ -115,22 +117,22 @@ export default function Page() {
           {/* Song of the Day Column */}
           <div className="space-y-6 md:px-6">
             <div>
-              <h2 className="text-2xl font-semibold">SOTD</h2>
-              <p className="text-gray-600">Song of the day</p>
+              <h2 className="text-2xl font-semibold dark:text-foreground">SOTD</h2>
+              <p className="text-gray-600 dark:text-gray-400">Song of the day</p>
             </div>
 
             {/* Current Song */}
             <div className="space-y-2">
-              <p className="text-sm font-medium text-gray-600">Today's Song:</p>
+              <p className="text-sm font-medium text-gray-600 dark:text-gray-400">Today's Song:</p>
               <button
                 onClick={() => setSelectedSong(currentSong)}
-                className="w-full p-4 rounded-lg bg-gray-100 text-left hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+                className="w-full p-4 rounded-lg bg-gray-100 dark:bg-gray-800 text-left hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
               >
                 <div className="flex items-center gap-4">
                   <div className="flex-1">
-                    <p className="font-medium">{currentSong.title}</p>
-                    <p className="text-sm text-gray-600">{currentSong.artist}</p>
-                    <p className="text-xs text-gray-500 mt-1">{currentSong.date}</p>
+                    <p className="font-medium dark:text-foreground">{currentSong.title}</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">{currentSong.artist}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">{currentSong.date}</p>
                   </div>
                   <Image
                     src={currentSong.albumArt || "/placeholder.svg"}
@@ -146,19 +148,19 @@ export default function Page() {
 
             {/* Previous Songs */}
             <div className="space-y-2">
-              <p className="text-sm font-medium text-gray-600">SOYD</p>
+              <p className="text-sm font-medium text-gray-600 dark:text-gray-400">SOYD</p>
               <div className="space-y-2">
                 {previousSongs.map((song) => (
                   <button
                     key={song.id}
                     onClick={() => setSelectedSong(song)}
-                    className="w-full p-3 rounded-lg bg-gray-50 text-left hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+                    className="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-800/50 text-left hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
                   >
                     <div className="flex items-center gap-4">
                       <div className="flex-1">
-                        <p className="font-medium text-sm">{song.title}</p>
-                        <p className="text-sm text-gray-600">{song.artist}</p>
-                        <p className="text-xs text-gray-500 mt-1">{song.date}</p>
+                        <p className="font-medium text-sm dark:text-foreground">{song.title}</p>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">{song.artist}</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">{song.date}</p>
                       </div>
                       <Image
                         src={song.albumArt || "/placeholder.svg"}

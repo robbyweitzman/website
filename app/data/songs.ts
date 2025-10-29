@@ -12,6 +12,26 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Digital Love",
+    artist: "Daft Punk",
+    album: "Disovery",
+    releaseDate: "November 30, 2000",
+    albumArt: "https://upload.wikimedia.org/wikipedia/en/2/27/Daft_Punk_-_Discovery.png",
+    date: "October 29, 2025",
+    spotifyUrl: "https://open.spotify.com/track/2VEZx7NWsZ1D0eJ4uv5Fym",
+    appleMusicUrl: "https://music.apple.com/us/album/digital-love/697194953?i=697195633",
+  },
+  {
+    title: "For Once In My Life",
+    artist: "Stevie Wonder",
+    album: "For Once In My Life",
+    releaseDate: "January 1, 1968",
+    albumArt: "https://upload.wikimedia.org/wikipedia/en/3/3e/Foronceinmylife.jpg",
+    date: "October 28, 2025",
+    spotifyUrl: "https://open.spotify.com/track/4kP69y3GKHi9tXckfgp4bK",
+    appleMusicUrl: "https://music.apple.com/us/album/for-once-in-my-life/1442836193?i=1442836195",
+  },
+  {
     title: "SPEED DEMON",
     artist: "Justin Bieber",
     album: "SWAG II",

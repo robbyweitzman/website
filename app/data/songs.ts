@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Camille's Waltz",
+    artist: "Helder Boutens",
+    album: "Camille's Waltz - Single",
+    releaseDate: "November 23, 2023",
+    albumArt: "https://m.media-amazon.com/images/I/21JU8EoLpPL._UXNaN_FMjpg_QL85_.jpg",
+    date: "November 6, 2025",
+    spotifyUrl: "https://open.spotify.com/track/4Eftb5OHGISJnTQLfhRCzF",
+    appleMusicUrl: "https://music.apple.com/us/album/camilles-waltz/1716938341?i=1716938342",
+  },
+  {
     title: "Digital Love",
     artist: "Daft Punk",
     album: "Disovery",

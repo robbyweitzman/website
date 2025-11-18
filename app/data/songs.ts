@@ -12,6 +12,24 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Make it Rain",
+    artist: "Fat Joe & Lil Wayne",
+    album: "Me, Myself & I",
+    releaseDate: "November 14, 2006",
+    albumArt: "https://i.scdn.co/image/ab67616d0000b2730e33f10ad85b7777ed963f91",
+    date: "November 18, 2025",
+    spotifyUrl: "https://open.spotify.com/track/4JPCdSaqs9dJd7RatFSHww?si=bc26b8be99f549c4",
+    appleMusicUrl: "https://music.apple.com/us/album/make-it-rain/1500952615?i=1500952843",
+  },{
+    title: "Adagio for Strings",
+    artist: "Samuel Barber, Xavier Pardo Sabartés & Jove Simfònica Orpheus",
+    album: "Adagio for Strings - Single",
+    releaseDate: "November 5, 1938",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/57/6e/e3/576ee3da-a3b3-e395-41ce-2be582fae121/5034644155067.jpg/600x600bf-60.jpg",
+    date: "November 9, 2025",
+    spotifyUrl: "https://open.spotify.com/track/0zTedeJj0xbYMQwdmXRP6c",
+    appleMusicUrl: "https://music.apple.com/us/album/adagio-for-strings/1772934129?i=1772934479",
+  },{
     title: "Camille's Waltz",
     artist: "Helder Boutens",
     album: "Camille's Waltz - Single",

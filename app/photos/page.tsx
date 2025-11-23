@@ -90,49 +90,66 @@ export default function PhotosPage() {
   }, [selectedPhoto, navigateToNext, navigateToPrevious])
 
   return (
-    <main className="min-h-screen bg-[#FFFAF1] dark:bg-background transition-colors">
-      <header className="container px-8 md:px-16 py-6 mx-auto">
-        <div className="flex items-center justify-between">
-          <Link href="/" className="text-lg font-medium hover:text-muted-foreground transition-colors">
-            robby weitzman
-          </Link>
-          <div className="flex items-center gap-6">
-            <Link href="/mood-room" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              mood room
+    <main className="min-h-screen bg-[#FDF8F3] dark:bg-[#1A1512] transition-colors">
+      {/* Warm paper texture overlay */}
+      <div className="fixed inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.015] z-50"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          mixBlendMode: 'multiply'
+        }}
+      />
+
+      {/* Subtle warm gradient overlay */}
+      <div className="fixed inset-0 pointer-events-none z-0 opacity-40 dark:opacity-20"
+        style={{
+          background: 'radial-gradient(circle at 20% 50%, rgba(235, 88, 45, 0.08) 0%, transparent 50%)'
+        }}
+      />
+
+      <header className="fixed top-0 left-0 right-0 z-40 bg-[#FDF8F3]/95 dark:bg-[#1A1512]/95 backdrop-blur-sm border-b border-[#E8DED3]/30 dark:border-[#3A2F28]/30">
+        <div className="container px-6 md:px-16 py-4 mx-auto max-w-7xl">
+          <div className="flex items-center justify-between">
+            <Link href="/" className="text-lg font-light text-[#2C2420] dark:text-[#F5EDE4] hover:text-[#EB582D] transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
+              robby weitzman
             </Link>
-            <Link href="/photos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              photos
-            </Link>
-            <Link href="/sotd" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              sotd
-            </Link>
-            <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              about
-            </Link>
-            <DarkModeToggle />
+            <nav className="flex items-center gap-6">
+              <Link href="/mood-room" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors">
+                Mood Room
+              </Link>
+              <Link href="/photos" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors">
+                Photos
+              </Link>
+              <Link href="/sotd" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors">
+                SOTD
+              </Link>
+              <Link href="/about" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors">
+                About
+              </Link>
+              <DarkModeToggle />
+            </nav>
           </div>
         </div>
       </header>
 
-      <div className="container px-8 md:px-16 py-12 mx-auto">
-        <div className="max-w-[900px] mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="container px-6 md:px-16 pt-24 pb-20 md:pt-32 md:pb-32 mx-auto max-w-7xl">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
             {photos.map((photo) => (
               <button
                 key={photo.id}
                 type="button"
                 onClick={(e) => handlePhotoSelect(photo, e)}
-                className="w-full aspect-[3/4] rounded-lg overflow-hidden focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                className="group w-full aspect-[3/4] overflow-hidden focus:outline-none transition-all duration-300"
               >
                 <Image
                   src={imageErrors.has(photo.id) ? "/placeholder.svg" : photo.src}
                   alt={photo.alt}
                   width={300}
                   height={400}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:opacity-90 transition-opacity duration-300"
                   priority={photo.id === "1" || photo.id === "2"}
                   loading={photo.id === "1" || photo.id === "2" ? "eager" : "lazy"}
-                  sizes="(max-width: 768px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   onError={() => {
                     setImageErrors(prev => new Set(prev).add(photo.id))
                   }}

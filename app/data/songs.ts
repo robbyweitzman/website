@@ -26,7 +26,7 @@ export const songs: Song[] = [
     album: "Adagio for Strings - Single",
     releaseDate: "November 5, 1938",
     albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/57/6e/e3/576ee3da-a3b3-e395-41ce-2be582fae121/5034644155067.jpg/600x600bf-60.jpg",
-    date: "November 9, 2025",
+    date: "November 9 , 2025",
     spotifyUrl: "https://open.spotify.com/track/0zTedeJj0xbYMQwdmXRP6c",
     appleMusicUrl: "https://music.apple.com/us/album/adagio-for-strings/1772934129?i=1772934479",
   },{

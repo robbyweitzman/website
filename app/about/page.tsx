@@ -29,17 +29,17 @@ export default function AboutPage() {
               robby weitzman
             </Link>
             <nav className="flex items-center gap-6">
-              <Link href="/mood-room" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors">
-                Mood Room
+              <Link href="/mood-room" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
+                mood room
               </Link>
-              <Link href="/photos" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors">
-                Photos
+              <Link href="/photos" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
+                photos
               </Link>
-              <Link href="/sotd" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors">
-                SOTD
+              <Link href="/sotd" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
+                sotd
               </Link>
-              <Link href="/about" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors">
-                About
+              <Link href="/about" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
+                about
               </Link>
               <DarkModeToggle />
             </nav>

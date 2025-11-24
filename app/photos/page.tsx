@@ -113,17 +113,17 @@ export default function PhotosPage() {
               robby weitzman
             </Link>
             <nav className="flex items-center gap-6">
-              <Link href="/mood-room" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors">
-                Mood Room
+              <Link href="/mood-room" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
+                mood room
               </Link>
-              <Link href="/photos" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors">
-                Photos
+              <Link href="/photos" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
+                photos
               </Link>
-              <Link href="/sotd" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors">
-                SOTD
+              <Link href="/sotd" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
+                sotd
               </Link>
-              <Link href="/about" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors">
-                About
+              <Link href="/about" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
+                about
               </Link>
               <DarkModeToggle />
             </nav>
@@ -160,8 +160,8 @@ export default function PhotosPage() {
         </div>
       </div>
 
-      <Dialog 
-        open={!!selectedPhoto} 
+      <Dialog
+        open={!!selectedPhoto}
         onOpenChange={() => {
           setSelectedPhoto(null)
           // Force garbage collection of modal content
@@ -172,87 +172,73 @@ export default function PhotosPage() {
           }, 100)
         }}
       >
-        <DialogContent className="max-w-[95vw] sm:max-w-[90vw] md:max-w-6xl lg:max-w-7xl max-h-[95vh] p-4 sm:p-6 md:p-8 overflow-hidden">
+        <DialogContent className="max-w-[95vw] sm:max-w-md md:max-w-4xl p-0 overflow-hidden gap-0">
           {selectedPhoto && (
-            <div className="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-start h-full relative">
-              
-              {/* Photo */}
-              <div className="flex-1 min-w-0 relative">
-                <div className="relative max-w-md mx-auto md:max-w-none">
-                  {modalImageLoading && (
-                    <div className="w-full h-80 bg-muted rounded-lg flex items-center justify-center">
-                      <div className="animate-pulse text-muted-foreground">Loading...</div>
-                    </div>
-                  )}
-                  <Image
-                    src={imageErrors.has(selectedPhoto.id) ? "/placeholder.svg" : selectedPhoto.src}
-                    alt={selectedPhoto.alt}
-                    width={1200}
-                    height={800}
-                    className={`w-full h-auto object-contain max-h-[60vh] sm:max-h-[70vh] md:max-h-[80vh] rounded-lg shadow-lg transition-opacity duration-200 ${modalImageLoading ? 'opacity-0' : 'opacity-100'}`}
-                    priority
-                    sizes="(max-width: 768px) 95vw, 80vw"
-                    onLoad={() => setModalImageLoading(false)}
-                    onError={() => {
-                      setModalImageLoading(false)
-                      setImageErrors(prev => new Set(prev).add(selectedPhoto.id))
-                    }}
-                  />
-                </div>
-              </div>
-              
-              {/* Photo Details */}
-              <div className="w-full md:w-80 lg:w-72 flex flex-col min-w-0 relative h-full flex-shrink-0">
-                <div className="flex-1">
-                  {/* Photo Info */}
-                  <div className="space-y-3 mb-4 sm:mb-6">
-                    <div className="space-y-2">
-                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold leading-tight">
-                        {selectedPhoto.title}
-                      </h3>
-                      
-                      {/* Photo badge */}
-                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-primary/10 text-primary rounded-full border border-primary/20">
-                        <Camera className="h-3 w-3" />
-                        <span className="text-xs font-medium">Photo {currentPhotoIndex + 1} of {photos.length}</span>
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-1 text-sm text-muted-foreground">
-                      <p className="font-medium">{selectedPhoto.camera}</p>
-                      <p>{selectedPhoto.film}</p>
-                      <p>Taken: {selectedPhoto.date}</p>
-                    </div>
+            <div className="flex flex-col relative">
+              {/* Photo - Full width */}
+              <div className="relative w-full bg-black">
+                {modalImageLoading && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="animate-pulse text-white">Loading...</div>
                   </div>
-                </div>
-                
-                {/* Mobile close hint */}
-                <div className="md:hidden text-center pt-8">
-                  <p className="text-xs text-muted-foreground">Tap outside to close</p>
+                )}
+                <Image
+                  src={imageErrors.has(selectedPhoto.id) ? "/placeholder.svg" : selectedPhoto.src}
+                  alt={selectedPhoto.alt}
+                  width={1200}
+                  height={800}
+                  className={`w-full h-auto object-contain max-h-[70vh] transition-opacity duration-200 ${modalImageLoading ? 'opacity-0' : 'opacity-100'}`}
+                  priority
+                  sizes="(max-width: 768px) 95vw, 80vw"
+                  onLoad={() => setModalImageLoading(false)}
+                  onError={() => {
+                    setModalImageLoading(false)
+                    setImageErrors(prev => new Set(prev).add(selectedPhoto.id))
+                  }}
+                />
+
+                {/* Navigation arrows - overlay on image */}
+                <div className="absolute inset-x-0 bottom-4 flex justify-between px-4 z-10">
+                  <button
+                    type="button"
+                    onClick={(e) => { e.preventDefault(); navigateToPrevious(); }}
+                    className="p-2 rounded-full bg-[#FDF8F3]/90 dark:bg-[#1A1512]/90 hover:bg-[#FDF8F3] dark:hover:bg-[#1A1512] border border-[#E8DED3]/50 dark:border-[#3A2F28]/50 shadow-lg transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
+                    disabled={currentPhotoIndex === 0}
+                    aria-label="Previous photo"
+                  >
+                    <ChevronLeft className="h-4 w-4 text-[#2C2420] dark:text-[#F5EDE4]" />
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={(e) => { e.preventDefault(); navigateToNext(); }}
+                    className="p-2 rounded-full bg-[#FDF8F3]/90 dark:bg-[#1A1512]/90 hover:bg-[#FDF8F3] dark:hover:bg-[#1A1512] border border-[#E8DED3]/50 dark:border-[#3A2F28]/50 shadow-lg transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
+                    disabled={currentPhotoIndex === photos.length - 1}
+                    aria-label="Next photo"
+                  >
+                    <ChevronRight className="h-4 w-4 text-[#2C2420] dark:text-[#F5EDE4]" />
+                  </button>
                 </div>
               </div>
 
-              {/* Navigation arrows - bottom right */}
-              <div className="absolute bottom-4 right-4 flex gap-2 z-10">
-                <button
-                  type="button"
-                  onClick={(e) => { e.preventDefault(); navigateToPrevious(); }}
-                  className="p-2 rounded-full bg-background/90 hover:bg-background border border-border shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                  disabled={currentPhotoIndex === 0}
-                  aria-label="Previous photo"
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                </button>
-                
-                <button
-                  type="button"
-                  onClick={(e) => { e.preventDefault(); navigateToNext(); }}
-                  className="p-2 rounded-full bg-background/90 hover:bg-background border border-border shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                  disabled={currentPhotoIndex === photos.length - 1}
-                  aria-label="Next photo"
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </button>
+              {/* Photo Details */}
+              <div className="p-6 space-y-3">
+                <h3 className="text-xl md:text-2xl font-light text-[#2C2420] dark:text-[#F5EDE4]" style={{ fontFamily: 'var(--font-display)' }}>
+                  {selectedPhoto.title}
+                </h3>
+
+                <div className="flex flex-wrap items-center gap-3 text-sm text-[#8B7A6E] dark:text-[#9B8A7E]">
+                  <div className="flex items-center gap-1.5">
+                    <Camera className="h-3.5 w-3.5 text-[#EB582D]" />
+                    <span className="text-xs">Photo {currentPhotoIndex + 1} of {photos.length}</span>
+                  </div>
+                  <span className="text-[#E8DED3] dark:text-[#3A2F28]">•</span>
+                  <span>{selectedPhoto.camera}</span>
+                  <span className="text-[#E8DED3] dark:text-[#3A2F28]">•</span>
+                  <span>{selectedPhoto.film}</span>
+                  <span className="text-[#E8DED3] dark:text-[#3A2F28]">•</span>
+                  <span>{selectedPhoto.date}</span>
+                </div>
               </div>
             </div>
           )}

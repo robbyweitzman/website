@@ -1,45 +1,17 @@
-import type { Metadata } from 'next'
+"use client"
+
 import Link from "next/link"
-import { getAllSongs, getCurrentSong } from "../data/songs"
-import SotdClient from "./sotd-client"
+import { getAllQuotes } from "../data/quotes"
+import { QuoteCard } from "@/components/quote-card"
+import { TweetEmbed } from "@/components/tweet-embed"
+import { ImageQuote } from "@/components/image-quote"
 import { DarkModeToggle } from "@/components/dark-mode-toggle"
 
-export async function generateMetadata(): Promise<Metadata> {
-  const currentSong = getCurrentSong()
-  
-  return {
-    title: `${currentSong.title} by ${currentSong.artist} - SOTD | Robby Weitzman`,
-    description: `Today's Song of the Day: "${currentSong.title}" by ${currentSong.artist} from the album "${currentSong.album}". Discover my daily music recommendations.`,
-    openGraph: {
-      title: `${currentSong.title} by ${currentSong.artist} - SOTD`,
-      description: `Today's Song of the Day: "${currentSong.title}" by ${currentSong.artist}`,
-      url: 'https://robbyweitzman.com/sotd',
-      siteName: 'Robby Weitzman',
-      images: [
-        {
-          url: currentSong.albumArt,
-          width: 1200,
-          height: 1200,
-          alt: `Album art for "${currentSong.title}" by ${currentSong.artist}`,
-        },
-      ],
-      locale: 'en_US',
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${currentSong.title} by ${currentSong.artist} - SOTD`,
-      description: `Today's Song of the Day: "${currentSong.title}" by ${currentSong.artist}`,
-      images: [currentSong.albumArt],
-    },
-  }
-}
-
-export default function SotdPage() {
-  const allSongs = getAllSongs()
+export default function QuotesPage() {
+  const quotes = getAllQuotes()
 
   return (
-    <main className="min-h-screen bg-[#FDF8F3] dark:bg-[#1A1512] overflow-hidden transition-colors">
+    <main className="min-h-screen bg-[#FDF8F3] dark:bg-[#1A1512] transition-colors">
       {/* Warm paper texture overlay */}
       <div className="fixed inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.015] z-50"
         style={{
@@ -83,7 +55,54 @@ export default function SotdPage() {
         </div>
       </header>
 
-      <SotdClient allSongs={allSongs} />
+      <div className="container px-6 md:px-16 pt-24 pb-20 md:pt-32 md:pb-32 mx-auto max-w-7xl">
+        <div className="max-w-6xl mx-auto">
+          {/* Page title */}
+          <div className="mb-16">
+            <h1 className="text-2xl font-light text-[#2C2420] dark:text-[#F5EDE4] mb-4"
+                style={{ fontFamily: 'var(--font-display)' }}>
+              things I try to remind myself of daily
+            </h1>
+          </div>
+
+          {/* Two column layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Left column - Text quotes as bullet points */}
+            <div>
+              <ul className="space-y-6">
+                {quotes.filter(q => q.type === 'custom').map((quote) => (
+                  <li key={quote.id} className="flex gap-4">
+                    <span className="text-[#2C2420] dark:text-[#F5EDE4] mt-1 flex-shrink-0">•</span>
+                    <div>
+                      <p className="text-base font-light leading-relaxed text-[#2C2420] dark:text-[#F5EDE4]"
+                         style={{ fontFamily: 'var(--font-display)' }}>
+                        {quote.text}
+                      </p>
+                      <p className="text-sm text-[#8B7A6E] dark:text-[#9B8A7E] mt-1"
+                         style={{ fontFamily: 'var(--font-display)' }}>
+                        {quote.author}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right column - Images and Tweets */}
+            <div className="space-y-0">
+              {quotes.filter(q => q.type === 'tweet' || q.type === 'image').map((quote) => (
+                <div key={quote.id} className="animate-in fade-in duration-700 mb-3">
+                  {quote.type === 'tweet' && quote.tweetUrl ? (
+                    <TweetEmbed tweetUrl={quote.tweetUrl} />
+                  ) : quote.type === 'image' && quote.imageSrc && quote.imageAlt ? (
+                    <ImageQuote imageSrc={quote.imageSrc} imageAlt={quote.imageAlt} />
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   )
 }

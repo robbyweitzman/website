@@ -38,6 +38,9 @@ export default function AboutPage() {
               <Link href="/sotd" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
                 sotd
               </Link>
+              <Link href="/quotes" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
+                quotes
+              </Link>
               <Link href="/about" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
                 about
               </Link>

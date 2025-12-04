@@ -1,12 +1,54 @@
 "use client"
 
+import { useEffect, useRef } from "react"
+
 interface TweetEmbedProps {
   tweetUrl: string
 }
 
+declare global {
+  interface Window {
+    twttr?: {
+      widgets: {
+        createTweet: (
+          tweetId: string,
+          container: HTMLElement | null,
+          options?: Record<string, unknown>
+        ) => Promise<HTMLElement>
+      }
+    }
+  }
+}
+
 export function TweetEmbed({ tweetUrl }: TweetEmbedProps) {
-  // Extract tweet ID from URL
+  const containerRef = useRef<HTMLDivElement>(null)
+  const renderedRef = useRef(false)
   const tweetId = tweetUrl.split('/status/')[1]?.split('?')[0]
+
+  useEffect(() => {
+    if (!tweetId || !containerRef.current || renderedRef.current) return
+
+    const renderTweet = () => {
+      if (window.twttr && containerRef.current && !renderedRef.current) {
+        renderedRef.current = true
+        window.twttr.widgets.createTweet(tweetId, containerRef.current, {
+          align: 'center',
+          conversation: 'none',
+        })
+      }
+    }
+
+    // Load Twitter widgets script if not already loaded
+    if (!window.twttr) {
+      const script = document.createElement('script')
+      script.src = 'https://platform.twitter.com/widgets.js'
+      script.async = true
+      script.onload = renderTweet
+      document.body.appendChild(script)
+    } else {
+      renderTweet()
+    }
+  }, [tweetId])
 
   if (!tweetId) {
     return (
@@ -16,17 +58,5 @@ export function TweetEmbed({ tweetUrl }: TweetEmbedProps) {
     )
   }
 
-  return (
-    <div className="w-full max-w-[600px] mx-auto flex justify-center items-center">
-      <div style={{ transform: 'scale(0.80)', transformOrigin: 'top center' }}>
-        <iframe
-          src={`https://platform.twitter.com/embed/Tweet.html?id=${tweetId}`}
-          width="500"
-          height="350"
-          style={{ border: 'none', maxWidth: '100%' }}
-          loading="lazy"
-        />
-      </div>
-    </div>
-  )
+  return <div ref={containerRef} className="w-full flex justify-center" />
 }

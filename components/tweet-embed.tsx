@@ -58,5 +58,16 @@ export function TweetEmbed({ tweetUrl }: TweetEmbedProps) {
     )
   }
 
-  return <div ref={containerRef} className="w-full flex justify-center" />
+  return (
+    <div className="w-full flex justify-center overflow-hidden">
+      <div
+        ref={containerRef}
+        className="tweet-container"
+        style={{
+          width: '400px',
+          maxWidth: '80%',
+        }}
+      />
+    </div>
+  )
 }

@@ -6,71 +6,64 @@ export interface Quote {
   tweetUrl?: string // For Twitter embeds
   imageSrc?: string // For image quotes
   imageAlt?: string // For image quotes alt text
-  date: string // Date added/displayed
 }
 
 export const quotes: Quote[] = [
   {
     type: "tweet",
-    tweetUrl: "https://x.com/neverdoompro/status/1987306664572162216?s=46",
-    date: "2025-11-23"
+    tweetUrl: "https://x.com/neverdoompro/status/1987306664572162216?s=46"
   },
   {
     type: "tweet",
-    tweetUrl: "https://x.com/dukedarls/status/1990340965778006203?s=46",
-    date: "2025-11-23"
+    tweetUrl: "https://x.com/dukedarls/status/1990340965778006203?s=46"
   },
   {
     type: "tweet",
-    tweetUrl: "https://x.com/pathofmen_/status/1990697767417831444?s=46",
-    date: "2025-11-23"
+    tweetUrl: "https://x.com/pathofmen_/status/1990697767417831444?s=46"
   },
   {
     type: "tweet",
-    tweetUrl: "https://x.com/aristomarinetti/status/1990821923664646575?s=46",
-    date: "2025-11-23"
+    tweetUrl: "https://x.com/aristomarinetti/status/1990821923664646575?s=46"
   },
   {
     type: "image",
     imageSrc: "/quotes/positive-thinking.png",
-    imageAlt: "Be first",
-    date: "2025-11-23"
+    imageAlt: "Be first"
   },
   {
     type: "image",
     imageSrc: "/quotes/Be first.jpg",
-    imageAlt: "Be first",
-    date: "2025-11-23"
+    imageAlt: "Be first"
   },
   {
     type: "tweet",
-    tweetUrl: "https://x.com/naval/status/1390216106384584704?s=20",
-    date: "2025-11-23"
+    tweetUrl: "https://x.com/naval/status/1390216106384584704?s=20"
   },
   {
     type: "custom",
     text: "I believe in discipline, hard work, and patience.",
-    author: "Robby Weitzman",
-    date: "2025-11-23"
+    author: "Robby Weitzman"
   },
   {
     type: "custom",
     text: "A man is literally what he thinks.",
-    author: "James Allen",
-    date: "2025-11-23"
+    author: "James Allen"
   },
   {
     type: "custom",
     text: "Don't let yesterday take up too much of today.",
-    author: "Will Rogers",
-    date: "2025-11-23"
+    author: "Will Rogers"
   },
   {
     type: "custom",
     text: "Evil is whatever distracts",
     author: "Nietzsche",
-    date: "2025-11-23"
-  }
+  },
+  {
+    type: "custom",
+    text: "Anything is possible if you're willing to work for it.",
+    author: "Rob Dyrdek",
+  },
 ]
 
 export const getQuotesWithIds = () => {

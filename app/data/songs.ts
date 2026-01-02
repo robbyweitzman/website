@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "I'm Not Alone (2019 Edit)",
+    artist: "Calvin Harris",
+    album: "96 Months",
+    releaseDate: "April 5, 2019",
+    albumArt: "https://i.scdn.co/image/ab67616d0000b273c73770fa38e06fd92f8d8b98",
+    date: "January 2, 2026",
+    spotifyUrl: "https://open.spotify.com/track/43ILNTrpuwv2vTcJErWFWp",
+    appleMusicUrl: "https://music.apple.com/us/album/im-not-alone-2019-edit/1712551747?i=1712551751",
+ },
+  {
     title: "Make it Rain",
     artist: "Fat Joe & Lil Wayne",
     album: "Me, Myself & I",
@@ -20,7 +30,8 @@ export const songs: Song[] = [
     date: "November 18, 2025",
     spotifyUrl: "https://open.spotify.com/track/4JPCdSaqs9dJd7RatFSHww?si=bc26b8be99f549c4",
     appleMusicUrl: "https://music.apple.com/us/album/make-it-rain/1500952615?i=1500952843",
-  },{
+  },
+  {
     title: "Adagio for Strings",
     artist: "Samuel Barber, Xavier Pardo Sabartés & Jove Simfònica Orpheus",
     album: "Adagio for Strings - Single",
@@ -29,7 +40,8 @@ export const songs: Song[] = [
     date: "November 9 , 2025",
     spotifyUrl: "https://open.spotify.com/track/0zTedeJj0xbYMQwdmXRP6c",
     appleMusicUrl: "https://music.apple.com/us/album/adagio-for-strings/1772934129?i=1772934479",
-  },{
+  },
+  {
     title: "Camille's Waltz",
     artist: "Helder Boutens",
     album: "Camille's Waltz - Single",

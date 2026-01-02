@@ -11,6 +11,7 @@ interface BlogPost {
 
 // This would typically come from a CMS or database
 const posts: BlogPost[] = [
+  /* Temporarily hidden - editing in progress
   {
     slug: "supernode-learnings",
     title: "A few sentences on what I learned at Supernode Ventures in 2022.",
@@ -36,6 +37,7 @@ const posts: BlogPost[] = [
       </>
     ),
   },
+  */
   {
   slug: "why-and-how-i-built-this-website",
   title: "Why and how I built this website",

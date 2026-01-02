@@ -123,6 +123,7 @@ export default function Page() {
                   </Link>
                 </article>
 
+{/* Temporarily hidden - editing in progress
                 <article role="listitem">
                   <Link
                     href="/ideas/supernode-learnings"
@@ -138,6 +139,7 @@ export default function Page() {
                     </div>
                   </Link>
                 </article>
+                */}
               </div>
             </div>
 

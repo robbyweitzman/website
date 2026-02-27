@@ -1,23 +1,21 @@
 "use client"
 
-import type React from "react"
-import { useState, useEffect, useRef } from "react"
+import { useEffect, useLayoutEffect, useCallback, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { DarkModeToggle } from "@/components/dark-mode-toggle"
 
-interface Photo {
+interface PhotoData {
   id: string
   src: string
   alt: string
   width: number
   height: number
-  position: { x: number; y: number }
-  rotation: number
-  zIndex: number
+  scaledWidth: number
+  scaledHeight: number
 }
 
-const initialPhotos: Omit<Photo, "position" | "rotation" | "zIndex">[] = [
+const initialPhotos = [
   {
     id: "1",
     src: "/mood-room/senna-monaco-1984.jpg",
@@ -67,14 +65,14 @@ const initialPhotos: Omit<Photo, "position" | "rotation" | "zIndex">[] = [
     width: 236,
     height: 292,
   },
-   {
+  {
     id: "8",
     src: "https://images.squarespace-cdn.com/content/v1/642fe9d50ff3d476932fc101/1723725733870-LBERDAXOIYRI9DZRI7A8/fighter%2B8.jpg",
     alt: "Japan F15",
     width: 798,
     height: 564,
   },
-   {
+  {
     id: "9",
     src: "/mood-room/stig-jeremy.png",
     alt: "Stig and Jeremy",
@@ -111,33 +109,110 @@ const initialPhotos: Omit<Photo, "position" | "rotation" | "zIndex">[] = [
   },
 ]
 
+// Pre-compute scaled dimensions at module level (static data, never changes)
+const photosWithDimensions: PhotoData[] = initialPhotos.map((photo) => {
+  const maxWidth = 400
+  const maxHeight = 600
+  const scale = Math.min(maxWidth / photo.width, maxHeight / photo.height)
+  const scaledWidth = scale < 1 ? Math.floor(photo.width * scale) : photo.width
+  const scaledHeight = scale < 1 ? Math.floor(photo.height * scale) : photo.height
+  return { ...photo, scaledWidth, scaledHeight }
+})
+
+interface Position {
+  x: number
+  y: number
+  rotation: number
+  zIndex: number
+}
+
 export default function MoodRoomPage() {
-  const [photos, setPhotos] = useState<Photo[]>([])
-  const [draggedPhoto, setDraggedPhoto] = useState<string | null>(null)
-  const [offset, setOffset] = useState({ x: 0, y: 0 })
   const containerRef = useRef<HTMLDivElement>(null)
+  const itemRefs = useRef(new Map<string, HTMLDivElement>())
+  const positionsRef = useRef(new Map<string, Position>())
+  const dragRef = useRef<{ id: string; offsetX: number; offsetY: number } | null>(null)
   const maxZIndex = useRef(1)
   const initialized = useRef(false)
 
-  // Calculate scaled dimensions to fit within reasonable bounds
-  const getScaledDimensions = (width: number, height: number) => {
-    const maxWidth = 400 // Maximum width we want to allow
-    const maxHeight = 600 // Maximum height we want to allow
-    const scale = Math.min(maxWidth / width, maxHeight / height)
+  // =============================================
+  // Imperative style application — bypasses React
+  // =============================================
+  const applyStyles = useCallback((id: string) => {
+    const el = itemRefs.current.get(id)
+    const pos = positionsRef.current.get(id)
+    if (!el || !pos) return
+    el.style.transform = `translate(${pos.x}px, ${pos.y}px) rotate(${pos.rotation}deg)`
+    el.style.zIndex = String(pos.zIndex)
+  }, [])
 
-    // Only scale down, never up
-    if (scale < 1) {
-      return {
-        width: Math.floor(width * scale),
-        height: Math.floor(height * scale),
+  // =============================================
+  // Pointer event handlers (stable — read from refs)
+  // =============================================
+  const handlePointerMove = useCallback(
+    (e: PointerEvent) => {
+      const drag = dragRef.current
+      if (!drag || !containerRef.current) return
+
+      const container = containerRef.current.getBoundingClientRect()
+      const pos = positionsRef.current.get(drag.id)
+      if (!pos) return
+
+      pos.x = e.clientX - container.left - drag.offsetX
+      pos.y = e.clientY - container.top - drag.offsetY
+      applyStyles(drag.id)
+    },
+    [applyStyles],
+  )
+
+  const handlePointerUp = useCallback(
+    (e: PointerEvent) => {
+      const drag = dragRef.current
+      if (drag) {
+        const el = itemRefs.current.get(drag.id)
+        if (el) el.style.cursor = "grab"
       }
-    }
+      dragRef.current = null
+      window.removeEventListener("pointermove", handlePointerMove)
+      window.removeEventListener("pointerup", handlePointerUp)
+    },
+    [handlePointerMove],
+  )
 
-    return { width, height }
-  }
+  const handlePointerDown = useCallback(
+    (e: React.PointerEvent, id: string) => {
+      e.preventDefault()
+      const el = itemRefs.current.get(id)
+      if (!el) return
 
-  // Initialize photos with positions only once
-  useEffect(() => {
+      const rect = el.getBoundingClientRect()
+      dragRef.current = {
+        id,
+        offsetX: e.clientX - rect.left,
+        offsetY: e.clientY - rect.top,
+      }
+
+      // Bring to front
+      maxZIndex.current += 1
+      const pos = positionsRef.current.get(id)
+      if (pos) {
+        pos.zIndex = maxZIndex.current
+        applyStyles(id)
+      }
+
+      // Change cursor
+      el.style.cursor = "grabbing"
+
+      // Add window listeners for move/up
+      window.addEventListener("pointermove", handlePointerMove)
+      window.addEventListener("pointerup", handlePointerUp)
+    },
+    [applyStyles, handlePointerMove, handlePointerUp],
+  )
+
+  // =============================================
+  // Initialize layout positions (runs once before first paint)
+  // =============================================
+  useLayoutEffect(() => {
     if (initialized.current || !containerRef.current) return
     initialized.current = true
 
@@ -145,10 +220,10 @@ export default function MoodRoomPage() {
     const containerWidth = container.clientWidth
     const containerHeight = container.clientHeight
 
-    const layoutPhotos = initialPhotos.map((photo, index) => {
-      const cols = Math.ceil(Math.sqrt(initialPhotos.length))
-      const rows = Math.ceil(initialPhotos.length / cols)
+    const cols = Math.ceil(Math.sqrt(photosWithDimensions.length))
+    const rows = Math.ceil(photosWithDimensions.length / cols)
 
+    photosWithDimensions.forEach((photo, index) => {
       const gridX = (index % cols) * (containerWidth / cols)
       const gridY = Math.floor(index / cols) * (containerHeight / rows)
 
@@ -156,61 +231,28 @@ export default function MoodRoomPage() {
       const randomY = (Math.random() - 0.5) * 100
       const randomRotation = (Math.random() - 0.5) * 10
 
-      return {
-        ...photo,
-        position: {
-          x: gridX + randomX,
-          y: gridY + randomY,
-        },
+      positionsRef.current.set(photo.id, {
+        x: gridX + randomX,
+        y: gridY + randomY,
         rotation: randomRotation,
         zIndex: 1,
-      }
+      })
+
+      applyStyles(photo.id)
     })
+  }, [applyStyles])
 
-    setPhotos(layoutPhotos)
-  }, [])
+  // Cleanup window listeners on unmount
+  useEffect(() => {
+    return () => {
+      window.removeEventListener("pointermove", handlePointerMove)
+      window.removeEventListener("pointerup", handlePointerUp)
+    }
+  }, [handlePointerMove, handlePointerUp])
 
-  const handleDragStart = (e: React.DragEvent, id: string) => {
-    const photo = photos.find((p) => p.id === id)
-    if (!photo) return
-
-    // Calculate offset between mouse position and photo top-left corner
-    const rect = (e.target as HTMLElement).getBoundingClientRect()
-    setOffset({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    })
-
-    setDraggedPhoto(id)
-    maxZIndex.current += 1
-
-    // Update photo z-index
-    setPhotos((prev) => prev.map((p) => (p.id === id ? { ...p, zIndex: maxZIndex.current } : p)))
-
-    // Required for Firefox
-    e.dataTransfer.setData("text/plain", id)
-    // Make the drag image transparent to prevent cursor changes
-    const img = document.createElement('img')
-    img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-    e.dataTransfer.setDragImage(img, 0, 0)
-  }
-
-  const handleDrag = (e: React.DragEvent) => {
-    if (!draggedPhoto || !containerRef.current) return
-
-    e.preventDefault()
-
-    const container = containerRef.current.getBoundingClientRect()
-    const x = e.clientX - container.left - offset.x
-    const y = e.clientY - container.top - offset.y
-
-    setPhotos((prev) => prev.map((photo) => (photo.id === draggedPhoto ? { ...photo, position: { x, y } } : photo)))
-  }
-
-  const handleDragEnd = () => {
-    setDraggedPhoto(null)
-  }
-
+  // =============================================
+  // Render
+  // =============================================
   return (
     <main className="min-h-screen bg-[#FFFAF1] dark:bg-background overflow-hidden transition-colors">
       <header className="container px-8 md:px-16 py-6 mx-auto">
@@ -239,41 +281,33 @@ export default function MoodRoomPage() {
         </div>
       </header>
 
-      <div className="relative w-full h-[calc(100vh-88px)]" ref={containerRef} onDragOver={(e) => e.preventDefault()}>
-        {photos.map((photo) => {
-          const scaledDimensions = getScaledDimensions(photo.width, photo.height)
-
-          return (
-            <div
-              key={photo.id}
-              draggable
-              onDragStart={(e) => handleDragStart(e, photo.id)}
-              onDrag={handleDrag}
-              onDragEnd={handleDragEnd}
-              className={`absolute touch-none ${draggedPhoto === photo.id ? 'cursor-grabbing' : 'cursor-grab'}`}
-              style={{
-                transform: `translate(${photo.position.x}px, ${photo.position.y}px) rotate(${photo.rotation}deg)`,
-                zIndex: photo.zIndex,
-                width: `${scaledDimensions.width}px`,
-              }}
-            >
-              <div className="w-full bg-white dark:bg-gray-800 p-3 shadow-lg hover:shadow-xl transition-shadow">
-                <Image
-                  src={photo.src || "/placeholder.svg"}
-                  alt={photo.alt}
-                  width={scaledDimensions.width}
-                  height={scaledDimensions.height}
-                  className="w-full h-auto object-contain"
-                  draggable="false"
-                  priority
-                  unoptimized
-                />
-              </div>
+      <div className="relative w-full h-[calc(100vh-88px)]" ref={containerRef}>
+        {photosWithDimensions.map((photo) => (
+          <div
+            key={photo.id}
+            ref={(el) => {
+              if (el) itemRefs.current.set(photo.id, el)
+              else itemRefs.current.delete(photo.id)
+            }}
+            onPointerDown={(e) => handlePointerDown(e, photo.id)}
+            className="absolute touch-none cursor-grab select-none"
+            style={{ width: `${photo.scaledWidth}px` }}
+          >
+            <div className="w-full bg-white dark:bg-gray-800 p-3 shadow-lg hover:shadow-xl transition-shadow">
+              <Image
+                src={photo.src || "/placeholder.svg"}
+                alt={photo.alt}
+                width={photo.scaledWidth}
+                height={photo.scaledHeight}
+                className="w-full h-auto object-contain pointer-events-none"
+                draggable="false"
+                priority
+                unoptimized
+              />
             </div>
-          )
-        })}
+          </div>
+        ))}
       </div>
     </main>
   )
 }
-

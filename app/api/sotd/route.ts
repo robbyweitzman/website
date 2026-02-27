@@ -223,8 +223,17 @@ async function commitToGithub(
 export async function POST(request: NextRequest) {
   // Auth check
   const authHeader = request.headers.get("authorization")
-  if (authHeader !== `Bearer ${process.env.SOTD_API_KEY}`) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+  const expected = `Bearer ${process.env.SOTD_API_KEY}`
+  if (authHeader !== expected) {
+    return NextResponse.json({
+      error: "Unauthorized",
+      debug: {
+        receivedLength: authHeader?.length ?? 0,
+        expectedLength: expected.length,
+        receivedPrefix: authHeader?.slice(0, 10) ?? "null",
+        match: authHeader === expected,
+      },
+    }, { status: 401 })
   }
 
   try {

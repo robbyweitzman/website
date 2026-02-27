@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Science (feat. Stevie Appleton)",
+    artist: "deadmau5",
+    album: "Science (feat. Stevie Appleton) - Single",
+    releaseDate: "February 20, 2025",
+    albumArt: "https://i.scdn.co/image/ab67616d0000b273908cc2dd8a5d76b5b2ef8c30",
+    date: "February 27, 2026",
+    spotifyUrl: "https://open.spotify.com/track/1JN37cHLmc852rbTdpVq8f",
+    appleMusicUrl: "https://music.apple.com/us/album/science-feat-stevie-appleton/1871036141?i=1871036142",
+  },
+  {
     title: "I'm Not Alone (2019 Edit)",
     artist: "Calvin Harris",
     album: "96 Months",

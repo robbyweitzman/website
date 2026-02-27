@@ -5,7 +5,7 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-[#FFFAF1] dark:bg-background relative transition-colors">
       {/* Timeline line that runs from top to the last bullet */}
-      <div className="absolute left-[29px] md:left-1/2 top-0 bottom-[100px] w-px bg-gray-200 dark:bg-gray-700 transform md:-translate-x-1/2 z-0" />
+      <div className="absolute left-[30px] md:left-1/2 top-0 bottom-[100px] w-px bg-gray-200 dark:bg-gray-700 transform md:-translate-x-1/2 z-0" />
       
       <header className="container px-6 sm:px-8 md:px-16 py-4 md:py-6 mx-auto relative z-10">
         <div className="flex items-center justify-between">
@@ -38,13 +38,13 @@ export default function AboutPage() {
           <div className="relative">
             {/* Anthropic */}
             <div className="relative mb-10 md:mb-16">
-              <div className="flex flex-col md:flex-row items-start gap-4 md:gap-8">
+              <div className="flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-7 md:pl-0">
                 <div className="flex-1 order-2 md:order-1 md:text-right">
                   <h3 className="font-semibold mb-1 md:mb-2">Anthropic</h3>
                   <p className="text-sm text-muted-foreground">New York City</p>
                   <p className="text-sm text-muted-foreground">25 years old - present</p>
                 </div>
-                <div className="w-3 h-3 rounded-full bg-foreground relative z-10 mt-1 md:mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background absolute left-[23px] md:relative md:left-auto" />
+                <div className="w-3 h-3 rounded-full bg-foreground z-10 mt-[6px] md:mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background absolute left-0 md:relative md:left-auto" />
                 <div className="flex-1 order-3">
                   <p className="font-medium">GTM</p>
                   <p className="text-sm text-muted-foreground">June 2025 - Present</p>
@@ -54,13 +54,13 @@ export default function AboutPage() {
 
             {/* Website */}
             <div className="relative mb-10 md:mb-16">
-              <div className="flex flex-col md:flex-row items-start gap-4 md:gap-8">
+              <div className="flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-7 md:pl-0">
                 <div className="flex-1 order-2 md:order-1 md:text-right">
                   <h3 className="font-semibold mb-1 md:mb-2">Made this website</h3>
                   <p className="text-sm text-muted-foreground">New York City</p>
                   <p className="text-sm text-muted-foreground">25 years old</p>
                 </div>
-                <div className="w-3 h-3 rounded-full bg-foreground relative z-10 mt-1 md:mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background absolute left-[23px] md:relative md:left-auto" />
+                <div className="w-3 h-3 rounded-full bg-foreground z-10 mt-[6px] md:mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background absolute left-0 md:relative md:left-auto" />
                 <div className="flex-1 order-3">
                   <p className="font-medium">Using Vercel, Grok, and Github</p>
                   <p className="text-sm text-muted-foreground">February 22, 2025</p>
@@ -70,13 +70,13 @@ export default function AboutPage() {
 
             {/* Merge */}
             <div className="relative mb-10 md:mb-16">
-              <div className="flex flex-col md:flex-row items-start gap-4 md:gap-8">
+              <div className="flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-7 md:pl-0">
                 <div className="flex-1 order-2 md:order-1 md:text-right">
                   <h3 className="font-semibold mb-1 md:mb-2">Merge</h3>
                   <p className="text-sm text-muted-foreground">New York City</p>
                   <p className="text-sm text-muted-foreground">22 years old - present</p>
                 </div>
-                <div className="w-3 h-3 rounded-full bg-foreground relative z-10 mt-1 md:mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background absolute left-[23px] md:relative md:left-auto" />
+                <div className="w-3 h-3 rounded-full bg-foreground z-10 mt-[6px] md:mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background absolute left-0 md:relative md:left-auto" />
                 <div className="flex-1 space-y-4 md:space-y-6 order-3">
                   <div>
                     <p className="font-medium">Account Executive</p>
@@ -92,13 +92,13 @@ export default function AboutPage() {
 
             {/* Supernode Ventures */}
             <div className="relative mb-10 md:mb-16">
-              <div className="flex flex-col md:flex-row items-start gap-4 md:gap-8">
+              <div className="flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-7 md:pl-0">
                 <div className="flex-1 order-2 md:order-1 md:text-right">
                   <h3 className="font-semibold mb-1 md:mb-2">Supernode Ventures</h3>
                   <p className="text-sm text-muted-foreground">New York City</p>
                   <p className="text-sm text-muted-foreground">22 years old</p>
                 </div>
-                <div className="w-3 h-3 rounded-full bg-foreground relative z-10 mt-1 md:mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background absolute left-[23px] md:relative md:left-auto" />
+                <div className="w-3 h-3 rounded-full bg-foreground z-10 mt-[6px] md:mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background absolute left-0 md:relative md:left-auto" />
                 <div className="flex-1 order-3">
                   <p className="font-medium">Analyst</p>
                   <p className="text-sm text-muted-foreground">June 2022 - November 2022</p>
@@ -108,14 +108,14 @@ export default function AboutPage() {
 
             {/* Education */}
             <div className="relative mb-10 md:mb-16">
-              <div className="flex flex-col md:flex-row items-start gap-4 md:gap-8">
+              <div className="flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-7 md:pl-0">
                 <div className="flex-1 order-2 md:order-1 md:text-right">
                   <h3 className="font-semibold mb-1 md:mb-2">University of Maryland,</h3>
                   <h3 className="font-semibold mb-1 md:mb-2">Smith School of Business</h3>
                   <p className="text-sm text-muted-foreground">College Park, MD</p>
                   <p className="text-sm text-muted-foreground">22 years old</p>
                 </div>
-                <div className="w-3 h-3 rounded-full bg-foreground relative z-10 mt-1 md:mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background absolute left-[23px] md:relative md:left-auto" />
+                <div className="w-3 h-3 rounded-full bg-foreground z-10 mt-[6px] md:mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background absolute left-0 md:relative md:left-auto" />
                 <div className="flex-1 order-3">
                   <p className="font-medium">Bachelor of Science: Finance</p>
                   <p className="font-medium">Minor: Technology Entrepreneurship</p>
@@ -126,13 +126,13 @@ export default function AboutPage() {
 
             {/* Bowery Capital */}
             <div className="relative mb-10 md:mb-16">
-              <div className="flex flex-col md:flex-row items-start gap-4 md:gap-8">
+              <div className="flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-7 md:pl-0">
                 <div className="flex-1 order-2 md:order-1 md:text-right">
                   <h3 className="font-semibold mb-1 md:mb-2">Bowery Capital</h3>
                   <p className="text-sm text-muted-foreground">New York City</p>
                   <p className="text-sm text-muted-foreground">21 years old</p>
                 </div>
-                <div className="w-3 h-3 rounded-full bg-foreground relative z-10 mt-1 md:mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background absolute left-[23px] md:relative md:left-auto" />
+                <div className="w-3 h-3 rounded-full bg-foreground z-10 mt-[6px] md:mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background absolute left-0 md:relative md:left-auto" />
                 <div className="flex-1 order-3">
                   <p className="font-medium">Summer Analyst</p>
                   <p className="text-sm text-muted-foreground">Jun 2021 - Sep 2021</p>
@@ -142,13 +142,13 @@ export default function AboutPage() {
             
             {/* SELF */}
             <div className="relative mb-10 md:mb-16">
-              <div className="flex flex-col md:flex-row items-start gap-4 md:gap-8">
+              <div className="flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-7 md:pl-0">
                 <div className="flex-1 order-2 md:order-1 md:text-right">
                   <h3 className="font-semibold mb-1 md:mb-2">University of Maryland</h3>
                   <p className="text-sm text-muted-foreground">College Park, MD</p>
                   <p className="text-sm text-muted-foreground">17 years old</p>
                 </div>
-                <div className="w-3 h-3 rounded-full bg-foreground relative z-10 mt-1 md:mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background absolute left-[23px] md:relative md:left-auto" />
+                <div className="w-3 h-3 rounded-full bg-foreground z-10 mt-[6px] md:mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background absolute left-0 md:relative md:left-auto" />
                 <div className="flex-1 order-3">
                   <p className="font-medium">Snider Enterprise and Leadership Fellows</p>
                   <p className="text-sm text-muted-foreground">July 2017</p>
@@ -158,13 +158,13 @@ export default function AboutPage() {
 
             {/* Weston High School */}
             <div className="relative mb-10 md:mb-16">
-              <div className="flex flex-col md:flex-row items-start gap-4 md:gap-8">
+              <div className="flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-7 md:pl-0">
                 <div className="flex-1 order-2 md:order-1 md:text-right">
                   <h3 className="font-semibold mb-1 md:mb-2">Weston High School</h3>
                   <p className="text-sm text-muted-foreground">Weston, CT</p>
                   <p className="text-sm text-muted-foreground">14-18 years old</p>
                 </div>
-                <div className="w-3 h-3 rounded-full bg-foreground relative z-10 mt-1 md:mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background absolute left-[23px] md:relative md:left-auto" />
+                <div className="w-3 h-3 rounded-full bg-foreground z-10 mt-[6px] md:mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background absolute left-0 md:relative md:left-auto" />
                 <div className="flex-1 order-3">
                   <p className="font-medium">High School</p>
                   <p className="text-sm text-muted-foreground">August 2014 - May 2018</p>
@@ -174,13 +174,13 @@ export default function AboutPage() {
 
             {/* Birth */}
             <div className="relative">
-              <div className="flex flex-col md:flex-row items-start gap-4 md:gap-8">
+              <div className="flex flex-col md:flex-row items-start gap-4 md:gap-8 pl-7 md:pl-0">
                 <div className="flex-1 order-2 md:order-1 md:text-right">
                   <h3 className="font-semibold mb-1 md:mb-2">Born</h3>
                   <p className="text-sm text-muted-foreground">Norwalk, CT</p>
                   <p className="text-sm text-muted-foreground">0 years old</p>
                 </div>
-                <div className="w-3 h-3 rounded-full bg-foreground relative z-10 mt-1 md:mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background absolute left-[23px] md:relative md:left-auto" />
+                <div className="w-3 h-3 rounded-full bg-foreground z-10 mt-[6px] md:mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background absolute left-0 md:relative md:left-auto" />
                 <div className="flex-1 order-3">
                   <p className="text-sm text-muted-foreground">December 6, 1999</p>
                 </div>

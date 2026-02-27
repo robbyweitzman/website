@@ -9,7 +9,7 @@ interface ImageQuoteProps {
 
 export function ImageQuote({ imageSrc, imageAlt }: ImageQuoteProps) {
   return (
-    <div className="relative w-full mx-auto" style={{ maxWidth: '400px' }}>
+    <div className="relative w-full mx-auto">
       <div className="relative">
         <Image
           src={imageSrc}

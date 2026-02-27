@@ -69,9 +69,9 @@ export default function QuotesPage() {
             </div>
 
             {/* Right column - Images and Tweets */}
-            <div className="space-y-0">
+            <div className="space-y-6">
               {quotes.filter(q => q.type === 'tweet' || q.type === 'image').map((quote) => (
-                <div key={quote.id} className="animate-in fade-in duration-700 mb-3">
+                <div key={quote.id} className="animate-in fade-in duration-700">
                   {quote.type === 'tweet' && quote.tweetUrl ? (
                     <TweetEmbed tweetUrl={quote.tweetUrl} />
                   ) : quote.type === 'image' && quote.imageSrc && quote.imageAlt ? (

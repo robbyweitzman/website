@@ -46,7 +46,7 @@ export default function AboutPage() {
                 </div>
                 <div className="w-3 h-3 rounded-full bg-foreground z-10 mt-[6px] md:mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background absolute left-0 md:relative md:left-auto" />
                 <div className="flex-1 order-3">
-                  <p className="font-medium">GTM</p>
+                  <p className="font-medium">Startups</p>
                   <p className="text-sm text-muted-foreground">June 2025 - Present</p>
                 </div>
               </div>

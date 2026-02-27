@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback, useEffect } from "react"
+import { useState, useCallback, useEffect, useRef } from "react"
 import Link from "next/link"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { ChevronLeft, ChevronRight, Camera } from "lucide-react"
@@ -9,65 +9,64 @@ import Image from "next/image"
 import { DarkModeToggle } from "@/components/dark-mode-toggle"
 
 export default function PhotosPage() {
-  const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null)
-  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set())
   const [modalImageLoading, setModalImageLoading] = useState(false)
-  const [preloadedImages] = useState<Map<string, HTMLImageElement>>(new Map())
 
-  // Navigation functions
-  const navigateToNext = useCallback(() => {
-    if (currentPhotoIndex < photos.length - 1) {
-      setModalImageLoading(true)
-      const nextIndex = currentPhotoIndex + 1
-      setCurrentPhotoIndex(nextIndex)
-      setSelectedPhoto(photos[nextIndex])
+  const openIndexRef = useRef<number | null>(null)
+  const preloadCacheRef = useRef<Map<string, HTMLImageElement>>(new Map())
+
+  openIndexRef.current = openIndex
+  const selectedPhoto = openIndex !== null ? photos[openIndex] : null
+  const isModalOpen = openIndex !== null
+
+  // Preload adjacent images for smoother navigation
+  const preloadAdjacent = useCallback((index: number) => {
+    const cache = preloadCacheRef.current
+    const preloadOne = (src: string, id: string) => {
+      if (cache.has(id)) return
+      if (cache.size >= 3) {
+        const firstKey = cache.keys().next().value
+        if (firstKey) cache.delete(firstKey)
+      }
+      const img = new window.Image()
+      img.src = src
+      cache.set(id, img)
     }
-  }, [currentPhotoIndex])
+    if (index > 0) preloadOne(photos[index - 1].src, photos[index - 1].id)
+    if (index < photos.length - 1) preloadOne(photos[index + 1].src, photos[index + 1].id)
+  }, [])
+
+  // Navigation functions — stable refs avoid listener churn
+  const navigateToNext = useCallback(() => {
+    const current = openIndexRef.current
+    if (current === null || current >= photos.length - 1) return
+    const next = current + 1
+    setOpenIndex(next)
+    preloadAdjacent(next)
+  }, [preloadAdjacent])
 
   const navigateToPrevious = useCallback(() => {
-    if (currentPhotoIndex > 0) {
-      setModalImageLoading(true)
-      const prevIndex = currentPhotoIndex - 1
-      setCurrentPhotoIndex(prevIndex)
-      setSelectedPhoto(photos[prevIndex])
-    }
-  }, [currentPhotoIndex])
+    const current = openIndexRef.current
+    if (current === null || current <= 0) return
+    const prev = current - 1
+    setOpenIndex(prev)
+    preloadAdjacent(prev)
+  }, [preloadAdjacent])
 
-  // Handle photo selection from grid
   const handlePhotoSelect = useCallback((photo: Photo, e?: React.MouseEvent) => {
     e?.preventDefault()
     const index = photos.findIndex(p => p.id === photo.id)
-    setCurrentPhotoIndex(index)
-    setSelectedPhoto(photo)
+    setOpenIndex(index)
     setModalImageLoading(true)
-    
-    // Preload adjacent images for better navigation (limit memory usage)
-    const preloadImage = (src: string, id: string) => {
-      if (preloadedImages.has(id)) return
-      
-      // Limit preloaded images to 3 to save memory
-      if (preloadedImages.size >= 3) {
-        const firstKey = preloadedImages.keys().next().value
-        if (firstKey) {
-          preloadedImages.delete(firstKey)
-        }
-      }
-      
-      const img = new window.Image()
-      img.src = src
-      preloadedImages.set(id, img)
-    }
-    
-    if (index > 0) preloadImage(photos[index - 1].src, photos[index - 1].id)
-    if (index < photos.length - 1) preloadImage(photos[index + 1].src, photos[index + 1].id)
-  }, [])
+    preloadAdjacent(index)
+  }, [preloadAdjacent])
 
-  // Handle keyboard navigation
+  // Keyboard navigation — listener attaches once on open, removes on close
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (!selectedPhoto) return
+    if (!isModalOpen) return
 
+    const handleKeyDown = (e: KeyboardEvent) => {
       switch (e.key) {
         case 'ArrowLeft':
           e.preventDefault()
@@ -78,16 +77,14 @@ export default function PhotosPage() {
           navigateToNext()
           break
         case 'Escape':
-          setSelectedPhoto(null)
+          setOpenIndex(null)
           break
       }
     }
 
-    if (selectedPhoto) {
-      window.addEventListener('keydown', handleKeyDown)
-      return () => window.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [selectedPhoto, navigateToNext, navigateToPrevious])
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [isModalOpen, navigateToNext, navigateToPrevious])
 
   return (
     <main className="min-h-screen bg-[#FFFAF1] dark:bg-background transition-colors">
@@ -120,7 +117,7 @@ export default function PhotosPage() {
       <div className="container px-8 md:px-16 py-12 mx-auto">
         <div className="max-w-[900px] mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {photos.map((photo) => (
+            {photos.map((photo, index) => (
               <button
                 key={photo.id}
                 type="button"
@@ -133,8 +130,8 @@ export default function PhotosPage() {
                   width={300}
                   height={400}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  priority={photo.id === "1" || photo.id === "2"}
-                  loading={photo.id === "1" || photo.id === "2" ? "eager" : "lazy"}
+                  priority={index < 2}
+                  loading={index < 2 ? "eager" : "lazy"}
                   sizes="(max-width: 768px) 50vw, 33vw"
                   onError={() => {
                     setImageErrors(prev => new Set(prev).add(photo.id))
@@ -146,16 +143,10 @@ export default function PhotosPage() {
         </div>
       </div>
 
-      <Dialog 
-        open={!!selectedPhoto} 
-        onOpenChange={() => {
-          setSelectedPhoto(null)
-          // Force garbage collection of modal content
-          setTimeout(() => {
-            if (window.gc) {
-              window.gc()
-            }
-          }, 100)
+      <Dialog
+        open={isModalOpen}
+        onOpenChange={(open) => {
+          if (!open) setOpenIndex(null)
         }}
       >
         <DialogContent className="max-w-[95vw] sm:max-w-[90vw] md:max-w-6xl lg:max-w-7xl max-h-[95vh] p-4 sm:p-6 md:p-8 overflow-hidden">
@@ -200,7 +191,7 @@ export default function PhotosPage() {
                       {/* Photo badge */}
                       <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-primary/10 text-primary rounded-full border border-primary/20">
                         <Camera className="h-3 w-3" />
-                        <span className="text-xs font-medium">Photo {currentPhotoIndex + 1} of {photos.length}</span>
+                        <span className="text-xs font-medium">Photo {(openIndex ?? 0) + 1} of {photos.length}</span>
                       </div>
                     </div>
                     
@@ -224,7 +215,7 @@ export default function PhotosPage() {
                   type="button"
                   onClick={(e) => { e.preventDefault(); navigateToPrevious(); }}
                   className="p-2 rounded-full bg-background/90 hover:bg-background border border-border shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                  disabled={currentPhotoIndex === 0}
+                  disabled={openIndex === 0}
                   aria-label="Previous photo"
                 >
                   <ChevronLeft className="h-4 w-4" />
@@ -234,7 +225,7 @@ export default function PhotosPage() {
                   type="button"
                   onClick={(e) => { e.preventDefault(); navigateToNext(); }}
                   className="p-2 rounded-full bg-background/90 hover:bg-background border border-border shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                  disabled={currentPhotoIndex === photos.length - 1}
+                  disabled={openIndex === photos.length - 1}
                   aria-label="Next photo"
                 >
                   <ChevronRight className="h-4 w-4" />

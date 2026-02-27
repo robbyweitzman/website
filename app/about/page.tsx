@@ -74,13 +74,13 @@ export default function AboutPage() {
                 <div className="flex-1 order-2 md:order-1 md:text-right">
                   <h3 className="font-semibold mb-1 md:mb-2">Merge</h3>
                   <p className="text-sm text-muted-foreground">New York City</p>
-                  <p className="text-sm text-muted-foreground">22 years old - present</p>
+                  <p className="text-sm text-muted-foreground">22 years old - 25 years old</p>
                 </div>
                 <div className="w-3 h-3 rounded-full bg-foreground z-10 mt-[6px] md:mt-2 md:mx-auto order-1 md:order-2 ring-4 ring-background absolute left-0 md:relative md:left-auto" />
                 <div className="flex-1 space-y-4 md:space-y-6 order-3">
                   <div>
                     <p className="font-medium">Account Executive</p>
-                    <p className="text-sm text-muted-foreground">November 2023 - Present</p>
+                    <p className="text-sm text-muted-foreground">November 2023 - June 2025</p>
                   </div>
                   <div>
                     <p className="font-medium">Sales Development Representative</p>

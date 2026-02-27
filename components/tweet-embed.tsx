@@ -52,7 +52,7 @@ export function TweetEmbed({ tweetUrl }: TweetEmbedProps) {
 
   if (!tweetId) {
     return (
-      <div className="w-full max-w-2xl mx-auto p-6 text-center text-[#8B7A6E] dark:text-[#9B8A7E]">
+      <div className="w-full max-w-2xl mx-auto p-6 text-center text-gray-500 dark:text-gray-400">
         Invalid tweet URL
       </div>
     )

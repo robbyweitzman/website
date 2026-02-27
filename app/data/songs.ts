@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "The Beginning of the End",
+    artist: "Nine Inch Nails",
+    album: "Year Zero",
+    releaseDate: "April 13, 2007",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/58/90/13/589013be-cf23-0db1-6108-7eacfef3aa5e/00602547582812.rgb.jpg/600x600bb.jpg",
+    date: "February 28, 2026",
+    spotifyUrl: "https://open.spotify.com/track/30aRriqqaUbDN1mkTwMRhB",
+    appleMusicUrl: "https://music.apple.com/us/album/strobe/1440826874?i=1440827076",
+  },
+  {
     title: "Science (feat. Stevie Appleton)",
     artist: "deadmau5",
     album: "Science (feat. Stevie Appleton) - Single",

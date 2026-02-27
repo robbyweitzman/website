@@ -90,69 +90,52 @@ export default function PhotosPage() {
   }, [selectedPhoto, navigateToNext, navigateToPrevious])
 
   return (
-    <main className="min-h-screen bg-[#FDF8F3] dark:bg-[#1A1512] transition-colors">
-      {/* Warm paper texture overlay */}
-      <div className="fixed inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.015] z-50"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-          mixBlendMode: 'multiply'
-        }}
-      />
-
-      {/* Subtle warm gradient overlay */}
-      <div className="fixed inset-0 pointer-events-none z-0 opacity-40 dark:opacity-20"
-        style={{
-          background: 'radial-gradient(circle at 20% 50%, rgba(235, 88, 45, 0.08) 0%, transparent 50%)'
-        }}
-      />
-
-      <header className="fixed top-0 left-0 right-0 z-40 bg-[#FDF8F3]/95 dark:bg-[#1A1512]/95 backdrop-blur-sm border-b border-[#E8DED3]/30 dark:border-[#3A2F28]/30">
-        <div className="container px-6 md:px-16 py-4 mx-auto max-w-7xl">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="text-lg font-light text-[#2C2420] dark:text-[#F5EDE4] hover:text-[#EB582D] transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
-              robby weitzman
+    <main className="min-h-screen bg-[#FFFAF1] dark:bg-background transition-colors">
+      <header className="container px-8 md:px-16 py-6 mx-auto">
+        <div className="flex items-center justify-between">
+          <Link href="/" className="text-lg font-medium hover:text-muted-foreground transition-colors">
+            robby weitzman
+          </Link>
+          <div className="flex items-center gap-6">
+            <Link href="/mood-room" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              mood room
             </Link>
-            <nav className="flex items-center gap-6">
-              <Link href="/mood-room" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
-                mood room
-              </Link>
-              <Link href="/photos" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
-                photos
-              </Link>
-              <Link href="/sotd" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
-                sotd
-              </Link>
-              <Link href="/quotes" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
-                quotes
-              </Link>
-              <Link href="/about" className="text-sm text-[#6B5A50] dark:text-[#B8A89C] hover:text-[#EB582D] transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
-                about
-              </Link>
-              <DarkModeToggle />
-            </nav>
+            <Link href="/photos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              photos
+            </Link>
+            <Link href="/sotd" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              sotd
+            </Link>
+            <Link href="/quotes" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              quotes
+            </Link>
+            <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              about
+            </Link>
+            <DarkModeToggle />
           </div>
         </div>
       </header>
 
-      <div className="container px-6 md:px-16 pt-24 pb-20 md:pt-32 md:pb-32 mx-auto max-w-7xl">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+      <div className="container px-8 md:px-16 py-12 mx-auto">
+        <div className="max-w-[900px] mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {photos.map((photo) => (
               <button
                 key={photo.id}
                 type="button"
                 onClick={(e) => handlePhotoSelect(photo, e)}
-                className="group w-full aspect-[3/4] overflow-hidden focus:outline-none transition-all duration-300"
+                className="w-full aspect-[3/4] rounded-lg overflow-hidden focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
               >
                 <Image
                   src={imageErrors.has(photo.id) ? "/placeholder.svg" : photo.src}
                   alt={photo.alt}
                   width={300}
                   height={400}
-                  className="w-full h-full object-cover group-hover:opacity-90 transition-opacity duration-300"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   priority={photo.id === "1" || photo.id === "2"}
                   loading={photo.id === "1" || photo.id === "2" ? "eager" : "lazy"}
-                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  sizes="(max-width: 768px) 50vw, 33vw"
                   onError={() => {
                     setImageErrors(prev => new Set(prev).add(photo.id))
                   }}
@@ -163,8 +146,8 @@ export default function PhotosPage() {
         </div>
       </div>
 
-      <Dialog
-        open={!!selectedPhoto}
+      <Dialog 
+        open={!!selectedPhoto} 
         onOpenChange={() => {
           setSelectedPhoto(null)
           // Force garbage collection of modal content
@@ -175,73 +158,87 @@ export default function PhotosPage() {
           }, 100)
         }}
       >
-        <DialogContent className="max-w-[95vw] sm:max-w-md md:max-w-4xl p-0 overflow-hidden gap-0">
+        <DialogContent className="max-w-[95vw] sm:max-w-[90vw] md:max-w-6xl lg:max-w-7xl max-h-[95vh] p-4 sm:p-6 md:p-8 overflow-hidden">
           {selectedPhoto && (
-            <div className="flex flex-col relative">
-              {/* Photo - Full width */}
-              <div className="relative w-full bg-black">
-                {modalImageLoading && (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="animate-pulse text-white">Loading...</div>
+            <div className="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-start h-full relative">
+              
+              {/* Photo */}
+              <div className="flex-1 min-w-0 relative">
+                <div className="relative max-w-md mx-auto md:max-w-none">
+                  {modalImageLoading && (
+                    <div className="w-full h-80 bg-muted rounded-lg flex items-center justify-center">
+                      <div className="animate-pulse text-muted-foreground">Loading...</div>
+                    </div>
+                  )}
+                  <Image
+                    src={imageErrors.has(selectedPhoto.id) ? "/placeholder.svg" : selectedPhoto.src}
+                    alt={selectedPhoto.alt}
+                    width={1200}
+                    height={800}
+                    className={`w-full h-auto object-contain max-h-[60vh] sm:max-h-[70vh] md:max-h-[80vh] rounded-lg shadow-lg transition-opacity duration-200 ${modalImageLoading ? 'opacity-0' : 'opacity-100'}`}
+                    priority
+                    sizes="(max-width: 768px) 95vw, 80vw"
+                    onLoad={() => setModalImageLoading(false)}
+                    onError={() => {
+                      setModalImageLoading(false)
+                      setImageErrors(prev => new Set(prev).add(selectedPhoto.id))
+                    }}
+                  />
+                </div>
+              </div>
+              
+              {/* Photo Details */}
+              <div className="w-full md:w-80 lg:w-72 flex flex-col min-w-0 relative h-full flex-shrink-0">
+                <div className="flex-1">
+                  {/* Photo Info */}
+                  <div className="space-y-3 mb-4 sm:mb-6">
+                    <div className="space-y-2">
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold leading-tight">
+                        {selectedPhoto.title}
+                      </h3>
+                      
+                      {/* Photo badge */}
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-primary/10 text-primary rounded-full border border-primary/20">
+                        <Camera className="h-3 w-3" />
+                        <span className="text-xs font-medium">Photo {currentPhotoIndex + 1} of {photos.length}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-1 text-sm text-muted-foreground">
+                      <p className="font-medium">{selectedPhoto.camera}</p>
+                      <p>{selectedPhoto.film}</p>
+                      <p>Taken: {selectedPhoto.date}</p>
+                    </div>
                   </div>
-                )}
-                <Image
-                  src={imageErrors.has(selectedPhoto.id) ? "/placeholder.svg" : selectedPhoto.src}
-                  alt={selectedPhoto.alt}
-                  width={1200}
-                  height={800}
-                  className={`w-full h-auto object-contain max-h-[70vh] transition-opacity duration-200 ${modalImageLoading ? 'opacity-0' : 'opacity-100'}`}
-                  priority
-                  sizes="(max-width: 768px) 95vw, 80vw"
-                  onLoad={() => setModalImageLoading(false)}
-                  onError={() => {
-                    setModalImageLoading(false)
-                    setImageErrors(prev => new Set(prev).add(selectedPhoto.id))
-                  }}
-                />
-
-                {/* Navigation arrows - overlay on image */}
-                <div className="absolute inset-x-0 bottom-4 flex justify-between px-4 z-10">
-                  <button
-                    type="button"
-                    onClick={(e) => { e.preventDefault(); navigateToPrevious(); }}
-                    className="p-2 rounded-full bg-[#FDF8F3]/90 dark:bg-[#1A1512]/90 hover:bg-[#FDF8F3] dark:hover:bg-[#1A1512] border border-[#E8DED3]/50 dark:border-[#3A2F28]/50 shadow-lg transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
-                    disabled={currentPhotoIndex === 0}
-                    aria-label="Previous photo"
-                  >
-                    <ChevronLeft className="h-4 w-4 text-[#2C2420] dark:text-[#F5EDE4]" />
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={(e) => { e.preventDefault(); navigateToNext(); }}
-                    className="p-2 rounded-full bg-[#FDF8F3]/90 dark:bg-[#1A1512]/90 hover:bg-[#FDF8F3] dark:hover:bg-[#1A1512] border border-[#E8DED3]/50 dark:border-[#3A2F28]/50 shadow-lg transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
-                    disabled={currentPhotoIndex === photos.length - 1}
-                    aria-label="Next photo"
-                  >
-                    <ChevronRight className="h-4 w-4 text-[#2C2420] dark:text-[#F5EDE4]" />
-                  </button>
+                </div>
+                
+                {/* Mobile close hint */}
+                <div className="md:hidden text-center pt-8">
+                  <p className="text-xs text-muted-foreground">Tap outside to close</p>
                 </div>
               </div>
 
-              {/* Photo Details */}
-              <div className="p-6 space-y-3">
-                <h3 className="text-xl md:text-2xl font-light text-[#2C2420] dark:text-[#F5EDE4]" style={{ fontFamily: 'var(--font-display)' }}>
-                  {selectedPhoto.title}
-                </h3>
-
-                <div className="flex flex-wrap items-center gap-3 text-sm text-[#8B7A6E] dark:text-[#9B8A7E]">
-                  <div className="flex items-center gap-1.5">
-                    <Camera className="h-3.5 w-3.5 text-[#EB582D]" />
-                    <span className="text-xs">Photo {currentPhotoIndex + 1} of {photos.length}</span>
-                  </div>
-                  <span className="text-[#E8DED3] dark:text-[#3A2F28]">•</span>
-                  <span>{selectedPhoto.camera}</span>
-                  <span className="text-[#E8DED3] dark:text-[#3A2F28]">•</span>
-                  <span>{selectedPhoto.film}</span>
-                  <span className="text-[#E8DED3] dark:text-[#3A2F28]">•</span>
-                  <span>{selectedPhoto.date}</span>
-                </div>
+              {/* Navigation arrows - bottom right */}
+              <div className="absolute bottom-4 right-4 flex gap-2 z-10">
+                <button
+                  type="button"
+                  onClick={(e) => { e.preventDefault(); navigateToPrevious(); }}
+                  className="p-2 rounded-full bg-background/90 hover:bg-background border border-border shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={currentPhotoIndex === 0}
+                  aria-label="Previous photo"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </button>
+                
+                <button
+                  type="button"
+                  onClick={(e) => { e.preventDefault(); navigateToNext(); }}
+                  className="p-2 rounded-full bg-background/90 hover:bg-background border border-border shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={currentPhotoIndex === photos.length - 1}
+                  aria-label="Next photo"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </button>
               </div>
             </div>
           )}

@@ -11,15 +11,13 @@ export function QuoteCard({ text, author }: QuoteCardProps) {
       <div className="relative px-6 md:px-8 py-10 md:py-12 text-center">
         {/* Quote text */}
         <blockquote className="mb-8">
-          <p className="text-base font-light leading-relaxed text-[#2C2420] dark:text-[#F5EDE4]"
-             style={{ fontFamily: 'var(--font-display)' }}>
+          <p className="text-base leading-relaxed dark:text-foreground">
             {text}
           </p>
         </blockquote>
 
         {/* Author */}
-        <p className="text-base font-light text-[#8B7A6E] dark:text-[#9B8A7E]"
-           style={{ fontFamily: 'var(--font-display)' }}>
+        <p className="text-base text-gray-500 dark:text-gray-400">
           — {author}
         </p>
       </div>

@@ -365,8 +365,6 @@ export default function SotdClient({ allSongs }: SotdClientProps) {
   const throttledWheelRef = useRef<((e: WheelEvent) => void) | null>(null)
   if (!throttledWheelRef.current) {
     throttledWheelRef.current = throttle((e: WheelEvent) => {
-      e.preventDefault()
-
       const scrollSpeed = Math.min(Math.abs(e.deltaX) / 200, 0.5)
       const direction = e.deltaX > 0 ? 1 : -1
 
@@ -408,9 +406,15 @@ export default function SotdClient({ allSongs }: SotdClientProps) {
     const container = containerRef.current
     if (!container) return
 
-    const wheelHandler = throttledWheelRef.current!
+    const throttledWheel = throttledWheelRef.current!
     const mouseMoveHandler = throttledMouseMoveRef.current!
 
+    // preventDefault on every wheel event to block browser back/forward gestures;
+    // the throttled handler only fires periodically so it can't do this reliably.
+    const wheelHandler = (e: WheelEvent) => {
+      e.preventDefault()
+      throttledWheel(e)
+    }
     container.addEventListener("wheel", wheelHandler, { passive: false })
     container.addEventListener("mousedown", handleMouseDown)
     container.addEventListener("touchstart", handleTouchStart, { passive: false })

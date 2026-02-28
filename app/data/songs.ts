@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Choosin' Texas",
+    artist: "Ella Langley",
+    album: "Choosin' Texas - Single",
+    releaseDate: "October 17, 2025",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e2/91/4d/e2914d0a-7f1d-f04c-fbf4-c50b38548838/196873638690.jpg/600x600bb.jpg",
+    date: "February 28, 2026",
+    spotifyUrl: "https://open.spotify.com/track/65DbTqJKhbwqYbZ1Okr0rc",
+    appleMusicUrl: "https://music.apple.com/us/album/choosin-texas/1844932149?i=1844932150",
+  },
+  {
     title: "Science (feat. Stevie Appleton)",
     artist: "deadmau5",
     album: "Science (feat. Stevie Appleton) - Single",

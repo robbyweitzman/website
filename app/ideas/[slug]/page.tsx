@@ -1,41 +1,15 @@
-"use client"
-
 import Link from "next/link"
+import { notFound } from "next/navigation"
+import type { Metadata } from "next"
 import { DarkModeToggle } from "@/components/dark-mode-toggle"
 
 interface BlogPost {
   slug: string
   title: string
-  content: React.ReactNode // Change this line to support JSX content
+  content: React.ReactNode
 }
 
-// This would typically come from a CMS or database
 const posts: BlogPost[] = [
-  {
-    slug: "supernode-learnings",
-    title: "A few sentences on what I learned at Supernode Ventures in 2022.",
-    content: (
-      <>
-        Be overly-curious.
-        <br />
-        <br />
-        Be skeptical.
-        <br />
-        <br />
-        Question what you see.
-        <br />
-        <br />
-        Question statements you hear.
-        <br />
-        <br />
-        Question answers you receive.
-        <br />
-        <br />
-        <br />
-        <i>September 29, 2022</i>
-      </>
-    ),
-  },
   {
   slug: "why-and-how-i-built-this-website",
   title: "Why and how I built this website",
@@ -91,7 +65,8 @@ const posts: BlogPost[] = [
         height="315"
         src="https://www.youtube.com/embed/uPWUDU6sWvM?si=F4z0vBSt3iHrQnJB"
         title="YouTube video player"
-        frameBorder="0"
+        className="border-0"
+        loading="lazy"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
@@ -145,11 +120,22 @@ const posts: BlogPost[] = [
 }
 ];
 
+export function generateStaticParams() {
+  return posts.map((post) => ({ slug: post.slug }))
+}
+
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const post = posts.find((p) => p.slug === params.slug)
+  return {
+    title: post ? `${post.title} | Robby Weitzman` : "Post Not Found",
+  }
+}
+
 export default function BlogPost({ params }: { params: { slug: string } }) {
-  const post = posts.find((post) => post.slug === params.slug)
+  const post = posts.find((p) => p.slug === params.slug)
 
   if (!post) {
-    return <div>Post not found</div>
+    notFound()
   }
 
   return (
@@ -183,7 +169,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
       <article className="container px-8 md:px-16 py-12 mx-auto">
         <div className="max-w-[600px] mx-auto">
           <h1 className="text-2xl font-semibold tracking-tight mb-8 dark:text-foreground">{post.title}</h1>
-          <div className="prose prose-neutral dark:prose-invert max-w-none">{post.content}</div>
+          <div className="max-w-none">{post.content}</div>
         </div>
       </article>
     </main>

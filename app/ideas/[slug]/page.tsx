@@ -63,7 +63,7 @@ const posts: BlogPost[] = [
       <iframe
         width="560"
         height="315"
-        src="https://www.youtube.com/embed/uPWUDU6sWvM?si=F4z0vBSt3iHrQnJB"
+        src="https://www.youtube.com/embed/ajIhaUIyFuc?si=zKmdGzMsOQaOCpdv"
         title="YouTube video player"
         className="border-0"
         loading="lazy"

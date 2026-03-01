@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Hold On, Let Go (feat. Wayne Snow & 3DDY)",
+    artist: "ANOTR",
+    album: "Hold On, Let Go (feat. Wayne Snow & 3DDY) - Single",
+    releaseDate: "August 22, 2025",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ce/cd/f5/cecdf561-7f60-f979-0281-18ca89c5186c/1761.jpg/600x600bb.jpg",
+    date: "March 1, 2026",
+    spotifyUrl: "https://open.spotify.com/track/68tOdKX9bNXD2MCFVsE5OF",
+    appleMusicUrl: "https://music.apple.com/us/album/hold-on-let-go-feat-wayne-snow-3ddy/1831622154?i=1831622156",
+  },
+  {
     title: "Choosin' Texas",
     artist: "Ella Langley",
     album: "Choosin' Texas - Single",

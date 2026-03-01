@@ -473,32 +473,20 @@ export const songs: Song[] = [
   },
 ]
 
-// Generate IDs dynamically based on array order
-export const getSongsWithIds = () => {
-  return songs.map((song, index) => ({
-    ...song,
-    id: (index + 1).toString()
-  }))
-}
+// Compute once at module load — no need to re-map/sort on every call
+const songsWithIds: Song[] = songs.map((song, index) => ({
+  ...song,
+  id: (index + 1).toString(),
+}))
 
-// Get current song based on date
-export const getCurrentSong = () => {
+const sortedByDate: Song[] = [...songsWithIds].sort(
+  (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+)
+
+export const getCurrentSong = (): Song => {
   const today = new Date()
-  const songsWithIds = getSongsWithIds()
-  
-  // Sort songs by date in ascending order
-  const sortedSongs = [...songsWithIds].sort((a, b) => 
-    new Date(a.date).getTime() - new Date(b.date).getTime()
-  )
-  
-  // Find the first song that hasn't happened yet
-  const nextSong = sortedSongs.find(song => 
-    new Date(song.date) >= today
-  )
-  
-  return nextSong || sortedSongs[sortedSongs.length - 1]
+  return sortedByDate.find((song) => new Date(song.date) >= today) ?? sortedByDate[sortedByDate.length - 1]
 }
 
-// Get all songs with IDs
-export const getAllSongs = () => getSongsWithIds()
+export const getAllSongs = (): Song[] => songsWithIds
 

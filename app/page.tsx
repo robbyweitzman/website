@@ -1,10 +1,10 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useMemo, useCallback } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Dialog, DialogContent } from "@/components/ui/dialog"
-import { X, Music2, ExternalLink } from "lucide-react"
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
+import { Music2, ExternalLink } from "lucide-react"
 import { type Photo, photos } from "./data/photos"
 import { type Song, getCurrentSong, getAllSongs } from "./data/songs"
 import { DarkModeToggle } from "@/components/dark-mode-toggle"
@@ -12,9 +12,13 @@ import { DarkModeToggle } from "@/components/dark-mode-toggle"
 export default function Page() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null)
   const [selectedSong, setSelectedSong] = useState<Song | null>(null)
-  const currentSong = getCurrentSong()
-  const allSongs = getAllSongs()
-  const previousSongs = allSongs.slice(1) // All songs except the current one
+
+  const currentSong = useMemo(() => getCurrentSong(), [])
+  const allSongs = useMemo(() => getAllSongs(), [])
+  const previousSongs = useMemo(() => allSongs.slice(1), [allSongs])
+
+  const handlePhotoDialogClose = useCallback(() => setSelectedPhoto(null), [])
+  const handleSongDialogClose = useCallback(() => setSelectedSong(null), [])
 
   return (
     <main className="min-h-screen bg-[#FFFAF1] dark:bg-background transition-colors">
@@ -145,7 +149,6 @@ export default function Page() {
                     width={64}
                     height={64}
                     className="w-16 h-16 rounded-md object-cover"
-                    unoptimized
                   />
                 </div>
               </button>
@@ -173,7 +176,6 @@ export default function Page() {
                         width={48}
                         height={48}
                         className="w-12 h-12 rounded-md object-cover"
-                        unoptimized
                       />
                     </div>
                   </button>
@@ -185,8 +187,9 @@ export default function Page() {
       </div>
 
       {/* Photo Dialog */}
-      <Dialog open={!!selectedPhoto} onOpenChange={() => setSelectedPhoto(null)}>
+      <Dialog open={!!selectedPhoto} onOpenChange={handlePhotoDialogClose}>
         <DialogContent className="max-w-[95vw] sm:max-w-[90vw] md:max-w-6xl lg:max-w-7xl max-h-[95vh] p-4 sm:p-6 md:p-8 overflow-hidden">
+          <DialogTitle className="sr-only">{selectedPhoto?.title ?? "Photo"}</DialogTitle>
           {selectedPhoto && (
             <div className="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-start h-full">
               {/* Photo */}
@@ -230,8 +233,9 @@ export default function Page() {
       </Dialog>
 
       {/* Song Dialog */}
-      <Dialog open={!!selectedSong} onOpenChange={() => setSelectedSong(null)}>
+      <Dialog open={!!selectedSong} onOpenChange={handleSongDialogClose}>
         <DialogContent className="max-w-[95vw] sm:max-w-[90vw] md:max-w-4xl max-h-[95vh] p-4 sm:p-6 md:p-8 overflow-hidden">
+          <DialogTitle className="sr-only">{selectedSong?.title ?? "Song"}</DialogTitle>
           {selectedSong && (
             <div className="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-start h-full">
               {/* Album Art */}
@@ -276,41 +280,29 @@ export default function Page() {
                     <h4 className="text-sm font-semibold text-foreground mb-3">Listen Now</h4>
                     
                     <div className="grid grid-cols-1 gap-3">
-                      <a
-                        href={selectedSong.spotifyUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 p-3 rounded-lg border border-border bg-background/50 hover:bg-accent transition-all duration-200 group"
-                      >
-                        <div className="flex-shrink-0">
-                          <img src="/spotify_logo.png" alt="Spotify" className="h-5 w-5" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium group-hover:text-foreground transition-colors">
-                            Spotify
-                          </p>
-                          <p className="text-xs text-muted-foreground">Open in Spotify</p>
-                        </div>
-                        <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors flex-shrink-0" />
-                      </a>
-                      
-                      <a
-                        href={selectedSong.appleMusicUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 p-3 rounded-lg border border-border bg-background/50 hover:bg-accent transition-all duration-200 group"
-                      >
-                        <div className="flex-shrink-0">
-                          <img src="/apple_music_logo.png" alt="Apple Music" className="h-5 w-5" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium group-hover:text-foreground transition-colors">
-                            Apple Music
-                          </p>
-                          <p className="text-xs text-muted-foreground">Open in Apple Music</p>
-                        </div>
-                        <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors flex-shrink-0" />
-                      </a>
+                      {[
+                        { name: "Spotify", logo: "/spotify_logo.png", url: selectedSong.spotifyUrl },
+                        { name: "Apple Music", logo: "/apple_music_logo.png", url: selectedSong.appleMusicUrl },
+                      ].map((link) => (
+                        <a
+                          key={link.name}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-3 p-3 rounded-lg border border-border bg-background/50 hover:bg-accent transition-all duration-200 group"
+                        >
+                          <div className="flex-shrink-0">
+                            <img src={link.logo} alt={link.name} className="h-5 w-5" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium group-hover:text-foreground transition-colors">
+                              {link.name}
+                            </p>
+                            <p className="text-xs text-muted-foreground">Open in {link.name}</p>
+                          </div>
+                          <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors flex-shrink-0" />
+                        </a>
+                      ))}
                     </div>
                   </div>
                 </div>

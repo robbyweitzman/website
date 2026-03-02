@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "BIRDS OF A FEATHER",
+    artist: "Billie Eilish",
+    album: "HIT ME HARD AND SOFT",
+    releaseDate: "May 17, 2024",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/92/9f/69/929f69f1-9977-3a44-d674-11f70c852d1b/24UMGIM36186.rgb.jpg/600x600bb.jpg",
+    date: "March 2, 2026",
+    spotifyUrl: "https://open.spotify.com/track/6dOtVTDdiauQNBQEDOtlAB",
+    appleMusicUrl: "https://music.apple.com/us/album/birds-of-a-feather/1739659134?i=1739659142",
+  },
+  {
     title: "Hold On, Let Go (feat. Wayne Snow & 3DDY)",
     artist: "ANOTR",
     album: "Hold On, Let Go (feat. Wayne Snow & 3DDY) - Single",

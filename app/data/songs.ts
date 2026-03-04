@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Up All Night (feat. Nicki Minaj)",
+    artist: "Drake",
+    album: "Thank Me Later",
+    releaseDate: "June 15, 2010",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/63/9d/13/639d1329-da68-6535-bce1-8797eebf6b48/00602527395319.rgb.jpg/600x600bb.jpg",
+    date: "March 4, 2026",
+    spotifyUrl: "https://open.spotify.com/track/75L0qdzRnhwV62UXoNq3pE",
+    appleMusicUrl: "https://music.apple.com/us/album/up-all-night-feat-nicki-minaj/1440762388?i=1440762701",
+  },
+  {
     title: "BIRDS OF A FEATHER",
     artist: "Billie Eilish",
     album: "HIT ME HARD AND SOFT",

@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Rumba Tumba - TÂCHES Remix",
+    artist: "TÂCHES & Alkaline Georgi",
+    album: "With Each Passing Day - Single",
+    releaseDate: "April 6, 2021",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/d6/89/a6/d689a63d-e7a5-21d0-5e23-1a8ea9b42964/1677a80a-28d1-4ef6-ac1b-d4f6311ff6a6.jpg/600x600bb.jpg",
+    date: "March 6, 2026",
+    spotifyUrl: "https://open.spotify.com/track/1RdEvl55O3CIDJPvMUEsIC",
+    appleMusicUrl: "https://music.apple.com/us/album/rumba-tumba-t%C3%A2ches-remix/1596926403?i=1596926405",
+  },
+  {
     title: "Up All Night (feat. Nicki Minaj)",
     artist: "Drake",
     album: "Thank Me Later",

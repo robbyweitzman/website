@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Reciprocity (feat. Paula) [Main Mix]",
+    artist: "Moon Rocket",
+    album: "Reciprocity (feat. Paula) - Single",
+    releaseDate: "May 22, 2020",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/20/bd/9c/20bd9c57-afd7-b28e-5927-64e791ccaa8d/3616405161207.png/600x600bb.jpg",
+    date: "March 13, 2026",
+    spotifyUrl: "",
+    appleMusicUrl: "https://music.apple.com/us/album/reciprocity-feat-paula-main-mix/1553849046?i=1553849047",
+  },
+  {
     title: "More Love (Rampa &ME Remix)",
     artist: "Moderat",
     album: "More Love (Rampa &ME Remix) - Single",

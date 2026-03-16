@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "muddy",
+    artist: "dkj",
+    album: "don't be gone for long",
+    releaseDate: "May 2, 2025",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d1/64/97/d16497c9-4d6a-aa68-a322-5b925d5bafdd/artwork.jpg/600x600bb.jpg",
+    date: "March 16, 2026",
+    spotifyUrl: "",
+    appleMusicUrl: "https://music.apple.com/us/album/muddy/1810829377?i=1810829381",
+  },
+  {
     title: "Reciprocity (feat. Paula) [Main Mix]",
     artist: "Moon Rocket",
     album: "Reciprocity (feat. Paula) - Single",

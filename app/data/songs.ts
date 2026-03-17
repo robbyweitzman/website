@@ -18,7 +18,7 @@ export const songs: Song[] = [
     releaseDate: "May 2, 2025",
     albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d1/64/97/d16497c9-4d6a-aa68-a322-5b925d5bafdd/artwork.jpg/600x600bb.jpg",
     date: "March 16, 2026",
-    spotifyUrl: "",
+    spotifyUrl: "https://open.spotify.com/track/0Bx00lAqs83bnSLOWmpGnq",
     appleMusicUrl: "https://music.apple.com/us/album/muddy/1810829377?i=1810829381",
   },
   {
@@ -28,7 +28,7 @@ export const songs: Song[] = [
     releaseDate: "May 22, 2020",
     albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/20/bd/9c/20bd9c57-afd7-b28e-5927-64e791ccaa8d/3616405161207.png/600x600bb.jpg",
     date: "March 13, 2026",
-    spotifyUrl: "",
+    spotifyUrl: "https://open.spotify.com/track/6ZXwOcG6Fv8o5CqClFR4kw?si=1c191764f7a84a4b",
     appleMusicUrl: "https://music.apple.com/us/album/reciprocity-feat-paula-main-mix/1553849046?i=1553849047",
   },
   {
@@ -38,7 +38,7 @@ export const songs: Song[] = [
     releaseDate: "October 27, 2023",
     albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/78/cc/3d/78cc3d7b-71c4-963b-42cf-5c46a949e4e7/4251353207875.png/600x600bb.jpg",
     date: "March 12, 2026",
-    spotifyUrl: "",
+    spotifyUrl: "https://open.spotify.com/track/70ofkwt6aIb4bPQ51OQMQO?si=90433581d0b24195",
     appleMusicUrl: "https://music.apple.com/us/album/more-love-rampa-me-remix/1710757669?i=1710757670",
   },
   {

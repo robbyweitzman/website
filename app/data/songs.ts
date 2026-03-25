@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "SICKO MODE",
+    artist: "Travis Scott",
+    album: "ASTROWORLD",
+    releaseDate: "August 21, 2018",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/30/66/90/306690d4-2a29-402e-e406-6b319ce7731a/886447227169.jpg/600x600bb.jpg",
+    date: "March 25, 2026",
+    spotifyUrl: "",
+    appleMusicUrl: "https://music.apple.com/us/album/sicko-mode/1421241217?i=1421242781",
+  },
+  {
     title: "muddy",
     artist: "dkj",
     album: "don't be gone for long",

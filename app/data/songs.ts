@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Back To You (feat. Emi Grace)",
+    artist: "Sunday Scaries",
+    album: "Back To You (feat. Emi Grace) - Single",
+    releaseDate: "March 6, 2026",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ab/2b/59/ab2b5914-8d6b-47f3-b34b-ec5b9dde3881/810129962499.jpg/600x600bb.jpg",
+    date: "March 26, 2026",
+    spotifyUrl: "",
+    appleMusicUrl: "https://music.apple.com/us/album/back-to-you-feat-emi-grace/1878277865?i=1878277866",
+  },
+  {
     title: "SICKO MODE",
     artist: "Travis Scott",
     album: "ASTROWORLD",

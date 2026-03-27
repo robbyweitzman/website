@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Leave (Get Out)",
+    artist: "JoJo",
+    album: "JoJo",
+    releaseDate: "February 24, 2004",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f4/cb/0c/f4cb0c7e-3fae-db40-184d-bf35ca2b77d2/5034644712901.jpg/600x600bb.jpg",
+    date: "March 27, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Leave%20(Get%20Out)%20JoJo",
+    appleMusicUrl: "https://music.apple.com/us/album/leave-get-out/1816084258?i=1816085262",
+  },
+  {
     title: "Back To You (feat. Emi Grace)",
     artist: "Sunday Scaries",
     album: "Back To You (feat. Emi Grace) - Single",

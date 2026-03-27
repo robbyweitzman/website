@@ -266,7 +266,7 @@ export default function Page() {
                       {[
                         { name: "Spotify", logo: "/spotify_logo.png", url: selectedSong.spotifyUrl },
                         { name: "Apple Music", logo: "/apple_music_logo.png", url: selectedSong.appleMusicUrl },
-                      ].map((link) => (
+                      ].filter((link) => link.url).map((link) => (
                         <a
                           key={link.name}
                           href={link.url}

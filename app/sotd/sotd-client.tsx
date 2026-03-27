@@ -576,23 +576,25 @@ export default function SotdClient({ allSongs }: SotdClientProps) {
                     <h4 className="text-sm font-semibold text-foreground mb-3">Listen Now</h4>
 
                     <div className="grid grid-cols-1 gap-3">
-                      <a
-                        href={selectedSong.spotifyUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 p-3 rounded-lg border border-border bg-background/50 hover:bg-accent transition-all duration-200 group"
-                      >
-                        <div className="flex-shrink-0">
-                          <img src="/spotify_logo.png" alt="Spotify" className="h-5 w-5" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium group-hover:text-foreground transition-colors">
-                            Spotify
-                          </p>
-                          <p className="text-xs text-muted-foreground">Open in Spotify</p>
-                        </div>
-                        <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors flex-shrink-0" />
-                      </a>
+                      {selectedSong.spotifyUrl && (
+                        <a
+                          href={selectedSong.spotifyUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-3 p-3 rounded-lg border border-border bg-background/50 hover:bg-accent transition-all duration-200 group"
+                        >
+                          <div className="flex-shrink-0">
+                            <img src="/spotify_logo.png" alt="Spotify" className="h-5 w-5" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium group-hover:text-foreground transition-colors">
+                              Spotify
+                            </p>
+                            <p className="text-xs text-muted-foreground">Open in Spotify</p>
+                          </div>
+                          <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors flex-shrink-0" />
+                        </a>
+                      )}
 
                       <a
                         href={selectedSong.appleMusicUrl}

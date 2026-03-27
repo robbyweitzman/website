@@ -18,7 +18,7 @@ export const songs: Song[] = [
     releaseDate: "March 6, 2026",
     albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ab/2b/59/ab2b5914-8d6b-47f3-b34b-ec5b9dde3881/810129962499.jpg/600x600bb.jpg",
     date: "March 26, 2026",
-    spotifyUrl: "",
+    spotifyUrl: "https://open.spotify.com/track/2XDmP2r2wd3qSuZ2vu3z7k",
     appleMusicUrl: "https://music.apple.com/us/album/back-to-you-feat-emi-grace/1878277865?i=1878277866",
   },
   {
@@ -28,7 +28,7 @@ export const songs: Song[] = [
     releaseDate: "August 21, 2018",
     albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/30/66/90/306690d4-2a29-402e-e406-6b319ce7731a/886447227169.jpg/600x600bb.jpg",
     date: "March 25, 2026",
-    spotifyUrl: "",
+    spotifyUrl: "https://open.spotify.com/track/2xLMifQCjDGFmkHkpNLD9h",
     appleMusicUrl: "https://music.apple.com/us/album/sicko-mode/1421241217?i=1421242781",
   },
   {

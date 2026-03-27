@@ -104,22 +104,35 @@ async function fetchItunesMetadata(
   return track
 }
 
-async function fetchSpotifyUrl(appleMusicUrl: string): Promise<string> {
+function buildSpotifySearchUrl(title: string, artist: string): string {
+  const query = `${title} ${artist}`
+  return `https://open.spotify.com/search/${encodeURIComponent(query)}`
+}
+
+async function fetchSpotifyUrl(appleMusicUrl: string, title?: string, artist?: string): Promise<string> {
+  // Try Odesli first
   try {
     const response = await fetch(
       `https://api.song.link/v1-alpha.1/links?url=${encodeURIComponent(appleMusicUrl)}&userCountry=US`
     )
-    if (!response.ok) {
+    if (response.ok) {
+      const data = (await response.json()) as OdesliResponse
+      const url = data.linksByPlatform?.spotify?.url || ""
+      if (url) return url
+    } else {
       console.warn(`Odesli API returned ${response.status}`)
-      return ""
     }
-
-    const data = (await response.json()) as OdesliResponse
-    return data.linksByPlatform?.spotify?.url || ""
   } catch (error) {
     console.warn("Failed to fetch Spotify URL from Odesli:", error)
-    return ""
   }
+
+  // Fall back to Spotify search URL
+  if (title && artist) {
+    console.log("Odesli failed, falling back to Spotify search URL")
+    return buildSpotifySearchUrl(title, artist)
+  }
+
+  return ""
 }
 
 function buildSongEntry(song: {
@@ -244,11 +257,9 @@ export async function POST(request: NextRequest) {
     // Parse the Apple Music URL
     const { trackId, type } = parseAppleMusicUrl(appleMusicUrl)
 
-    // Fetch metadata from iTunes and Spotify URL from Odesli in parallel
-    const [itunesData, spotifyUrl] = await Promise.all([
-      fetchItunesMetadata(trackId, type),
-      fetchSpotifyUrl(appleMusicUrl),
-    ])
+    // Fetch metadata from iTunes first, then Spotify URL (with fallback needing title/artist)
+    const itunesData = await fetchItunesMetadata(trackId, type)
+    const spotifyUrl = await fetchSpotifyUrl(appleMusicUrl, itunesData.trackName, itunesData.artistName)
 
     const songData = {
       title: itunesData.trackName,

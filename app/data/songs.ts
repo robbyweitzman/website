@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "More Than A Woman",
+    artist: "Bee Gees",
+    album: "Saturday Night Fever (The Original Movie Soundtrack) [Deluxe Edition]",
+    releaseDate: "November 15, 1977",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/45/db/1d/45db1dac-fe00-3681-b216-266deea6e4cc/17UM1IM26789.rgb.jpg/600x600bb.jpg",
+    date: "March 30, 2026",
+    spotifyUrl: "https://open.spotify.com/search/More%20Than%20A%20Woman%20Bee%20Gees",
+    appleMusicUrl: "https://music.apple.com/us/album/more-than-a-woman/1442259177?i=1442259374",
+  },
+  {
     title: "Leave (Get Out)",
     artist: "JoJo",
     album: "JoJo",

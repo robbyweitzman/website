@@ -187,11 +187,6 @@ async function commitToGithub(
   const currentContent = Buffer.from(fileData.content, "base64").toString("utf-8")
   const sha = fileData.sha
 
-  // Check for duplicates
-  if (currentContent.includes(appleMusicUrl)) {
-    throw new Error("DUPLICATE: This song has already been added as SOTD")
-  }
-
   // Insert new entry at the top of the array
   const insertionMarker = "export const songs: Song[] = [\n"
   const insertIndex = currentContent.indexOf(insertionMarker)
@@ -290,13 +285,6 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "Unknown error occurred"
-
-    if (message.startsWith("DUPLICATE:")) {
-      return NextResponse.json(
-        { error: message.replace("DUPLICATE: ", "") },
-        { status: 409 }
-      )
-    }
 
     console.error("SOTD API error:", error)
     return NextResponse.json({ error: message }, { status: 500 })

@@ -17,7 +17,7 @@ export const songs: Song[] = [
     album: "More Love (Rampa &ME Remix) - Single",
     releaseDate: "October 27, 2023",
     albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/78/cc/3d/78cc3d7b-71c4-963b-42cf-5c46a949e4e7/4251353207875.png/600x600bb.jpg",
-    date: "April 1, 2026",
+    date: "March 31, 2026",
     spotifyUrl: "https://open.spotify.com/search/More%20Love%20(Rampa%20%26ME%20Remix)%20Moderat",
     appleMusicUrl: "https://music.apple.com/us/album/more-love-rampa-me-remix/1710757669?i=1710757670",
   },

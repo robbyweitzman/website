@@ -66,7 +66,9 @@ function formatReleaseDate(isoDate: string): string {
 }
 
 function formatTodayDate(): string {
-  return format(new Date(), "MMMM d, yyyy")
+  const now = new Date()
+  const estDate = new Date(now.toLocaleString("en-US", { timeZone: "America/New_York" }))
+  return format(estDate, "MMMM d, yyyy")
 }
 
 async function fetchItunesMetadata(

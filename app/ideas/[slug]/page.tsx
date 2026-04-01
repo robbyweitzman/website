@@ -152,6 +152,9 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
             <Link href="/photos" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
               photos
             </Link>
+            <Link href="/bookshelf" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
+              bookshelf
+            </Link>
             <Link href="/sotd" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
               sotd
             </Link>

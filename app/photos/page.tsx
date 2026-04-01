@@ -100,6 +100,9 @@ export default function PhotosPage() {
             <Link href="/photos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               photos
             </Link>
+            <Link href="/bookshelf" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              bookshelf
+            </Link>
             <Link href="/sotd" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               sotd
             </Link>

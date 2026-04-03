@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Let It All Out",
+    artist: "LEISURE",
+    album: "Let It All Out - Single",
+    releaseDate: "December 12, 2025",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/19/62/fb/1962fb6c-933f-4c13-6e69-e8e978bbe0a2/067004146165.png/600x600bb.jpg",
+    date: "April 3, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Let%20It%20All%20Out%20LEISURE",
+    appleMusicUrl: "https://music.apple.com/us/album/let-it-all-out/1853106466?i=1853106467",
+  },
+  {
     title: "More Love (Rampa &ME Remix)",
     artist: "Moderat",
     album: "More Love (Rampa &ME Remix) - Single",

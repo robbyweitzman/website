@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Son Of Mr. Green Genes",
+    artist: "Frank Zappa",
+    album: "Hot Rats",
+    releaseDate: "October 10, 1969",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/cf/ff/cc/cfffcc53-3c98-9cff-079d-262fdede78e9/12UMGIM15567.rgb.jpg/600x600bb.jpg",
+    date: "April 4, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Son%20Of%20Mr.%20Green%20Genes%20Frank%20Zappa",
+    appleMusicUrl: "https://music.apple.com/us/album/son-of-mr-green-genes/1562897106?i=1562897109",
+  },
+  {
     title: "Let It All Out",
     artist: "LEISURE",
     album: "Let It All Out - Single",

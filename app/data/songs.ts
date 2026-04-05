@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "What More Can I Say",
+    artist: "The Notations",
+    album: "What More Can I Say b/w Leading Lady - Single",
+    releaseDate: "March 13, 2015",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/9b/a6/4d/9ba64dae-f533-15fe-0800-1cab26a5c4fa/58210.jpg/600x600bb.jpg",
+    date: "April 5, 2026",
+    spotifyUrl: "https://open.spotify.com/search/What%20More%20Can%20I%20Say%20The%20Notations",
+    appleMusicUrl: "https://music.apple.com/us/album/what-more-can-i-say/1836016398?i=1836016399",
+  },
+  {
     title: "Son Of Mr. Green Genes",
     artist: "Frank Zappa",
     album: "Hot Rats",

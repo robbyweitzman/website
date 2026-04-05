@@ -22,25 +22,50 @@ export default function Page() {
 
   return (
     <main className="min-h-screen bg-[#FFFAF1] dark:bg-background transition-colors">
-      <header className="container px-8 md:px-16 py-6 mx-auto">
+      {/* Mobile: vertical link list */}
+      <div className="md:hidden min-h-screen flex flex-col items-start container px-9 mx-auto py-7">
+        <h1 className="text-lg font-medium dark:text-foreground">robby weitzman</h1>
+        <nav className="flex flex-col gap-6 mt-12">
+          <Link href="/sotd" className="text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
+            sotd
+          </Link>
+          <Link href="/photos" className="text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
+            photos
+          </Link>
+          <Link href="/quotes" className="text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
+            quotes
+          </Link>
+          <Link href="/mood-room" className="text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
+            mood room
+          </Link>
+          <Link href="/about" className="text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
+            about
+          </Link>
+          <DarkModeToggle />
+        </nav>
+      </div>
+
+      {/* Desktop: full layout */}
+      <div className="hidden md:block">
+      <header className="container px-8 md:px-16 py-4 sm:py-5 md:py-6 mx-auto">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-lg font-medium hover:text-gray-700 dark:text-foreground dark:hover:text-gray-300 transition-colors">
             robby weitzman
           </Link>
-          <nav className="flex items-center gap-6">
-            <Link href="/mood-room" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
+          <nav className="flex items-center gap-3 sm:gap-4 md:gap-6">
+            <Link href="/mood-room" className="text-xs sm:text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
               mood room
             </Link>
-            <Link href="/photos" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
+            <Link href="/photos" className="text-xs sm:text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
               photos
             </Link>
-            <Link href="/sotd" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
+            <Link href="/sotd" className="text-xs sm:text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
               sotd
             </Link>
-            <Link href="/quotes" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
+            <Link href="/quotes" className="text-xs sm:text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
               quotes
             </Link>
-            <Link href="/about" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
+            <Link href="/about" className="text-xs sm:text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
               about
             </Link>
             <DarkModeToggle />
@@ -167,6 +192,8 @@ export default function Page() {
             </div>
           </div>
         </div>
+      </div>
+
       </div>
 
       {/* Photo Dialog */}

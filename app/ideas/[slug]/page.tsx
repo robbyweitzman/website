@@ -140,7 +140,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 
   return (
     <main className="min-h-screen bg-[#FFFAF1] dark:bg-background transition-colors">
-      <header className="container px-8 md:px-16 py-6 mx-auto">
+      <header className="container px-9 md:px-16 py-7 md:py-6 mx-auto">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-lg font-medium hover:text-gray-700 dark:text-foreground dark:hover:text-gray-300 transition-colors">
             robby weitzman

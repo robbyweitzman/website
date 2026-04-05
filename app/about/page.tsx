@@ -7,12 +7,12 @@ export default function AboutPage() {
       {/* Timeline line that runs from top to the last bullet */}
       <div className="absolute left-[30px] md:left-1/2 top-0 bottom-[100px] w-px bg-gray-200 dark:bg-gray-700 transform md:-translate-x-1/2 z-0" />
       
-      <header className="container px-6 sm:px-8 md:px-16 py-4 sm:py-5 md:py-6 mx-auto relative z-10">
+      <header className="container px-9 md:px-16 py-7 md:py-6 mx-auto relative z-10">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-base md:text-lg font-medium hover:text-muted-foreground transition-colors">
             robby weitzman
           </Link>
-          <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
+          <div className="hidden md:flex items-center gap-3 sm:gap-4 md:gap-6">
             <Link href="/mood-room" className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors">
               mood room
             </Link>

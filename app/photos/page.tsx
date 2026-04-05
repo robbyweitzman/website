@@ -88,12 +88,12 @@ export default function PhotosPage() {
 
   return (
     <main className="min-h-screen bg-[#FFFAF1] dark:bg-background transition-colors">
-      <header className="container px-8 md:px-16 py-4 sm:py-5 md:py-6 mx-auto">
+      <header className="container px-9 md:px-16 py-7 md:py-6 mx-auto">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-lg font-medium hover:text-muted-foreground transition-colors">
             robby weitzman
           </Link>
-          <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
+          <div className="hidden md:flex items-center gap-3 sm:gap-4 md:gap-6">
             <Link href="/mood-room" className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors">
               mood room
             </Link>

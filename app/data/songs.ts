@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "SPEED DEMON",
+    artist: "Justin Bieber",
+    album: "SWAG II",
+    releaseDate: "September 5, 2025",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e0/cb/3e/e0cb3e1c-0dde-156d-d500-7943bc4ddebd/25UM1IM36272.rgb.jpg/600x600bb.jpg",
+    date: "April 8, 2026",
+    spotifyUrl: "https://open.spotify.com/search/SPEED%20DEMON%20Justin%20Bieber",
+    appleMusicUrl: "https://music.apple.com/us/album/speed-demon/1837867200?i=1837867201",
+  },
+  {
     title: "What More Can I Say",
     artist: "The Notations",
     album: "What More Can I Say b/w Leading Lady - Single",

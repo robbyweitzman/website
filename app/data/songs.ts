@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Burnin' Up",
+    artist: "Chris Watson",
+    album: "Burnin' Up - Single",
+    releaseDate: "April 10, 2026",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/5c/6b/a2/5c6ba2b7-b82e-a066-0ff0-9357916a333a/artwork.jpg/600x600bb.jpg",
+    date: "April 13, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Burnin'%20Up%20Chris%20Watson",
+    appleMusicUrl: "https://music.apple.com/us/album/burnin-up/1885798055?i=1885798057",
+  },
+  {
     title: "SPEED DEMON",
     artist: "Justin Bieber",
     album: "SWAG II",

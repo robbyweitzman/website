@@ -10,19 +10,14 @@ export interface Quote {
 
 export const quotes: Quote[] = [
   {
+    type: "custom",
+    text: "Anything is possible if you're willing to work for it.",
+    author: "Rob Dyrdek",
+  },
+  {
     type: "image",
     imageSrc: "/quotes/Be first.jpg",
     imageAlt: "Be first"
-  },
-  {
-    type: "custom",
-    text: "I swear to you that to think too much is a disease, a real, actual disease.",
-    author: "Fyodor Dostoyevsky"
-  },
-  {
-    type: "custom",
-    text: "Life shrinks or expands in proportion to one's courage.",
-    author: "Anais Nin"
   },
   {
     type: "tweet",
@@ -51,13 +46,13 @@ export const quotes: Quote[] = [
   },
   {
     type: "custom",
-    text: "I believe in discipline, hard work, and patience.",
-    author: "Anonymous"
+    text: "A man is literally what he thinks.",
+    author: "James Allen"
   },
   {
     type: "custom",
-    text: "A man is literally what he thinks.",
-    author: "James Allen"
+    text: "I believe in discipline, hard work, and patience.",
+    author: "Anonymous"
   },
   {
     type: "custom",
@@ -70,13 +65,18 @@ export const quotes: Quote[] = [
     author: "Nietzsche",
   },
   {
-    type: "custom",
-    text: "Anything is possible if you're willing to work for it.",
-    author: "Rob Dyrdek",
-  },
-  {
     type: "tweet",
     tweetUrl: "https://x.com/colejaczko/status/2037346984844222806?s=20"
+  },
+  {
+    type: "custom",
+    text: "I swear to you that to think too much is a disease, a real, actual disease.",
+    author: "Fyodor Dostoyevsky"
+  },
+  {
+    type: "custom",
+    text: "Life shrinks or expands in proportion to one's courage.",
+    author: "Anais Nin"
   },
   {
     type: "custom",

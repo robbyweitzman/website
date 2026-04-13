@@ -78,6 +78,31 @@ export const quotes: Quote[] = [
     type: "tweet",
     tweetUrl: "https://x.com/colejaczko/status/2037346984844222806?s=20"
   },
+  {
+    type: "custom",
+    text: "Action > Anxiety",
+    author: "James",
+  },
+  {
+    type: "custom",
+    text: "Never take the easy way out",
+    author: "Andrew",
+  },
+  {
+    type: "custom",
+    text: "Communicate through uncertainty",
+    author: "Anonymous",
+  },
+  {
+    type: "custom",
+    text: "Deal with reality and don't protect yourself",
+    author: "Dad",
+  },
+  {
+    type: "custom",
+    text: "Face the music",
+    author: "Anonymous",
+  },
 ]
 
 export const getQuotesWithIds = () => {

@@ -10,6 +10,21 @@ export interface Quote {
 
 export const quotes: Quote[] = [
   {
+    type: "image",
+    imageSrc: "/quotes/Be first.jpg",
+    imageAlt: "Be first"
+  },
+  {
+    type: "custom",
+    text: "I swear to you that to think too much is a disease, a real, actual disease.",
+    author: "Fyodor Dostoyevsky"
+  },
+  {
+    type: "custom",
+    text: "Life shrinks or expands in proportion to one's courage.",
+    author: "Anais Nin"
+  },
+  {
     type: "tweet",
     tweetUrl: "https://x.com/neverdoompro/status/1987306664572162216?s=46"
   },
@@ -31,18 +46,13 @@ export const quotes: Quote[] = [
     imageAlt: "Be first"
   },
   {
-    type: "image",
-    imageSrc: "/quotes/Be first.jpg",
-    imageAlt: "Be first"
-  },
-  {
     type: "tweet",
     tweetUrl: "https://x.com/naval/status/1390216106384584704?s=20"
   },
   {
     type: "custom",
     text: "I believe in discipline, hard work, and patience.",
-    author: "Robby Weitzman"
+    author: "Anonymous"
   },
   {
     type: "custom",
@@ -63,6 +73,10 @@ export const quotes: Quote[] = [
     type: "custom",
     text: "Anything is possible if you're willing to work for it.",
     author: "Rob Dyrdek",
+  },
+  {
+    type: "tweet",
+    tweetUrl: "https://x.com/colejaczko/status/2037346984844222806?s=20"
   },
 ]
 

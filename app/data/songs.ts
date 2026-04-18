@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Maria I'm Drunk (feat. Justin Bieber & Young Thug)",
+    artist: "Travis Scott",
+    album: "Rodeo",
+    releaseDate: "September 4, 2015",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/71/87/78/7187786f-70af-fd36-fc7f-a4ba61b65d98/886445454987.jpg/600x600bb.jpg",
+    date: "April 18, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Maria%20I'm%20Drunk%20(feat.%20Justin%20Bieber%20%26%20Young%20Thug)%20Travis%20Scott",
+    appleMusicUrl: "https://music.apple.com/us/album/maria-im-drunk-feat-justin-bieber-young-thug/1456176981?i=1456177237",
+  },
+  {
     title: "Burnin' Up",
     artist: "Chris Watson",
     album: "Burnin' Up - Single",

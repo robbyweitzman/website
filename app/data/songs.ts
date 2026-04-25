@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Tears",
+    artist: "Tim Green",
+    album: "Eastbound Silhouette",
+    releaseDate: "October 28, 2022",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/92/3e/61/923e6162-c747-ad84-1934-9db3d0ec1864/5060705291573.jpg/600x600bb.jpg",
+    date: "April 25, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Tears%20Tim%20Green",
+    appleMusicUrl: "https://music.apple.com/us/album/tears/1679118032?i=1679118043",
+  },
+  {
     title: "Maria I'm Drunk (feat. Justin Bieber & Young Thug)",
     artist: "Travis Scott",
     album: "Rodeo",

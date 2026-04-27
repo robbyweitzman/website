@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Wild Horses",
+    artist: "The Rolling Stones",
+    album: "Sticky Fingers (2015 Remaster)",
+    releaseDate: "April 23, 1971",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/7f/e0/b4/7fe0b4da-36cd-a1d0-0f19-ef3fec18e3cd/08UMGIM15742.rgb.jpg/600x600bb.jpg",
+    date: "April 27, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Wild%20Horses%20The%20Rolling%20Stones",
+    appleMusicUrl: "https://music.apple.com/us/album/wild-horses/1440812661?i=1440812675",
+  },
+  {
     title: "Tears",
     artist: "Tim Green",
     album: "Eastbound Silhouette",

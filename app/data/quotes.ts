@@ -103,6 +103,11 @@ export const quotes: Quote[] = [
     text: "Face the music",
     author: "Anonymous",
   },
+  {
+    type: "custom",
+    text: "Everything is a win when the goal is to experience",
+    author: "Ryan",
+  },
 ]
 
 export const getQuotesWithIds = () => {

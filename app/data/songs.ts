@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Minds",
+    artist: "Tim Green",
+    album: "Body Stars - Single",
+    releaseDate: "July 25, 2025",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/1e/82/96/1e82960d-220e-84ce-4367-b31c4e343831/199350898372.jpg/600x600bb.jpg",
+    date: "May 1, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Minds%20Tim%20Green",
+    appleMusicUrl: "https://music.apple.com/us/album/minds/1820395066?i=1820395082",
+  },
+  {
     title: "Wild Horses",
     artist: "The Rolling Stones",
     album: "Sticky Fingers (2015 Remaster)",

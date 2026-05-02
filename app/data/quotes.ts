@@ -108,6 +108,11 @@ export const quotes: Quote[] = [
     text: "Everything is a win when the goal is to experience",
     author: "Ryan",
   },
+  {
+    type: "custom",
+    text: "When you expect things you're not present.",
+    author: "James",
+  },
 ]
 
 export const getQuotesWithIds = () => {

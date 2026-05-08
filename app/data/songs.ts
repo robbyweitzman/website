@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Giving It In",
+    artist: "Faye Meana",
+    album: "Sweeter Than Heaven - EP",
+    releaseDate: "July 6, 2021",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a5/98/88/a59888d9-5f69-e9bf-80df-e45f28dd5fff/196164057537_cover.jpg/600x600bb.jpg",
+    date: "May 8, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Giving%20It%20In%20Faye%20Meana",
+    appleMusicUrl: "https://music.apple.com/us/album/giving-it-in/1810717245?i=1810717454",
+  },
+  {
     title: "Minds",
     artist: "Tim Green",
     album: "Body Stars - Single",

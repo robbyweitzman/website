@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Told You",
+    artist: "Jake Jeffery",
+    album: "Told You - Single",
+    releaseDate: "February 23, 2024",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/a2/8c/dc/a28cdce4-b023-6ef3-8ec8-3267d0841d67/5056686083290.png/600x600bb.jpg",
+    date: "May 14, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Told%20You%20Jake%20Jeffery",
+    appleMusicUrl: "https://music.apple.com/us/album/told-you/1727604882?i=1727604883",
+  },
+  {
     title: "Giving It In",
     artist: "Faye Meana",
     album: "Sweeter Than Heaven - EP",

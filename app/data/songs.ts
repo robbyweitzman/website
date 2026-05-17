@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Road Trips",
+    artist: "Drake",
+    album: "MAID OF HONOUR",
+    releaseDate: "May 15, 2026",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/25/c0/e6/25c0e60b-5e99-58b2-6a52-821602141cce/26UMGIM63615.rgb.jpg/600x600bb.jpg",
+    date: "May 17, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Road%20Trips%20Drake",
+    appleMusicUrl: "https://music.apple.com/us/album/road-trips/6769556940?i=6769557053",
+  },
+  {
     title: "Told You",
     artist: "Jake Jeffery",
     album: "Told You - Single",

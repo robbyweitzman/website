@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Janice STFU",
+    artist: "Drake",
+    album: "ICEMAN",
+    releaseDate: "May 15, 2026",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f1/b2/cd/f1b2cd28-6edc-4dde-61a6-ff5f5ef94cd7/26UMGIM63614.rgb.jpg/600x600bb.jpg",
+    date: "May 19, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Janice%20STFU%20Drake",
+    appleMusicUrl: "https://music.apple.com/us/album/janice-stfu/6769568449?i=6769568596",
+  },
+  {
     title: "Road Trips",
     artist: "Drake",
     album: "MAID OF HONOUR",

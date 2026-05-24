@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "I Wish",
+    artist: "Stevie Wonder",
+    album: "Songs in the Key of Life",
+    releaseDate: "September 28, 1976",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/eb/1f/12/eb1f12ec-474c-63aa-43af-09282f423b9d/00602537004737.rgb.jpg/600x600bb.jpg",
+    date: "May 24, 2026",
+    spotifyUrl: "https://open.spotify.com/search/I%20Wish%20Stevie%20Wonder",
+    appleMusicUrl: "https://music.apple.com/us/album/i-wish/1440788438?i=1440788544",
+  },
+  {
     title: "Janice STFU",
     artist: "Drake",
     album: "ICEMAN",

@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Complicated",
+    artist: "Avril Lavigne",
+    album: "Let Go",
+    releaseDate: "March 11, 2002",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/32/2c/f3/322cf324-9ea1-3962-865a-f4f9bf83764d/888880191069.jpg/600x600bb.jpg",
+    date: "June 10, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Complicated%20Avril%20Lavigne",
+    appleMusicUrl: "https://music.apple.com/us/album/complicated/315025768?i=315025823",
+  },
+  {
     title: "High Fives",
     artist: "Drake",
     album: "HABIBTI",

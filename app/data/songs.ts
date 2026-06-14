@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "We Gonna Make It (feat. Styles P)",
+    artist: "Jadakiss",
+    album: "Kiss Tha Game Goodbye",
+    releaseDate: "August 7, 2001",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/7e/cd/42/7ecd42da-081a-919b-5a74-16abfdfbf3ca/00606949301125.rgb.jpg/600x600bb.jpg",
+    date: "June 14, 2026",
+    spotifyUrl: "https://open.spotify.com/search/We%20Gonna%20Make%20It%20(feat.%20Styles%20P)%20Jadakiss",
+    appleMusicUrl: "https://music.apple.com/us/album/we-gonna-make-it-feat-styles-p/1440898467?i=1440898903",
+  },
+  {
     title: "Complicated",
     artist: "Avril Lavigne",
     album: "Let Go",

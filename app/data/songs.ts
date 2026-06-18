@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "I Really Mean It (feat. Cam'ron & Jimmy Jones)",
+    artist: "The Diplomats",
+    album: "Diplomatic Immunity",
+    releaseDate: "March 25, 2003",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/9a/ba/b2/9abab280-32ff-a41d-7811-9c9d5b1f1b28/06UMGIM10269.rgb.jpg/600x600bb.jpg",
+    date: "June 18, 2026",
+    spotifyUrl: "https://open.spotify.com/search/I%20Really%20Mean%20It%20(feat.%20Cam'ron%20%26%20Jimmy%20Jones)%20The%20Diplomats",
+    appleMusicUrl: "https://music.apple.com/us/album/i-really-mean-it-feat-camron-jimmy-jones/1452852973?i=1452854227",
+  },
+  {
     title: "We Gonna Make It (feat. Styles P)",
     artist: "Jadakiss",
     album: "Kiss Tha Game Goodbye",

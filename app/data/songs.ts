@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "What Goes Around.../...Comes Around (Interlude)",
+    artist: "Justin Timberlake",
+    album: "FutureSex/LoveSounds (Deluxe Edition)",
+    releaseDate: "September 8, 2006",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/4c/44/30/4c4430dd-150b-d393-ec70-4894975f4b16/888880422095.jpg/600x600bb.jpg",
+    date: "June 21, 2026",
+    spotifyUrl: "https://open.spotify.com/search/What%20Goes%20Around...%2F...Comes%20Around%20(Interlude)%20Justin%20Timberlake",
+    appleMusicUrl: "https://music.apple.com/us/album/what-goes-around-comes-around-interlude/400946401?i=400946486",
+  },
+  {
     title: "I Really Mean It (feat. Cam'ron & Jimmy Jones)",
     artist: "The Diplomats",
     album: "Diplomatic Immunity",

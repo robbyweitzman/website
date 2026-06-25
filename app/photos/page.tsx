@@ -198,7 +198,7 @@ export default function PhotosPage() {
                     <div className="space-y-1 text-sm text-muted-foreground">
                       <p className="font-medium">{selectedPhoto.camera}</p>
                       <p>{selectedPhoto.film}</p>
-                      <p>Taken: {selectedPhoto.date}</p>
+                      {selectedPhoto.date && <p>Taken: {selectedPhoto.date}</p>}
                     </div>
                   </div>
                 </div>

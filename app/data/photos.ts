@@ -10,7 +10,8 @@ export interface Photo {
   height: number
 }
 
-export const photos: Photo[] = [
+// Source of truth, in chronological (upload) order — add new photos at the BOTTOM.
+const photosByUpload: Photo[] = [
     {
       id: "1",
       src: "/photos/24h Grocery.jpg",
@@ -143,5 +144,19 @@ export const photos: Photo[] = [
       width: 900,
       height: 600,
     },
+    {
+      id: "13",
+      src: "/photos/Mookie 4.jpg",
+      alt: "Mookie",
+      title: "Mookie",
+      camera: "Canon A-1",
+      film: "Kodak UltraMax",
+      date: "",
+      width: 900,
+      height: 600,
+    },
   ]
+
+// Displayed newest-first: most recently uploaded photos appear first, oldest last.
+export const photos: Photo[] = [...photosByUpload].reverse()
 

@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Hai capito o no?",
+    artist: "Ron",
+    album: "Un'ora con...",
+    releaseDate: "July 19, 2011",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/f0/17/8d/f0178dd2-3282-6c38-e4f5-eab3bb2a81b7/886444052238.jpg/600x600bb.jpg",
+    date: "June 30, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Hai%20capito%20o%20no%3F%20Ron",
+    appleMusicUrl: "https://music.apple.com/us/album/hai-capito-o-no/666948595?i=666948605",
+  },
+  {
     title: "What Goes Around.../...Comes Around (Interlude)",
     artist: "Justin Timberlake",
     album: "FutureSex/LoveSounds (Deluxe Edition)",

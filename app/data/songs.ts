@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "We'll Be Fine (feat. Birdman)",
+    artist: "Drake",
+    album: "Take Care (Deluxe Version)",
+    releaseDate: "November 15, 2011",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/74/fb/d3/74fbd365-bd52-23b4-604b-7f164407b0a9/00602527899107.rgb.jpg/600x600bb.jpg",
+    date: "July 15, 2026",
+    spotifyUrl: "https://open.spotify.com/search/We'll%20Be%20Fine%20(feat.%20Birdman)%20Drake",
+    appleMusicUrl: "https://music.apple.com/us/album/well-be-fine-feat-birdman/1440642493?i=1440642749",
+  },
+  {
     title: "Hai capito o no?",
     artist: "Ron",
     album: "Un'ora con...",

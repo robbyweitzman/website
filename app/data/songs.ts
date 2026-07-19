@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "In the Moment (Adriatique Remix)",
+    artist: "RÜFÜS DU SOL",
+    album: "Inhale / Exhale Remixed, Vol. 1",
+    releaseDate: "October 11, 2024",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d2/7e/99/d27e99f9-5b83-b558-a0b0-46ae6b0219d2/093624834465.jpg/600x600bb.jpg",
+    date: "July 19, 2026",
+    spotifyUrl: "https://open.spotify.com/search/In%20the%20Moment%20(Adriatique%20Remix)%20R%C3%9CF%C3%9CS%20DU%20SOL",
+    appleMusicUrl: "https://music.apple.com/us/album/in-the-moment-adriatique-remix/1805279575?i=1805279587",
+  },
+  {
     title: "We'll Be Fine (feat. Birdman)",
     artist: "Drake",
     album: "Take Care (Deluxe Version)",

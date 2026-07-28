@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "No Guidance (feat. Drake)",
+    artist: "Chris Brown",
+    album: "Indigo",
+    releaseDate: "June 12, 2019",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/6d/73/b7/6d73b73e-dc59-cb79-8322-39842a57aa93/886447789421.jpg/600x600bb.jpg",
+    date: "July 28, 2026",
+    spotifyUrl: "https://open.spotify.com/search/No%20Guidance%20(feat.%20Drake)%20Chris%20Brown",
+    appleMusicUrl: "https://music.apple.com/us/album/no-guidance-feat-drake/1466876988?i=1466877495",
+  },
+  {
     title: "In the Moment (Adriatique Remix)",
     artist: "RÜFÜS DU SOL",
     album: "Inhale / Exhale Remixed, Vol. 1",

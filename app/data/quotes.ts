@@ -38,7 +38,7 @@ export const quotes: Quote[] = [
   {
     type: "image",
     imageSrc: "/quotes/positive-thinking.png",
-    imageAlt: "Be first"
+    imageAlt: "Repetitive negative thinking is associated with cognitive function decline in older adults: a cross-sectional study"
   },
   {
     type: "tweet",
@@ -112,6 +112,11 @@ export const quotes: Quote[] = [
     type: "custom",
     text: "When you expect things you're not present.",
     author: "James",
+  },
+  {
+    type: "custom",
+    text: "Things may come to those who wait, but only the things left by those who hustle.",
+    author: "Abraham Lincoln",
   },
 ]
 

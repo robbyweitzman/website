@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Tumbling Dice",
+    artist: "The Rolling Stones",
+    album: "Exile On Main Street (2010 Remaster)",
+    releaseDate: "April 14, 1972",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/b6/7b/df/b67bdff8-4e30-d46d-e869-fc0f38462f4c/08UMGIM15728.rgb.jpg/600x600bb.jpg",
+    date: "August 5, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Tumbling%20Dice%20The%20Rolling%20Stones",
+    appleMusicUrl: "https://music.apple.com/us/album/tumbling-dice/1440872228?i=1440872599",
+  },
+  {
     title: "No Guidance (feat. Drake)",
     artist: "Chris Brown",
     album: "Indigo",

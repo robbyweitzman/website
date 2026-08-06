@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Down and Out (feat. Kanye West & Syleena Johnson)",
+    artist: "Cam'ron",
+    album: "Purple Haze",
+    releaseDate: "December 7, 2004",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/34/1e/7e/341e7eeb-8143-a7ca-cd6d-57983c70892f/06UMGIM22022.rgb.jpg/600x600bb.jpg",
+    date: "August 6, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Down%20and%20Out%20(feat.%20Kanye%20West%20%26%20Syleena%20Johnson)%20Cam'ron",
+    appleMusicUrl: "https://music.apple.com/us/album/down-and-out-feat-kanye-west-syleena-johnson/1440755441?i=1440755464",
+  },
+  {
     title: "Tumbling Dice",
     artist: "The Rolling Stones",
     album: "Exile On Main Street (2010 Remaster)",

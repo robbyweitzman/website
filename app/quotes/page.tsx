@@ -1,11 +1,10 @@
-"use client"
-
 import Link from "next/link"
+import { Tweet } from "react-tweet"
 import { getAllQuotes } from "../data/quotes"
-import { QuoteCard } from "@/components/quote-card"
-import { TweetEmbed } from "@/components/tweet-embed"
 import { ImageQuote } from "@/components/image-quote"
 import { DarkModeToggle } from "@/components/dark-mode-toggle"
+
+const getTweetId = (tweetUrl: string) => tweetUrl.split("/status/")[1]?.split("?")[0]
 
 export default function QuotesPage() {
   const quotes = getAllQuotes()
@@ -70,15 +69,20 @@ export default function QuotesPage() {
 
             {/* Right column - Images and Tweets */}
             <div className="space-y-6">
-              {quotes.filter(q => q.type === 'tweet' || q.type === 'image').map((quote) => (
+              {quotes.filter(q => q.type === 'tweet' || q.type === 'image').map((quote) => {
+                const tweetId = quote.type === 'tweet' && quote.tweetUrl ? getTweetId(quote.tweetUrl) : undefined
+                return (
                 <div key={quote.id} className="animate-in fade-in duration-700">
-                  {quote.type === 'tweet' && quote.tweetUrl ? (
-                    <TweetEmbed tweetUrl={quote.tweetUrl} />
+                  {tweetId ? (
+                    <div className="flex justify-center">
+                      <Tweet id={tweetId} />
+                    </div>
                   ) : quote.type === 'image' && quote.imageSrc && quote.imageAlt ? (
                     <ImageQuote imageSrc={quote.imageSrc} imageAlt={quote.imageAlt} />
                   ) : null}
                 </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         </div>

@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Acceptable In the 80's",
+    artist: "Calvin Harris",
+    album: "I Created Disco",
+    releaseDate: "December 11, 2006",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/48/5e/29/485e29e0-7ff6-7e79-5dc1-8939ab389ddb/mzi.byipgken.jpg/600x600bb.jpg",
+    date: "August 7, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Acceptable%20In%20the%2080's%20Calvin%20Harris",
+    appleMusicUrl: "https://music.apple.com/us/album/acceptable-in-the-80s/256277919?i=256277985",
+  },
+  {
     title: "Down and Out (feat. Kanye West & Syleena Johnson)",
     artist: "Cam'ron",
     album: "Purple Haze",

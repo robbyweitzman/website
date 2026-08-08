@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Sunflower (Spider-Man: Into the Spider-Verse)",
+    artist: "Post Malone & Swae Lee",
+    album: "Spider-Man: Into the Spider-Verse (Soundtrack From & Inspired by the Motion Picture)",
+    releaseDate: "October 19, 2018",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/4b/30/2c/4b302cb6-7a14-5464-4e97-0577e9d0be49/18UMGIM82277.rgb.jpg/600x600bb.jpg",
+    date: "August 8, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Sunflower%20(Spider-Man%3A%20Into%20the%20Spider-Verse)%20Post%20Malone%20%26%20Swae%20Lee",
+    appleMusicUrl: "https://music.apple.com/us/album/sunflower-spider-man-into-the-spider-verse/1445949265?i=1445949267",
+  },
+  {
     title: "Acceptable In the 80's",
     artist: "Calvin Harris",
     album: "I Created Disco",

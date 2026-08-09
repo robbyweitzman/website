@@ -8,7 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const currentSong = getCurrentSong()
   
   return {
-    title: `${currentSong.title} by ${currentSong.artist} - SOTD | Robby Weitzman`,
+    title: 'sotd',
     description: `Today's Song of the Day: "${currentSong.title}" by ${currentSong.artist} from the album "${currentSong.album}". Discover my daily music recommendations.`,
     openGraph: {
       title: `${currentSong.title} by ${currentSong.artist} - SOTD`,

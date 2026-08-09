@@ -127,7 +127,7 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const post = posts.find((p) => p.slug === params.slug)
   return {
-    title: post ? `${post.title} | Robby Weitzman` : "Post Not Found",
+    title: post ? "blog" : "post not found",
   }
 }
 

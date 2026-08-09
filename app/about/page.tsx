@@ -1,6 +1,10 @@
 import Link from "next/link"
 import { DarkModeToggle } from "@/components/dark-mode-toggle"
 
+export const metadata = {
+  title: "about",
+}
+
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-[#FFFAF1] dark:bg-background relative transition-colors">

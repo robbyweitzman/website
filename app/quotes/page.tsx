@@ -4,6 +4,10 @@ import { getAllQuotes } from "../data/quotes"
 import { ImageQuote } from "@/components/image-quote"
 import { DarkModeToggle } from "@/components/dark-mode-toggle"
 
+export const metadata = {
+  title: "quotes",
+}
+
 const getTweetId = (tweetUrl: string) => tweetUrl.split("/status/")[1]?.split("?")[0]
 
 export default function QuotesPage() {

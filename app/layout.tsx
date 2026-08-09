@@ -13,15 +13,14 @@ export const viewport = {
 
 export const metadata = {
   generator: 'v0.dev',
+  title: {
+    default: 'robby',
+    template: 'robby | %s',
+  },
   icons: {
-    icon: [
-      { url: '/rw_logo.svg', type: 'image/svg+xml' },
-      { url: '/icon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/icon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon.ico', type: 'image/x-icon' }
-    ],
-    shortcut: '/rw_logo.svg',
-    apple: '/rw_logo.svg',
+    icon: [{ url: '/wave.svg', type: 'image/svg+xml' }],
+    shortcut: '/wave.svg',
+    apple: '/wave.svg',
   },
 }
 

@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Replay",
+    artist: "Tems",
+    album: "If Orange Was A Place (Apple Music Edition) - EP",
+    releaseDate: "September 15, 2021",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/4b/a2/83/4ba2834b-3f28-3665-61af-1e5bb1c049a2/886449547005.jpg/600x600bb.jpg",
+    date: "August 9, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Replay%20Tems",
+    appleMusicUrl: "https://music.apple.com/us/album/replay/1585718716?i=1585718723",
+  },
+  {
     title: "Sunflower (Spider-Man: Into the Spider-Verse)",
     artist: "Post Malone & Swae Lee",
     album: "Spider-Man: Into the Spider-Verse (Soundtrack From & Inspired by the Motion Picture)",

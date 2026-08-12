@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "We Made It. We Finally Made It!",
+    artist: "Kyle Preston",
+    album: "The Tale of Lucius Livius - EP",
+    releaseDate: "June 24, 2016",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/df/71/5f/df715f47-318b-0584-9d10-ebe516a5c6d5/12535.jpg/600x600bb.jpg",
+    date: "August 12, 2026",
+    spotifyUrl: "https://open.spotify.com/search/We%20Made%20It.%20We%20Finally%20Made%20It!%20Kyle%20Preston",
+    appleMusicUrl: "https://music.apple.com/us/album/we-made-it-we-finally-made-it/1565054460?i=1565054977",
+  },
+  {
     title: "Replay",
     artist: "Tems",
     album: "If Orange Was A Place (Apple Music Edition) - EP",

@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Secunda (Transcr. for Piano by Trifonov) [From \"The Elder Scrolls: Skyrim\"]",
+    artist: "Daniil Trifonov",
+    album: "Soule: Secunda (Transcr. for Piano by Trifonov) [From \"The Elder Scrolls: Skyrim\"] - Single",
+    releaseDate: "July 19, 2024",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/dc/f6/25/dcf62540-2808-cdda-5868-693ba3af0b7b/24UMGIM65407.rgb.jpg/600x600bb.jpg",
+    date: "August 17, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Secunda%20(Transcr.%20for%20Piano%20by%20Trifonov)%20%5BFrom%20%22The%20Elder%20Scrolls%3A%20Skyrim%22%5D%20Daniil%20Trifonov",
+    appleMusicUrl: "https://music.apple.com/us/album/secunda-transcr-for-piano-by-trifonov-from-the-elder/1755549608?i=1755549610",
+  },
+  {
     title: "We Made It. We Finally Made It!",
     artist: "Kyle Preston",
     album: "The Tale of Lucius Livius - EP",

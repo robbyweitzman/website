@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Jimmy Cooks (feat. 21 Savage)",
+    artist: "Drake",
+    album: "Honestly, Nevermind",
+    releaseDate: "June 17, 2022",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/84/2c/b4/842cb419-243c-b3f4-4da9-b6b980996062/22UMGIM67371.rgb.jpg/600x600bb.jpg",
+    date: "September 10, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Jimmy%20Cooks%20(feat.%2021%20Savage)%20Drake",
+    appleMusicUrl: "https://music.apple.com/us/album/jimmy-cooks-feat-21-savage/1630230040?i=1630231297",
+  },
+  {
     title: "Secunda (Transcr. for Piano by Trifonov) [From \"The Elder Scrolls: Skyrim\"]",
     artist: "Daniil Trifonov",
     album: "Soule: Secunda (Transcr. for Piano by Trifonov) [From \"The Elder Scrolls: Skyrim\"] - Single",

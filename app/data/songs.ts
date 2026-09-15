@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Mind Mischief",
+    artist: "Tame Impala",
+    album: "Lonerism",
+    releaseDate: "November 5, 2012",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/b7/40/9b/b7409bc6-24fa-b956-5613-4be8dc62be06/12UMGIM64219.rgb.jpg/600x600bb.jpg",
+    date: "September 15, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Mind%20Mischief%20Tame%20Impala",
+    appleMusicUrl: "https://music.apple.com/us/album/mind-mischief/1440825369?i=1440826065",
+  },
+  {
     title: "Jimmy Cooks (feat. 21 Savage)",
     artist: "Drake",
     album: "Honestly, Nevermind",

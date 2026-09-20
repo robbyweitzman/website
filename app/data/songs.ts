@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Ran To Atlanta",
+    artist: "Drake, Future & Molly Santana",
+    album: "ICEMAN",
+    releaseDate: "May 15, 2026",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/35/b9/06/35b90629-a873-14f8-4789-ffc324960038/26UMGIM63614.rgb.jpg/600x600bb.jpg",
+    date: "September 20, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Ran%20To%20Atlanta%20Drake%2C%20Future%20%26%20Molly%20Santana",
+    appleMusicUrl: "https://music.apple.com/us/album/ran-to-atlanta/6769568449?i=6769568597",
+  },
+  {
     title: "Mind Mischief",
     artist: "Tame Impala",
     album: "Lonerism",

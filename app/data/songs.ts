@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Dreaming",
+    artist: "Smallpools",
+    album: "LOVETAP!",
+    releaseDate: "March 24, 2015",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/02/3e/38/023e3831-8553-6a33-df6a-e408f60e0475/886445052992.jpg/600x600bb.jpg",
+    date: "September 23, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Dreaming%20Smallpools",
+    appleMusicUrl: "https://music.apple.com/us/album/dreaming/968595346?i=968595352",
+  },
+  {
     title: "Ran To Atlanta",
     artist: "Drake, Future & Molly Santana",
     album: "ICEMAN",

@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Fortworth",
+    artist: "Drake & PARTYNEXTDOOR",
+    album: "HABIBTI",
+    releaseDate: "May 15, 2026",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c4/3b/89/c43b8964-a24e-b396-bd65-e5b45cabe039/26UMGIM63616.rgb.jpg/600x600bb.jpg",
+    date: "September 25, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Fortworth%20Drake%20%26%20PARTYNEXTDOOR",
+    appleMusicUrl: "https://music.apple.com/us/album/fortworth/6769551464?i=6769551482",
+  },
+  {
     title: "Dreaming",
     artist: "Smallpools",
     album: "LOVETAP!",

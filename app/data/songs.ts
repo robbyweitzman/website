@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "MISS MY DAWG",
+    artist: "Yeat & Drake",
+    album: "COCOON",
+    releaseDate: "September 18, 2026",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/95/9e/e2/959ee283-8ef9-30d5-1422-595e08bc7517/26UM1IM20013.rgb.jpg/600x600bb.jpg",
+    date: "September 26, 2026",
+    spotifyUrl: "https://open.spotify.com/search/MISS%20MY%20DAWG%20Yeat%20%26%20Drake",
+    appleMusicUrl: "https://music.apple.com/us/album/miss-my-dawg/6813244843?i=6813244854",
+  },
+  {
     title: "Fortworth",
     artist: "Drake & PARTYNEXTDOOR",
     album: "HABIBTI",

@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Rendezvous (feat. Yeat)",
+    artist: "Don Toliver",
+    album: "OCTANE",
+    releaseDate: "January 22, 2026",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e8/e5/c6/e8e5c690-a958-622e-eb62-0dce6059300e/075679599360.jpg/600x600bb.jpg",
+    date: "September 27, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Rendezvous%20(feat.%20Yeat)%20Don%20Toliver",
+    appleMusicUrl: "https://music.apple.com/us/album/rendezvous-feat-yeat/1871258329?i=1871258332",
+  },
+  {
     title: "MISS MY DAWG",
     artist: "Yeat & Drake",
     album: "COCOON",

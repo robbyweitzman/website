@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Sneakin' (feat. 21 Savage)",
+    artist: "Drake",
+    album: "Sneakin' (feat. 21 Savage) - Single",
+    releaseDate: "November 4, 2016",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/d8/07/8d/d8078d6e-1891-b9af-20b2-1a6500c5ef7b/16UMGIM75426.rgb.jpg/600x600bb.jpg",
+    date: "October 1, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Sneakin'%20(feat.%2021%20Savage)%20Drake",
+    appleMusicUrl: "https://music.apple.com/us/album/sneakin-feat-21-savage/1444898453?i=1444898468",
+  },
+  {
     title: "Rendezvous (feat. Yeat)",
     artist: "Don Toliver",
     album: "OCTANE",

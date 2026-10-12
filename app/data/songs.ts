@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "G.O.M.D",
+    artist: "J. Cole",
+    album: "2014 Forest Hills Drive",
+    releaseDate: "December 9, 2014",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/92/b9/62/92b9624d-e9fb-0e4f-f14b-6f1f96c0a3e0/21UM1IM54414.rgb.jpg/600x600bb.jpg",
+    date: "October 12, 2026",
+    spotifyUrl: "https://open.spotify.com/search/G.O.M.D%20J.%20Cole",
+    appleMusicUrl: "https://music.apple.com/us/album/g-o-m-d/1600766204?i=1600766224",
+  },
+  {
     title: "Sneakin' (feat. 21 Savage)",
     artist: "Drake",
     album: "Sneakin' (feat. 21 Savage) - Single",

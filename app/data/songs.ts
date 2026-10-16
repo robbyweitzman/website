@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Closer To The Floor",
+    artist: "Jazzy & Ankhoï",
+    album: "Closer To The Floor - Single",
+    releaseDate: "April 18, 2025",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/34/48/9c/34489c3c-44a1-264a-eb36-62af681b2228/25UMGIM47653.rgb.jpg/600x600bb.jpg",
+    date: "October 16, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Closer%20To%20The%20Floor%20Jazzy%20%26%20Ankho%C3%AF",
+    appleMusicUrl: "https://music.apple.com/us/album/closer-to-the-floor/1806681462?i=1806681636",
+  },
+  {
     title: "G.O.M.D",
     artist: "J. Cole",
     album: "2014 Forest Hills Drive",

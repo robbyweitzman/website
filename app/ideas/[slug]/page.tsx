@@ -26,11 +26,11 @@ const posts: BlogPost[] = [
         <li><a href="https://x.com/ProtoMauro/status/2112776289312555195" className="custom-link">Guy turns TV into Wii home screen</a></li>
         <li><a href="https://x.com/doooyle/status/2111196679680540724" className="custom-link">Guy removes bloatware from his TV</a> + <a href="https://x.com/doooyle/status/2111247627748565091" className="custom-link">his demo</a></li>
       </ul>
-      This was perfect. I loaded up Claude Code Desktop with Opus 5.5 on high effort and set to work with the goal of just speeding up my TV.
+      This was perfect. I loaded up Claude Code Desktop with Opus 5.5 on high effort and set to work with the simple goal of just speeding up my TV.
       <br /><br />
-      Claude walked me through turning on developer mode on the TV, then was able to connect to it over Wi-Fi using ADB (Android Debug Bridge), Android’s developer tool. This allowed Claude to control and take screenshots of the TV to see what it was doing.
+      Claude walked me through how to turn on developer mode within the TV, then was able to connect to it over Wi-Fi using ADB (Android Debug Bridge), Android’s developer tool. This allowed Claude to control and take screenshots of the TV to verify what it was doing.
       <br /><br />
-      Claude helped me learn that Sony uses Samba TV in the background to get usage and content data from my TV screen and audio to target ads right back at me. So I turned it off. This was a quick speed boost, removing pressure from the memory, CPU, and network. Claude also turned off ads on the TV altogether.
+      Claude informed me that Sony uses Samba TV in the background to pull usage and content data from what's on the screen to target ads right back at me. So I turned it off. This was a quick speed boost, removing pressure from memory, CPU, and network. Claude also turned off ads on the TV altogether.
       <br /><br />
       Next, Claude found we could make the TV feel even snappier by simply increasing the speed of animations, which we did by 2x.
       <br /><br />
@@ -38,7 +38,7 @@ const posts: BlogPost[] = [
       <br /><br />
       I described what I wanted — an Apple TV interface and an app to pair with it — and Claude Design created the UI for the TV and iPhone apps.
       <br /><br />
-      I made some small tweaks, which was a delight with the comment feature in Claude Design, and gave Claude the go-ahead to start building it. Alongside the apps, Claude updated the settings of my physical remote, so the home button returns to my custom launcher. A couple of hours and tweaks later, we were live on my TV, and live on my iPhone via TestFlight!
+      I made some tweaks (which was a delight with the comment feature in Claude Design), then gave Claude the go-ahead to start building. Alongside the apps, Claude updated the settings of my physical remote, so the home button returns to my new custom launcher. A couple of hours and tweaks later, we were live on my TV, and live on my iPhone via TestFlight!
       <br /><br />
       This was a ton of fun to build and has made using my TV much more enjoyable. Screenshots below:
       <br /><br />

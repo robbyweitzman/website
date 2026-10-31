@@ -11,6 +11,58 @@ interface BlogPost {
 
 const posts: BlogPost[] = [
   {
+  slug: "i-vibecoded-my-tv-with-claude",
+  title: "I vibecoded my TV with Claude",
+  content: (
+    <>
+      I hacked my TV the other day. I've had the same Sony Bravia TV since I moved into the East Village of New York City in November 2024. I bought it because, at the time, it was the only 120 Hz 4K TV in my price range, and I really wanted the best gaming setup for my new, at the time, Xbox Series X. It was great for gaming, but the native software on the TV felt like it could just be better. It had ads, was very laggy, and frequently hurt my brain to navigate.
+      <br /><br />
+      Just after the release of Claude Opus 5.5, I saw a new trend on X (fka Twitter). People were vibecoding their TVs. Examples:
+      <br /><br />
+      <a href="https://x.com/ProtoMauro/status/2112776289312555195" className="custom-link">Guy turns TV into Wii home screen</a>
+      <br />
+      <a href="https://x.com/doooyle/status/2111196679680540724" className="custom-link">Guy removes bloatware from his TV</a> + <a href="https://x.com/doooyle/status/2111247627748565091" className="custom-link">his demo</a>
+      <br /><br />
+      This was perfect. I loaded up Claude Code Desktop with Opus 5.5 on high effort and set to work with the goal of just speeding up my TV.
+      <br /><br />
+      Claude walked me through turning on developer mode on the TV, then was able to connect to it over Wi-Fi using ADB (Android Debug Bridge), Android’s developer tool. This allowed Claude to control and take screenshots of the TV to see what it was doing.
+      <br /><br />
+      Claude helped me learn that Sony uses Samba TV in the background to get usage and content data from my TV screen and audio to target ads right back at me. So I turned it off. This was a quick speed boost, removing pressure from the memory, CPU, and network. Claude also turned off ads on the TV altogether.
+      <br /><br />
+      Next, Claude found we could make the TV feel even snappier by simply increasing the speed of animations, which we did by 2x.
+      <br /><br />
+      This was awesome, but I wanted to see if we could go further. I had recently been contemplating buying an Apple TV. I went back and forth: on one hand, my Sony TV had all of the apps that I needed, but on the other, the UI was atrocious and I didn't enjoy using it. So I asked Claude the question, “Can we just create our own software layer on this TV?” “Yes,” Claude said, and we were off to the races!
+      <br /><br />
+      I described what I wanted — an Apple TV interface and an app to pair with it — and Claude Design created the UI for the TV and iPhone apps.
+      <br /><br />
+      I made some small tweaks, which is a delight with the comment feature in Claude Design, and gave Claude the go-ahead to start building it. Alongside the apps, Claude updated the settings of my physical remote, so the home button returns to my custom launcher. A couple of hours and tweaks later, we were live on my TV, and live on my iPhone via TestFlight!
+      <br /><br />
+      This was a ton of fun to build, and has made using my TV much more enjoyable. Screenshots below:
+      <br /><br />
+      <u>Claude Design mockups:</u>
+      <br /><br />
+      <div className="space-y-3">
+        <img src="/ideas/tv/design-tv.jpg" alt="Claude Design mockup of the TV launcher" />
+        <img src="/ideas/tv/design-phone.jpg" alt="Claude Design mockup of the iPhone remote and launcher app" />
+      </div>
+      <br /><br />
+      <u>TV and iPhone app screenshots:</u>
+      <br /><br />
+      <div className="space-y-3">
+        <img src="/ideas/tv/tv-1.jpg" alt="Custom launcher running on the TV" />
+        <img src="/ideas/tv/tv-2.jpg" alt="Custom launcher running on the TV" />
+      </div>
+      <div className="grid grid-cols-3 gap-3 mt-3">
+        <img src="/ideas/tv/phone-1.jpg" alt="iPhone app launcher" />
+        <img src="/ideas/tv/phone-2.jpg" alt="iPhone app" />
+        <img src="/ideas/tv/phone-3.jpg" alt="iPhone app" />
+      </div>
+      <br />
+      <i>October 31, 2026</i>
+    </>
+  ),
+},
+  {
   slug: "why-and-how-i-built-this-website",
   title: "Why and how I built this website",
   content: (

@@ -83,6 +83,20 @@ export default function Page() {
             </div>
             <div className="space-y-4" role="list">
               <article role="listitem">
+                <Link
+                  href="/ideas/i-vibecoded-my-tv-with-claude"
+                  className="block p-4 rounded-lg bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 active:bg-gray-200 dark:active:bg-gray-600 md:hover:shadow-sm"
+                  aria-label="Read article: I vibecoded my TV with Claude"
+                >
+                  <div className="space-y-1">
+                    <h3 className="font-medium text-gray-900 dark:text-gray-100 group-hover:text-black dark:group-hover:text-white">
+                      I vibecoded my TV with Claude
+                    </h3>
+                    <time className="text-xs text-gray-500 dark:text-gray-400" dateTime="2026-10-31">October 31, 2026</time>
+                  </div>
+                </Link>
+              </article>
+              <article role="listitem">
                 <Link 
                   href="/ideas/why-and-how-i-built-this-website" 
                   className="block p-4 rounded-lg bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 active:bg-gray-200 dark:active:bg-gray-600 md:hover:shadow-sm"

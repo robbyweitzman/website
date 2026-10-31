@@ -59,7 +59,7 @@ const posts: BlogPost[] = [
       </div>
       <br /><br />
       <u>Before:</u>
-      <br /><br />
+      <br />
       (nothing against the minions)
       <br /><br />
       <img src="/ideas/tv/before.jpg" alt="The stock Google TV home screen, before the custom launcher" />

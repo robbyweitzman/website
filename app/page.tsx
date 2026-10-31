@@ -7,6 +7,7 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { Music2, ExternalLink } from "lucide-react"
 import { type Photo, photos } from "./data/photos"
 import { type Song, getCurrentSong, getAllSongs } from "./data/songs"
+import { ideas } from "./data/ideas"
 import { DarkModeToggle } from "@/components/dark-mode-toggle"
 
 export default function Page() {
@@ -26,6 +27,9 @@ export default function Page() {
       <div className="md:hidden min-h-screen flex flex-col items-start container px-9 mx-auto py-7">
         <h1 className="text-lg font-medium dark:text-foreground">robby weitzman</h1>
         <nav className="flex flex-col gap-6 mt-12">
+          <Link href="/ideas" className="text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
+            ideas
+          </Link>
           <Link href="/sotd" className="text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
             sotd
           </Link>
@@ -82,34 +86,22 @@ export default function Page() {
               <p className="text-gray-600 dark:text-gray-400">Some of my thoughts</p>
             </div>
             <div className="space-y-4" role="list">
-              <article role="listitem">
-                <Link
-                  href="/ideas/i-vibecoded-my-tv-with-claude"
-                  className="block p-4 rounded-lg bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 active:bg-gray-200 dark:active:bg-gray-600 md:hover:shadow-sm"
-                  aria-label="Read article: I vibecoded my TV with Claude"
-                >
-                  <div className="space-y-1">
-                    <h3 className="font-medium text-gray-900 dark:text-gray-100 group-hover:text-black dark:group-hover:text-white">
-                      I vibecoded my TV with Claude
-                    </h3>
-                    <time className="text-xs text-gray-500 dark:text-gray-400" dateTime="2026-10-31">October 31, 2026</time>
-                  </div>
-                </Link>
-              </article>
-              <article role="listitem">
-                <Link 
-                  href="/ideas/why-and-how-i-built-this-website" 
-                  className="block p-4 rounded-lg bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 active:bg-gray-200 dark:active:bg-gray-600 md:hover:shadow-sm"
-                  aria-label="Read article: Why and how I built this website"
-                >
-                  <div className="space-y-1">
-                    <h3 className="font-medium text-gray-900 dark:text-gray-100 group-hover:text-black dark:group-hover:text-white">
-                      Why and how I built this website
-                    </h3>
-                    <time className="text-xs text-gray-500 dark:text-gray-400" dateTime="2025-02-23">February 23, 2025</time>
-                  </div>
-                </Link>
-              </article>
+              {ideas.map((idea) => (
+                <article role="listitem" key={idea.slug}>
+                  <Link 
+                    href={`/ideas/${idea.slug}`} 
+                    className="block p-4 rounded-lg bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 active:bg-gray-200 dark:active:bg-gray-600 md:hover:shadow-sm"
+                    aria-label={`Read article: ${idea.title}`}
+                  >
+                    <div className="space-y-1">
+                      <h3 className="font-medium text-gray-900 dark:text-gray-100 group-hover:text-black dark:group-hover:text-white">
+                        {idea.title}
+                      </h3>
+                      <time className="text-xs text-gray-500 dark:text-gray-400" dateTime={idea.dateTime}>{idea.date}</time>
+                    </div>
+                  </Link>
+                </article>
+              ))}
             </div>
           </div>
 

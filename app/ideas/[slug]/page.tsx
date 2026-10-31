@@ -202,7 +202,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         <Link href="/" className={onPhoto ? "text-lg font-medium text-gray-900 hover:text-gray-700 transition-colors" : "text-lg font-medium hover:text-gray-700 dark:text-foreground dark:hover:text-gray-300 transition-colors"}>
           robby weitzman
         </Link>
-        <nav className="flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-6">
           <Link href="/mood-room" className={navLink}>
             mood room
           </Link>

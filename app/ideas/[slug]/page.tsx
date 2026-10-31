@@ -232,7 +232,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           <img
             src={post.cover.src}
             alt={post.cover.alt}
-            className="block w-full h-[min(55.6vw,712px)] min-h-[320px] object-cover"
+            className="block w-full aspect-[1280/712] max-h-[90vh] min-h-[320px] object-cover"
             style={{ objectPosition: post.cover.position }}
           />
           {header}

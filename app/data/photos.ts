@@ -75,8 +75,8 @@ const photosByUpload: Photo[] = [
       camera: "Nikon F4",
       film: "Kodak UltraMax",
       date: "September 14, 2024",
-      width: 900,
-      height: 600,
+      width: 600,
+      height: 900,
     },
     {
       id: "7",

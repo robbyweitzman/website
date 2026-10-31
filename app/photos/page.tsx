@@ -7,11 +7,15 @@ import { ChevronLeft, ChevronRight, Camera } from "lucide-react"
 import { type Photo, photos } from "../data/photos"
 import Image from "next/image"
 import { DarkModeToggle } from "@/components/dark-mode-toggle"
+import { PhotoFeed } from "@/components/photo-feed"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 export default function PhotosPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set())
   const [modalImageLoading, setModalImageLoading] = useState(false)
+  const [feedIndex, setFeedIndex] = useState<number | null>(null)
+  const isMobile = useIsMobile()
 
   const openIndexRef = useRef<number | null>(null)
   const preloadCacheRef = useRef<Map<string, HTMLImageElement>>(new Map())
@@ -57,10 +61,14 @@ export default function PhotosPage() {
   const handlePhotoSelect = useCallback((photo: Photo, e?: React.MouseEvent) => {
     e?.preventDefault()
     const index = photos.findIndex(p => p.id === photo.id)
+    if (isMobile) {
+      setFeedIndex(index)
+      return
+    }
     setOpenIndex(index)
     setModalImageLoading(true)
     preloadAdjacent(index)
-  }, [preloadAdjacent])
+  }, [preloadAdjacent, isMobile])
 
   // Keyboard navigation — listener attaches once on open, removes on close
   useEffect(() => {
@@ -145,6 +153,10 @@ export default function PhotosPage() {
           </div>
         </div>
       </div>
+
+      {feedIndex !== null && (
+        <PhotoFeed photos={photos} startIndex={feedIndex} onClose={() => setFeedIndex(null)} />
+      )}
 
       <Dialog
         open={isModalOpen}

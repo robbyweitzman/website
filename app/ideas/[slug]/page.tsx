@@ -6,10 +6,63 @@ import { DarkModeToggle } from "@/components/dark-mode-toggle"
 interface BlogPost {
   slug: string
   title: string
+  date?: string
+  cover?: { src: string; alt: string; position: string }
   content: React.ReactNode
 }
 
 const posts: BlogPost[] = [
+  {
+  slug: "i-vibecoded-my-tv-with-claude",
+  title: "I vibecoded my TV with Claude",
+  date: "October 31, 2026",
+  cover: { src: "/ideas/tv/cover.jpg", alt: "My TV running the custom launcher", position: "50% 71.88%" },
+  content: (
+    <>
+      I hacked my TV the other day. I've had the same Sony Bravia TV since I moved into the East Village in New York City in November 2024. I bought it because, at the time, it was the only 120Hz 4K TV in my price range, and I really wanted the best gaming setup for my new, at the time, Xbox Series X. It was great for gaming, but the native software on the TV felt like it could just be better. It had ads, was very laggy, and frequently hurt my brain to navigate.
+      <br /><br />
+      About a month after the release of Claude Opus 5.5, I started to see a new trend on Twitter. People were vibecoding their TVs:
+      <ul className="list-disc pl-6 mb-4">
+        <li><a href="https://x.com/ProtoMauro/status/2112776289312555195" className="custom-link">Guy turns TV into Wii home screen</a></li>
+        <li><a href="https://x.com/doooyle/status/2111196679680540724" className="custom-link">Guy removes bloatware from his TV</a> + <a href="https://x.com/doooyle/status/2111247627748565091" className="custom-link">his demo</a></li>
+      </ul>
+      This was perfect. I loaded up Claude Code Desktop with Opus 5.5 on high effort and set to work with the simple goal of just speeding up my TV.
+      <br /><br />
+      Claude walked me through how to turn on developer mode within the TV, then was able to connect to it over Wi-Fi using ADB (Android Debug Bridge), Android’s developer tool. This allowed Claude to control and take screenshots of the TV to verify what it was doing.
+      <br /><br />
+      Claude informed me that Sony uses Samba TV in the background to pull usage and content data from what's on the screen to target ads right back at me. So I turned it off. This was a quick speed boost, removing pressure from memory, CPU, and network. Claude also turned off ads on the TV altogether.
+      <br /><br />
+      Next, Claude found we could make the TV feel even snappier by simply increasing the speed of animations, which we did by 2x.
+      <br /><br />
+      This was awesome, but I wanted to see if we could go further. I had recently been contemplating buying an Apple TV. I went back and forth: on one hand, my Sony TV had all of the apps that I needed, but on the other, the UI was atrocious and I didn't enjoy using it. So I asked Claude the question, “Can we just create our own software layer on this TV?” “Yes,” Claude said, and we were off to the races!
+      <br /><br />
+      I described what I wanted — an Apple TV interface and an app to pair with it — and Claude Design created the UI for the TV and iPhone apps.
+      <br /><br />
+      I made some tweaks (which was a delight with the comment feature in Claude Design), then gave Claude the go-ahead to start building. Alongside the apps, Claude updated the settings of my physical remote, so the home button returns to my new custom launcher. A couple of hours and tweaks later, we were live on my TV, and live on my iPhone via TestFlight!
+      <br /><br />
+      This was a ton of fun to build and has made using my TV much more enjoyable. Screenshots below:
+      <br /><br />
+      <u>Claude Design mockups:</u>
+      <br /><br />
+      <div className="space-y-3">
+        <img src="/ideas/tv/design-tv.jpg" alt="Claude Design mockup of the TV launcher" />
+        <img src="/ideas/tv/design-phone.jpg" alt="Claude Design mockup of the iPhone remote and launcher app" />
+      </div>
+      <br /><br />
+      <u>TV and iPhone app screenshots:</u>
+      <br /><br />
+      <div className="space-y-3">
+        <img src="/ideas/tv/tv-1.jpg" alt="Custom launcher running on the TV" />
+        <img src="/ideas/tv/tv-2.jpg" alt="Custom launcher running on the TV" />
+      </div>
+      <div className="grid grid-cols-3 gap-3 mt-3">
+        <img src="/ideas/tv/phone-1.jpg" alt="iPhone app launcher" />
+        <img src="/ideas/tv/phone-2.jpg" alt="iPhone app" />
+        <img src="/ideas/tv/phone-3.jpg" alt="iPhone app" />
+      </div>
+    </>
+  ),
+},
   {
   slug: "why-and-how-i-built-this-website",
   title: "Why and how I built this website",
@@ -138,37 +191,59 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
     notFound()
   }
 
+  const onPhoto = Boolean(post.cover)
+  const navLink = onPhoto
+    ? "text-sm text-gray-700 hover:text-black transition-colors"
+    : "text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
+
+  const header = (
+    <header className={`container px-9 md:px-16 py-7 md:py-6 mx-auto ${onPhoto ? "absolute inset-x-0 top-0" : ""}`}>
+      <div className="flex items-center justify-between">
+        <Link href="/" className={onPhoto ? "text-lg font-medium text-gray-900 hover:text-gray-700 transition-colors" : "text-lg font-medium hover:text-gray-700 dark:text-foreground dark:hover:text-gray-300 transition-colors"}>
+          robby weitzman
+        </Link>
+        <nav className="flex items-center gap-6">
+          <Link href="/mood-room" className={navLink}>
+            mood room
+          </Link>
+          <Link href="/photos" className={navLink}>
+            photos
+          </Link>
+          <Link href="/sotd" className={navLink}>
+            sotd
+          </Link>
+          <Link href="/quotes" className={navLink}>
+            quotes
+          </Link>
+          <Link href="/about" className={navLink}>
+            about
+          </Link>
+          <DarkModeToggle />
+        </nav>
+      </div>
+    </header>
+  )
+
   return (
     <main className="min-h-screen bg-[#FFFAF1] dark:bg-background transition-colors">
-      <header className="container px-9 md:px-16 py-7 md:py-6 mx-auto">
-        <div className="flex items-center justify-between">
-          <Link href="/" className="text-lg font-medium hover:text-gray-700 dark:text-foreground dark:hover:text-gray-300 transition-colors">
-            robby weitzman
-          </Link>
-          <nav className="flex items-center gap-6">
-            <Link href="/mood-room" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
-              mood room
-            </Link>
-            <Link href="/photos" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
-              photos
-            </Link>
-            <Link href="/sotd" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
-              sotd
-            </Link>
-            <Link href="/quotes" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
-              quotes
-            </Link>
-            <Link href="/about" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
-              about
-            </Link>
-            <DarkModeToggle />
-          </nav>
+      {post.cover ? (
+        <div className="relative">
+          <img
+            src={post.cover.src}
+            alt={post.cover.alt}
+            className="block w-full aspect-[1280/712] max-h-[90vh] min-h-[320px] object-cover"
+            style={{ objectPosition: post.cover.position }}
+          />
+          {header}
         </div>
-      </header>
+      ) : (
+        header
+      )}
 
       <article className="container px-8 md:px-16 py-12 mx-auto">
         <div className="max-w-[600px] mx-auto">
-          <h1 className="text-2xl font-semibold tracking-tight mb-8 dark:text-foreground">{post.title}</h1>
+          <h1 className={`text-2xl font-semibold tracking-tight dark:text-foreground ${post.date ? "mb-1" : "mb-8"}`}>{post.title}</h1>
+          {post.date && <time className="block text-xs text-gray-500 dark:text-gray-400 mb-8">{post.date}</time>}
           <div className="max-w-none">{post.content}</div>
         </div>
       </article>

@@ -8,6 +8,8 @@ interface BlogPost {
   title: string
   date?: string
   cover?: { src: string; alt: string; position: string }
+  description?: string
+  ogImage?: string
   content: React.ReactNode
 }
 
@@ -17,6 +19,8 @@ const posts: BlogPost[] = [
   title: "I vibecoded my TV with Claude",
   date: "October 31, 2026",
   cover: { src: "/ideas/tv/cover.jpg", alt: "My TV running the custom launcher", position: "50% 71.88%" },
+  description: "I hacked my TV the other day.",
+  ogImage: "/ideas/tv/og.jpg",
   content: (
     <>
       I hacked my TV the other day. I've had the same Sony Bravia TV since I moved into the East Village in New York City in November 2024. I bought it because, at the time, it was the only 120Hz 4K TV in my price range, and I really wanted the best gaming setup for my new, at the time, Xbox Series X. It was great for gaming, but the native software on the TV felt like it could just be better. It had ads, was very laggy, and frequently hurt my brain to navigate.
@@ -179,8 +183,31 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const post = posts.find((p) => p.slug === params.slug)
+  if (!post) {
+    return { title: "post not found" }
+  }
+
+  const url = `/ideas/${post.slug}`
+  const images = post.ogImage ? [{ url: post.ogImage, width: 1200, height: 630, alt: post.cover?.alt ?? post.title }] : undefined
+
   return {
-    title: post ? "blog" : "post not found",
+    title: post.title,
+    description: post.description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      url,
+      siteName: "robby weitzman",
+      title: post.title,
+      description: post.description,
+      images,
+    },
+    twitter: {
+      card: images ? "summary_large_image" : "summary",
+      title: post.title,
+      description: post.description,
+      images: images?.map((i) => i.url),
+    },
   }
 }
 

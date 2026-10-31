@@ -12,6 +12,7 @@ export const viewport = {
 }
 
 export const metadata = {
+  metadataBase: new URL('https://robbyweitzman.com'),
   generator: 'v0.dev',
   title: {
     default: 'robby',

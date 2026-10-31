@@ -21,7 +21,7 @@ const posts: BlogPost[] = [
     <>
       I hacked my TV the other day. I've had the same Sony Bravia TV since I moved into the East Village of New York City in November 2024. I bought it because, at the time, it was the only 120Hz 4K TV in my price range, and I really wanted the best gaming setup for my new, at the time, Xbox Series X. It was great for gaming, but the native software on the TV felt like it could just be better. It had ads, was very laggy, and frequently hurt my brain to navigate.
       <br /><br />
-      Just after the release of Claude Opus 5.5, I saw a new trend on Twitter. People were vibecoding their TVs:
+      About a month after the release of Claude Opus 5.5, I started to see a new trend on Twitter. People were vibecoding their TVs:
       <ul className="list-disc pl-6 mb-4">
         <li><a href="https://x.com/ProtoMauro/status/2112776289312555195" className="custom-link">Guy turns TV into Wii home screen</a></li>
         <li><a href="https://x.com/doooyle/status/2111196679680540724" className="custom-link">Guy removes bloatware from his TV</a> + <a href="https://x.com/doooyle/status/2111247627748565091" className="custom-link">his demo</a></li>
@@ -38,9 +38,9 @@ const posts: BlogPost[] = [
       <br /><br />
       I described what I wanted — an Apple TV interface and an app to pair with it — and Claude Design created the UI for the TV and iPhone apps.
       <br /><br />
-      I made some small tweaks, which is a delight with the comment feature in Claude Design, and gave Claude the go-ahead to start building it. Alongside the apps, Claude updated the settings of my physical remote, so the home button returns to my custom launcher. A couple of hours and tweaks later, we were live on my TV, and live on my iPhone via TestFlight!
+      I made some small tweaks, which was a delight with the comment feature in Claude Design, and gave Claude the go-ahead to start building it. Alongside the apps, Claude updated the settings of my physical remote, so the home button returns to my custom launcher. A couple of hours and tweaks later, we were live on my TV, and live on my iPhone via TestFlight!
       <br /><br />
-      This was a ton of fun to build, and has made using my TV much more enjoyable. Screenshots below:
+      This was a ton of fun to build and has made using my TV much more enjoyable. Screenshots below:
       <br /><br />
       <u>Claude Design mockups:</u>
       <br /><br />

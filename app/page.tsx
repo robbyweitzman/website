@@ -27,14 +27,14 @@ export default function Page() {
       <div className="md:hidden min-h-screen flex flex-col items-start container px-9 mx-auto py-7">
         <h1 className="text-lg font-medium dark:text-foreground">robby weitzman</h1>
         <nav className="flex flex-col gap-6 mt-12">
-          <Link href="/ideas" className="text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
-            ideas
-          </Link>
           <Link href="/sotd" className="text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
             sotd
           </Link>
           <Link href="/photos" className="text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
             photos
+          </Link>
+          <Link href="/ideas" className="text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
+            ideas
           </Link>
           <Link href="/quotes" className="text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
             quotes

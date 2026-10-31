@@ -21,12 +21,11 @@ const posts: BlogPost[] = [
     <>
       I hacked my TV the other day. I've had the same Sony Bravia TV since I moved into the East Village of New York City in November 2024. I bought it because, at the time, it was the only 120 Hz 4K TV in my price range, and I really wanted the best gaming setup for my new, at the time, Xbox Series X. It was great for gaming, but the native software on the TV felt like it could just be better. It had ads, was very laggy, and frequently hurt my brain to navigate.
       <br /><br />
-      Just after the release of Claude Opus 5.5, I saw a new trend on X (fka Twitter). People were vibecoding their TVs. Examples:
-      <br /><br />
-      <a href="https://x.com/ProtoMauro/status/2112776289312555195" className="custom-link">Guy turns TV into Wii home screen</a>
-      <br />
-      <a href="https://x.com/doooyle/status/2111196679680540724" className="custom-link">Guy removes bloatware from his TV</a> + <a href="https://x.com/doooyle/status/2111247627748565091" className="custom-link">his demo</a>
-      <br /><br />
+      Just after the release of Claude Opus 5.5, I saw a new trend on Twitter. People were vibecoding their TVs:
+      <ul className="list-disc pl-6 my-4">
+        <li><a href="https://x.com/ProtoMauro/status/2112776289312555195" className="custom-link">Guy turns TV into Wii home screen</a></li>
+        <li><a href="https://x.com/doooyle/status/2111196679680540724" className="custom-link">Guy removes bloatware from his TV</a> + <a href="https://x.com/doooyle/status/2111247627748565091" className="custom-link">his demo</a></li>
+      </ul>
       This was perfect. I loaded up Claude Code Desktop with Opus 5.5 on high effort and set to work with the goal of just speeding up my TV.
       <br /><br />
       Claude walked me through turning on developer mode on the TV, then was able to connect to it over Wi-Fi using ADB (Android Debug Bridge), Android’s developer tool. This allowed Claude to control and take screenshots of the TV to see what it was doing.

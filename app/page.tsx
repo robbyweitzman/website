@@ -24,7 +24,7 @@ export default function Page() {
   return (
     <main className="min-h-screen bg-[#FFFAF1] dark:bg-background transition-colors">
       {/* Mobile: vertical link list */}
-      <div className="md:hidden min-h-[100dvh] flex flex-col items-start container px-9 mx-auto pt-7 pb-[calc(6rem+env(safe-area-inset-bottom))]">
+      <div className="md:hidden min-h-[100dvh] flex flex-col items-start container px-9 mx-auto pt-7 pb-[calc(2.5rem+env(safe-area-inset-bottom))]">
         <h1 className="text-lg font-medium dark:text-foreground">robby weitzman</h1>
         <nav className="flex flex-col gap-6 mt-12">
           <Link href="/sotd" className="text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">

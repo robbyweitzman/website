@@ -37,7 +37,7 @@ export default function IdeasPage() {
 
       <div className="container px-9 md:px-16 pt-6 pb-12 mx-auto">
         <div className="max-w-[600px] mx-auto">
-          <h1 className="text-sm text-gray-500 dark:text-gray-400 mb-4">ideas</h1>
+          <h1 className="text-xl font-semibold text-gray-900 dark:text-foreground mb-4">ideas</h1>
           <ul className="divide-y divide-gray-200 dark:divide-gray-700 border-t border-gray-200 dark:border-gray-700">
             {ideas.map((idea) => (
               <li key={idea.slug}>

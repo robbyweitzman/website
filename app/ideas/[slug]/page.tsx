@@ -19,7 +19,7 @@ const posts: BlogPost[] = [
   cover: { src: "/ideas/tv/cover.jpg", alt: "My TV running the custom launcher", position: "50% 71.88%" },
   content: (
     <>
-      I hacked my TV the other day. I've had the same Sony Bravia TV since I moved into the East Village of New York City in November 2024. I bought it because, at the time, it was the only 120 Hz 4K TV in my price range, and I really wanted the best gaming setup for my new, at the time, Xbox Series X. It was great for gaming, but the native software on the TV felt like it could just be better. It had ads, was very laggy, and frequently hurt my brain to navigate.
+      I hacked my TV the other day. I've had the same Sony Bravia TV since I moved into the East Village of New York City in November 2024. I bought it because, at the time, it was the only 120Hz 4K TV in my price range, and I really wanted the best gaming setup for my new, at the time, Xbox Series X. It was great for gaming, but the native software on the TV felt like it could just be better. It had ads, was very laggy, and frequently hurt my brain to navigate.
       <br /><br />
       Just after the release of Claude Opus 5.5, I saw a new trend on Twitter. People were vibecoding their TVs:
       <ul className="list-disc pl-6 mb-4">

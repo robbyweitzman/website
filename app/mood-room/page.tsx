@@ -264,6 +264,9 @@ export default function MoodRoomPage() {
             <Link href="/mood-room" className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors">
               mood room
             </Link>
+            <Link href="/ideas" className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors">
+              ideas
+            </Link>
             <Link href="/photos" className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors">
               photos
             </Link>

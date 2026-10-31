@@ -64,6 +64,9 @@ export default function Page() {
             <Link href="/mood-room" className="text-xs sm:text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
               mood room
             </Link>
+            <Link href="/ideas" className="text-xs sm:text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
+              ideas
+            </Link>
             <Link href="/photos" className="text-xs sm:text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
               photos
             </Link>

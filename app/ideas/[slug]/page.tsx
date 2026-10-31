@@ -206,6 +206,9 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           <Link href="/mood-room" className={navLink}>
             mood room
           </Link>
+          <Link href="/ideas" className={navLink}>
+            ideas
+          </Link>
           <Link href="/photos" className={navLink}>
             photos
           </Link>

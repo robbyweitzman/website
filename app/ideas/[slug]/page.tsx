@@ -46,13 +46,6 @@ const posts: BlogPost[] = [
       <br /><br />
       This was a ton of fun to build and has made using my TV much more enjoyable. Screenshots below:
       <br /><br />
-      <u>Claude Design mockups:</u>
-      <br /><br />
-      <div className="space-y-3">
-        <img src="/ideas/tv/design-tv.jpg" alt="Claude Design mockup of the TV launcher" />
-        <img src="/ideas/tv/design-phone.jpg" alt="Claude Design mockup of the iPhone remote and launcher app" />
-      </div>
-      <br /><br />
       <u>TV and iPhone app screenshots:</u>
       <br /><br />
       <div className="space-y-3">
@@ -68,6 +61,13 @@ const posts: BlogPost[] = [
       <u>Before:</u>
       <br /><br />
       <img src="/ideas/tv/before.jpg" alt="The stock Google TV home screen, before the custom launcher" />
+      <br /><br />
+      <u>Claude Design mockups:</u>
+      <br /><br />
+      <div className="space-y-3">
+        <img src="/ideas/tv/design-tv.jpg" alt="Claude Design mockup of the TV launcher" />
+        <img src="/ideas/tv/design-phone.jpg" alt="Claude Design mockup of the iPhone remote and launcher app" />
+      </div>
     </>
   ),
 },

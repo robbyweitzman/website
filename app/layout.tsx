@@ -19,9 +19,12 @@ export const metadata = {
     template: 'robby | %s',
   },
   icons: {
-    icon: [{ url: '/wave.svg', type: 'image/svg+xml' }],
+    icon: [
+      { url: '/wave.svg', type: 'image/svg+xml' },
+      { url: '/icon-512.png', type: 'image/png', sizes: '512x512' },
+    ],
     shortcut: '/wave.svg',
-    apple: '/wave.svg',
+    apple: { url: '/apple-touch-icon.png', sizes: '180x180' },
   },
 }
 

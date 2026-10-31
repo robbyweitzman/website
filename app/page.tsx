@@ -47,6 +47,10 @@ export default function Page() {
           </Link>
           <DarkModeToggle />
         </nav>
+        <Link href={`/ideas/${ideas[0].slug}`} className="mt-auto pt-12 text-sm text-gray-600 dark:text-gray-400 group">
+          <span className="block text-xs text-gray-500 dark:text-gray-400 mb-1">new post</span>
+          <span className="text-gray-900 dark:text-gray-100 underline underline-offset-4 decoration-gray-300 group-hover:decoration-gray-900">{ideas[0].title}</span>
+        </Link>
       </div>
 
       {/* Desktop: full layout */}

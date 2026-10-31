@@ -64,6 +64,10 @@ const posts: BlogPost[] = [
         <img src="/ideas/tv/phone-2.jpg" alt="iPhone app" />
         <img src="/ideas/tv/phone-3.jpg" alt="iPhone app" />
       </div>
+      <br /><br />
+      <u>Before:</u>
+      <br /><br />
+      <img src="/ideas/tv/before.jpg" alt="The stock Google TV home screen, before the custom launcher" />
     </>
   ),
 },

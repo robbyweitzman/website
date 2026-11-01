@@ -34,7 +34,7 @@ const posts: BlogPost[] = [
       <br /><br />
       Claude walked me through how to turn on developer mode within the TV, then was able to connect to it over Wi-Fi using ADB (Android Debug Bridge), Android’s developer tool. This allowed Claude to control and take screenshots of the TV to verify what it was doing.
       <br /><br />
-      Claude informed me that Sony uses Samba TV in the background to pull usage and content data from what's on the screen to target ads right back at me. So I turned it off. This was a quick speed boost, removing pressure from memory, CPU, and network. Claude also turned off ads on the TV altogether.
+      Claude informed me that Sony uses Samba TV in the background, which pulls my on-screen usage and content data to then target ads right back at me — I obviously turned that off. This made for a quick speed boost, removing pressure from memory, CPU, and network. Claude also turned off ads on the TV altogether.
       <br /><br />
       Next, Claude found we could make the TV feel even snappier by simply increasing the speed of animations, which we did by 2x.
       <br /><br />

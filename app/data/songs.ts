@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Marechià (feat. Celia Kameni)",
+    artist: "Nu Genea",
+    album: "Bar Mediterraneo",
+    releaseDate: "May 13, 2022",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a3/19/f2/a319f247-937a-54bd-1c5b-37dbfae26320/8053307091945.jpg/600x600bb.jpg",
+    date: "November 16, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Marechi%C3%A0%20(feat.%20Celia%20Kameni)%20Nu%20Genea",
+    appleMusicUrl: "https://music.apple.com/us/album/marechi%C3%A0-feat-celia-kameni/1628693795?i=1628694060",
+  },
+  {
     title: "High Fives",
     artist: "Drake",
     album: "HABIBTI",

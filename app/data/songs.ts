@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Back Together (feat. Ron Carroll) [Main Classic Mix]",
+    artist: "Hardsoul",
+    album: "Back Together (feat. Ron Carroll)",
+    releaseDate: "August 29, 2003",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/26/69/60/26696095-d613-68da-9691-957c40863a47/826194447892.png/600x600bb.jpg",
+    date: "November 17, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Back%20Together%20(feat.%20Ron%20Carroll)%20%5BMain%20Classic%20Mix%5D%20Hardsoul",
+    appleMusicUrl: "https://music.apple.com/us/album/back-together-feat-ron-carroll-main-classic-mix/1782597535?i=1782597536",
+  },
+  {
     title: "Marechià (feat. Celia Kameni)",
     artist: "Nu Genea",
     album: "Bar Mediterraneo",

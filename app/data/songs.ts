@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Call It What You Want",
+    artist: "Foster the People",
+    album: "Torches",
+    releaseDate: "May 23, 2011",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/ba/07/5b/ba075b3c-f0c4-b519-59f3-7ae74d43246b/dj.lajxsvkg.jpg/600x600bb.jpg",
+    date: "November 18, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Call%20It%20What%20You%20Want%20Foster%20the%20People",
+    appleMusicUrl: "https://music.apple.com/us/album/call-it-what-you-want/435761204?i=435761216",
+  },
+  {
     title: "Back Together (feat. Ron Carroll) [Main Classic Mix]",
     artist: "Hardsoul",
     album: "Back Together (feat. Ron Carroll)",

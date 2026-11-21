@@ -12,6 +12,16 @@ export interface Song {
 
 export const songs: Song[] = [
   {
+    title: "Sin Dormir",
+    artist: "Slow Jamz",
+    album: "Sin Dormir - Single",
+    releaseDate: "September 3, 2024",
+    albumArt: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/a1/03/cc/a103cca1-dd04-d969-c2f4-ca7ce802f154/198846164823.jpg/600x600bb.jpg",
+    date: "November 21, 2026",
+    spotifyUrl: "https://open.spotify.com/search/Sin%20Dormir%20Slow%20Jamz",
+    appleMusicUrl: "https://music.apple.com/us/album/sin-dormir/1764395298?i=1764395512",
+  },
+  {
     title: "Call It What You Want",
     artist: "Foster the People",
     album: "Torches",
